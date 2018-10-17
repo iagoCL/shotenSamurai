@@ -51,11 +51,13 @@ Se guardará la mejor puntuación del jugador tras finalizar la partida, pudiend
 ### Diagrama de flujo
 El siguiente diagrama de estados muestra las pantallas presentes a lo largo de *Shoten Samurai* así las transiciones entre ellas.
 En puntos posteriores nos centraremos en ellas de forma individual.
+
 ![alt text](images/diagrama.JPG "Figura 1: Diagrama de flujo de pantallas en el juego.")
 
 *Figura 1: Diagrama de flujo de pantallas en el juego.*
 ### Menú Principal
 A continuación el boceto de la pantalla de *Menú Principal*:
+
 ![alt text](images/menuPrincipal.JPG "Figura 2: Boceto del menú principal.")
 
 *Figura 2: Boceto del menú principal.*
@@ -67,6 +69,7 @@ Lista y descripción de todos sus componentes.
 * **Botón llave inglesa**: Este botón te llevara a la pantalla de configuración.
 ### Créditos
 A continuación el boceto de la pantalla de *Créditos*:
+
 ![alt text](images/creditos.JPG "Figura 3: Boceto de la pantalla de créditos.")
 
 *Figura 3: Boceto de la pantalla de créditos.*
@@ -75,6 +78,7 @@ Lista y descripción de todos sus componentes.
 * **Botón Flecha**: Este botón te devolvera al menú principal.
 ### Mejores puntuaciones
 A continuación el boceto de la pantalla de *Mejores puntuaciones*:
+
 ![alt text](images/puntuaciones.JPG "Figura 4: Boceto de la pantalla de mejores puntuaciones.")
 
 *Figura 4: Boceto de la pantalla de mejores puntuaciones.*
@@ -83,6 +87,7 @@ Lista y descripción de todos sus componentes.
 * **Botón Flecha**: Este botón te devolvera al menú principal.
 ### Configuración
 A continuación el boceto de la pantalla de *Configuración*:
+
 ![alt text](images/configuracion.JPG "Figura 5: Boceto de la pantalla de configuración.")
 
 *Figura 5: Boceto de la pantalla de configuración.*
@@ -93,6 +98,7 @@ Lista y descripción de todos sus componentes.
 * **Botón Flecha**: Este botón te devolvera al menú principal.
 ### Pantalla principal
 A continuación el boceto de la pantalla *principal*:
+
 ![alt text](images/juego.JPG "Figura 6: Boceto de la pantalla principal.")
 
 *Figura 6: Boceto de la pantalla principal.*
@@ -100,9 +106,11 @@ A continuación el boceto de la pantalla *principal*:
 Esta pantalla sera la pantalla principal, donde el jugador pasara la mayor parte del tiempo, el funcionamiento de las mecanicas han sido explicadas anteriormente por lo que no seran repetidas.
 ### Game Over
 A continuación el boceto de las variantes de la pantalla de *Game Over*:
+
 ![alt text](images/gameOver.JPG "Figura 7: Boceto de la pantalla de Game Over.")
 
 *Figura 7: Boceto de la pantalla de Game Over.*
+
 ![alt text](images/gameOverRecord.JPG "Figura 8: Boceto de la pantalla de Game Over batiendo un nuevo record.")
 
 *Figura 8: Boceto de la pantalla de Game Over batiendo un nuevo record.*
@@ -112,7 +120,7 @@ Lista y descripción de todos sus componentes.
 * **Botón Volver a jugar**: Este botón dara directamente inicio a una nueva partida.
 * **Botón Flecha**: Este botón te devolvera al menú principal.
 ## Arte
-*Shoten Samurai* 
+*Shoten Samurai* tendra un estilo de arte pixel art de incpiración oriental.
 
 A continuación enumeramos los recursos necesarios:
 ### Arte 2D
