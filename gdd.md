@@ -44,10 +44,10 @@ Se podrán conseguir puntos de dos maneras
 * El jugador obtendrá puntuación a medida que ascienda por la torre
 * El jugador conseguirá puntos si rompe los objetos destruibles, aumentando la cantidad de puntos que consigue si los destruye de forma continua con cada salto, perdiendo el aumento de puntos si no se destruye algún objeto en el salto.
 
-# Acabar
+## Acabar
 Se guardará la mejor puntuación del jugador tras finalizar la partida, pudiendo introducir su nombre.
 
-### Flujo del juego
+# Flujo del juego
  En este apartado se detallará, paso a paso, cómo es una partida del juego *Shoten Samurai*. Se explicarán qué opciones tendrá el jugador en la pantalla de inicio, cómo es una partida y qué pasa cuando esta termine.
  
   Cuando el jugador entra en le juego, se verá un menú de inicio con una estética pixel art con estilo japonés donde se verán todas las opciones de las que dispone el jugador.
@@ -63,26 +63,26 @@ Se guardará la mejor puntuación del jugador tras finalizar la partida, pudiend
  Si el jugador muere, se dará paso a la pantalla de *Game Over*. Aquí, el usuario podrá introducir su nombre si consigue un nuevo récord en la puntuación, podrá volver a jugar una partida o volver al menú principal.
  
  
-### Personajes y objetos
+# Personajes y objetos
 
  En esta sección se detallarán los objetos que aparecerán a lo largo del juego, así como una descripción del personaje principal.
  
-# Samurái
+## Samurái
  
  El protagonista del videojuego es un Samurái de la época feudal japonesa que se encuentra una extraña torre on un cártel muy llamativo
  
-# La Torre
+## La Torre
  
   Al pie de esta infinita torre, el personaje se encuentra un cártel con el siguiente mensaje: "*No hay cojones a subirla*".
   
-# Obejtos del escenario
+## Obejtos del escenario
 
  El protagonista tendrá que subir la torre drestruyendo objetos tales como telas, tablones de madera y cañas de bambú; así como esquivando piedras, trozos de vigas o joyas preciosas y capitales dorados.
  
  
  
 
-### Movimientos
+# Movimientos
 
  Como se ha mencionado, el jugador está continuamente ascendiendo por la torre mientras esquiva ciertos objetos y destruye otros.
 
