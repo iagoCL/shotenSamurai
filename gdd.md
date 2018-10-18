@@ -29,6 +29,7 @@ En un futuro se podrán incluir mejoras en las partidas o un apartado de persona
 En este apartado se explicará con detalle todo lo relacionado con las mecánicas del juego de Shoten Samurai.
 De forma concisa y clara se mostrarán todos los aspectos importantes en cuanto las partidas, indicando cómo serán los niveles, cómo avanzará el personaje, qué objetos aparecerán por pantalla y demás.
 ### Jugabilidad
+Los controles de *Shoten Samurai* serán simples y directos: un único click en la pantalla o en botón *space* del teclado para que el personaje salte a la otra pared. El jugador deberá calcular cuándo debe saltar para poder esquivar correctamente los objetos de los laterales, romper los que caen por el centro o para no quedarse mucho tiempo en la misma pared y perder así la partida. Todos los saltos se realizarán con un ángulo de 45 grados hacia la pared contraria.
 #### Niveles
 Cada partida de Shoten Samurai se desarrollará en un único escenario infinito, donde la dificultad se irá incrementando en función de cuánto aguante el jugador. El background y algunos colores irán cambiando en cada zona y los objetos también sufrirán cambios visuales.
 ### Dificultad
@@ -37,19 +38,67 @@ Cuánto más aguantemos, más se incrementará la dificultad de la siguiente for
 * Habrá más objetos por pantalla.
  
 El jugador deberá prestar cada vez más atención y estimulando sus reflejos.
+
 ### Puntuación
 Se podrán conseguir puntos de dos maneras
 * El jugador obtendrá puntuación a medida que ascienda por la torre
 * El jugador conseguirá puntos si rompe los objetos destruibles, aumentando la cantidad de puntos que consigue si los destruye de forma continua con cada salto, perdiendo el aumento de puntos si no se destruye algún objeto en el salto.
 
-# ACABAR
+# Acabar
 Se guardará la mejor puntuación del jugador tras finalizar la partida, pudiendo introducir su nombre.
+
+### Flujo del juego
+ En este apartado se detallará, paso a paso, cómo es una partida del juego *Shoten Samurai*. Se explicarán qué opciones tendrá el jugador en la pantalla de inicio, cómo es una partida y qué pasa cuando esta termine.
+ 
+  Cuando el jugador entra en le juego, se verá un menú de inicio con una estética pixel art con estilo japonés donde se verán todas las opciones de las que dispone el jugador.
+  
+  Si el usuario pulsa el botón de los *Créditos* , se verá una pantalla con los desarrolladores del juego y los roles de cada uno, además de un link para acceder a las páginas del equipo de Heimdall Games.
+  
+  El botón de *Mejores Puntuaciones* llevará al usuario al ranking de los jugadores, con sus respectivos nombres, que han conseguido los mejores récords.
+  
+  Si pulsas la llave inglesa, se entrará en el menú de ajustes, donde el jugador podrá cambiar el idioma y activar o desactivar el sonido.
+  
+  El botón de *Jugar* hará que le usuario entre directamente en la partida, donde posiblemnte se incluya un pequeño vídeo introductorio para poner en contexto al jugador y dar comienzo a la experiencia de juego como tal. El jugador deberá escalar una torre esquivando obstáculos en los laterales y a su vez rompiendo algunos de los que caen por el centro para conseguir puntuación. Se trata de juego tipo Endless Running, por lo tanto el objetivo del jugador es agunantar los máximo posible sin caerse ni sin ser golpeado por los objetos. Cada vez que el jugador pulse la pantalla del móvil o pulse el botón de *barra espaciadora* en el teclado, el personaje hará un salto de 45 grados a la pared opuesta. Cuanto más aguante el usuario, mayor será la dificultad de la partida, con un incremento de la velocidad y con más objetos por pantalla.
+  
+ Si el jugador muere, se dará paso a la pantalla de *Game Over*. Aquí, el usuario podrá introducir su nombre si consigue un nuevo récord en la puntuación, podrá volver a jugar una partida o volver al menú principal.
+ 
+ 
+### Personajes y objetos
+
+ En esta sección se detallarán los objetos que aparecerán a lo largo del juego, así como una descripción del personaje principal.
+ 
+# Samurái
+ 
+ El protagonista del videojuego es un Samurái de la época feudal japonesa que se encuentra una extraña torre on un cártel muy llamativo
+ 
+# La Torre
+ 
+  Al pie de esta infinita torre, el personaje se encuentra un cártel con el siguiente mensaje: "*No hay cojones a subirla*".
+  
+# Obejtos del escenario
+
+ El protagonista tendrá que subir la torre drestruyendo objetos tales como telas, tablones de madera y cañas de bambú; así como esquivando piedras, trozos de vigas o joyas preciosas y capitales dorados.
+ 
+ 
+ 
+
+### Movimientos
+
+ Como se ha mencionado, el jugador está continuamente ascendiendo por la torre mientras esquiva ciertos objetos y destruye otros.
+
+ El único movimiento posible es el de saltar a la pared opuesta, realizando un salto de 45 grados sobre el eje horizontal del personaje, al pulsa la pantalla del móvil o botón de *barra espaciadora*.
+ 
+  Si el personaje no realiza un salto en una espacio de tiempo aún por determinar, el Samurái perderá potencia y velocidad y caerá. Cuando el protagonista choque contra algún objeto de los laterales del escenario morirá, al igual que si choca contra algún objeto irromplible del centro de la torre. El mismo movimiento de salto hace que el Samurái pueda cortar algunos de los objetos que caen del centro, para conseguir puntos.
+  
+ 
+ 
+
 ## Interfaz
- En esta sección se especificar ́a con detalle cada una de las pantallas que componen *Shoten Samurai*.
+ En esta sección se especificará con detalle cada una de las pantallas que componen *Shoten Samurai*.
  Además, se indicarán las transiciones entre ellas así como la utilidad de cada elemento de la GUI (Graphical User Interface).
- Las imágenes adjuntas son bocetos muy basicos que ilustran los componentes que debe contener cada pantalla, no obstante, se planea hacer cambios en la apariencia y disposición y aspecto de los elementos.
+ Las imágenes adjuntas son bocetos muy básicos que ilustran los componentes que debe contener cada pantalla, no obstante, se planea hacer cambios en la apariencia y disposición y aspecto de los elementos.
 ### Diagrama de flujo
-El siguiente diagrama de estados muestra las pantallas presentes a lo largo de *Shoten Samurai* así las transiciones entre ellas.
+El siguiente diagrama de estados muestra las pantallas presentes a lo largo de *Shoten Samurai*, así como las transiciones entre ellas.
 En puntos posteriores nos centraremos en ellas de forma individual.
 
 ![alt text](images/diagrama.JPG "Figura 1: Diagrama de flujo de pantallas en el juego.")
@@ -63,10 +112,10 @@ A continuación el boceto de la pantalla de *Menú Principal*:
 *Figura 2: Boceto del menú principal.*
 
 Lista y descripción de todos sus componentes.
-* **Botón Jugar**: Este botón te mostrara la cinematica de incio; la cual dara inicio a una nueva partida cuando acabe.
-* **Botón Créditos**: Este botón te llevara a la pantalla de creditos.
-* **Botón Mejores Puntuaciones**: Este botón te llevara a la pantalla de mejores puntuaciones.
-* **Botón llave inglesa**: Este botón te llevara a la pantalla de configuración.
+* **Botón Jugar**: Este botón mostrará la cinematica de incio; la cual dara inicio a una nueva partida cuando acabe.
+* **Botón Créditos**: Este botón llevará al usuario a la pantalla de créditos.
+* **Botón Mejores Puntuaciones**: Este botón llevará a la pantalla de mejores puntuaciones.
+* **Botón llave inglesa**: Este botón llevará a la pantalla de configuración.
 ### Créditos
 A continuación el boceto de la pantalla de *Créditos*:
 
@@ -75,7 +124,7 @@ A continuación el boceto de la pantalla de *Créditos*:
 *Figura 3: Boceto de la pantalla de créditos.*
 
 Lista y descripción de todos sus componentes.
-* **Botón Flecha**: Este botón te devolvera al menú principal.
+* **Botón Flecha**: Este botón devolverá al jugador al menú principal.
 ### Mejores puntuaciones
 A continuación el boceto de la pantalla de *Mejores puntuaciones*:
 
@@ -84,7 +133,7 @@ A continuación el boceto de la pantalla de *Mejores puntuaciones*:
 *Figura 4: Boceto de la pantalla de mejores puntuaciones.*
 
 Lista y descripción de todos sus componentes.
-* **Botón Flecha**: Este botón te devolvera al menú principal.
+* **Botón Flecha**: Este botón devolverá al jugador al menú principal.
 ### Configuración
 A continuación el boceto de la pantalla de *Configuración*:
 
@@ -93,9 +142,9 @@ A continuación el boceto de la pantalla de *Configuración*:
 *Figura 5: Boceto de la pantalla de configuración.*
 
 Lista y descripción de todos sus componentes.
-* **Checkbox**: Este checkbox te permitira activar/desactivar el sonido.
-* **Desplegable**: Este desplegable te permitira escoger el idioma, los idiomas que se planean implementar son ingles, español y japones.
-* **Botón Flecha**: Este botón te devolvera al menú principal.
+* **Checkbox**: Este checkbox permitirá activar/desactivar el sonido.
+* **Desplegable**: Este desplegable permitirá escoger el idioma, los idiomas que se planean implementar son inglás, español y japonés.
+* **Botón Flecha**: Este botón devolverá al jugador al menú principal.
 ### Pantalla principal
 A continuación el boceto de la pantalla *principal*:
 
@@ -103,7 +152,7 @@ A continuación el boceto de la pantalla *principal*:
 
 *Figura 6: Boceto de la pantalla principal.*
 
-Esta pantalla sera la pantalla principal, donde el jugador pasara la mayor parte del tiempo, el funcionamiento de las mecanicas han sido explicadas anteriormente por lo que no seran repetidas.
+Esta pantalla será la pantalla principal, donde el jugador pasará la mayor parte del tiempo, el funcionamiento de las mecánicas han sido explicadas anteriormente por lo que no serán repetidas.
 ### Game Over
 A continuación el boceto de las variantes de la pantalla de *Game Over*:
 
@@ -117,34 +166,34 @@ A continuación el boceto de las variantes de la pantalla de *Game Over*:
 
 Lista y descripción de todos sus componentes.
 * **Name input**: El jugador usara este campo para intruducir sus iniciales; se mostraran como iniciales predeterminadas las últimas introducidas, se registrara al pulsar cualquiera de los botones.
-* **Botón Volver a jugar**: Este botón dara directamente inicio a una nueva partida.
-* **Botón Flecha**: Este botón te devolvera al menú principal.
+* **Botón Volver a jugar**: Este botón dará directamente inicio a una nueva partida.
+* **Botón Flecha**: Este botón te devolverá al menú principal.
 ## Arte
-*Shoten Samurai* tendra un estilo de arte pixel art de incpiración oriental.
+*Shoten Samurai* tendrá un estilo de arte pixel art de incpiración oriental.
 
 A continuación enumeramos los recursos necesarios:
 ### Arte 2D
-Todas las imágenes deberán estar en formato *.png* o *.jpg* además de en el formato propio del programa con el que secrearon (*.psd* o *.xcf*) para posibles futuras modificaciones.
+Todas las imágenes deberán estar en formato *.png* o *.jpg* además de en el formato propio del programa con el que se crearon (*.psd* o *.xcf*) para posibles futuras modificaciones.
 El fichero de trabajo debe tener una calidad superior a la requerida en el juego.
 
 * **Interfaz**:
     * **Logo del Juego**: Logo del juego para poner en el menú principal
-    * **Icono de configuración**: Icono que llevara a la pantalla de confuguración.
-    * **Icono menú principal**: Icono que regrasara a la pantalla del menú principal
+    * **Icono de configuración**: Icono que llevará a la pantalla de confuguración.
+    * **Icono menú principal**: Icono que hará regresar a la pantalla del menú principal.
 * **Personaje**:
     * **Samurai**: Deberá tener una animación de correr, salto, aterrizaje, corte y muerte.
-    * **Obstaculo en pared**: Obstaculo en las paredes que obligaran a saltar al personaje. Se aconseja hacer varios modelos.
-    * **Obstaculo cayendo**: Obstaculo cayendo por el escenario que dificultara el salto. Se aconseja hacer varios modelos.
-    * **Objeto cortante Cayendo**: Objeto cayendo por el escenario que permitira sumar puntos. Debera haber una animacion de destruccion y se aconseja hacer varios modelos.
+    * **Obstáculo en pared**: Obstáculo en las paredes que obligarán a saltar al personaje. Se aconseja hacer varios modelos.
+    * **Obstáculo cayendo**: Obstaculo cayendo por el escenario que dificultará el salto. Se aconseja hacer varios modelos.
+    * **Objeto cortante Cayendo**: Objeto cayendo por el escenario que permitirá sumar puntos. Deberá haber una animación de destrucción y se aconseja hacer varios modelos.
 * **Escenario**:
     * **Fondo**: Fondo tildeable verticalmente, debera de haber al menos uno por cada nivel de dificultad.
 ### Animaciones 2D
-Se dara libertad al artista para su implementación, aunque este debera de asegurarse que el formato escogido sea facilmente integrable en HTML5.
-* **Animacion de incio**: Pequeña animacion cómica que dara inicio al juego.
+Se dará libertad al artista para su implementación, aunque este deberá de asegurarse que el formato escogido sea fácilmente integrable en HTML5.
+* **Animacion de incio**: Pequeña animacion cómica que dará inicio al juego.
 ### Sonido
-Se dara libertad al artista para su implementación, aunque este debera de asegurarse que el formato escogido sea facilmente integrable en HTML5 y con los requisitos de espacio y rendemiento adecuados.
+Se dará libertad al artista para su implementación, aunque este deberá de asegurarse que el formato escogido sea fácilmente integrable en HTML5 y con los requisitos de espacio y rendemiento adecuados.
 * **Menú principal**: música de aventura y tensión aunque más relajada que la correspondiente a los niveles. Por supuesto, debe invitar a comenzar una partida.
-* **Juego**: Música animada e intensa que debe provocar en el jugador sensación de tensión y velocidad, se tratara que el ritmo aumente acorde con la velocidad.
-* **Música Game Over**: Se contemplara un misterioso grito de *Shoten Samurai* que invite al jugador a jugar otra partida.
-* **Sonido de corte**: Rápido sonido que sonara al cortar un objeto.
+* **Juego**: Música animada e intensa que debe provocar en el jugador sensación de tensión y velocidad, se tratará que el ritmo aumente acorde con la velocidad.
+* **Música Game Over**: Se contemplará un misterioso grito de *Shoten Samurai* que invite al jugador a jugar otra partida.
+* **Sonido de corte**: Rápido sonido que sonará al cortar un objeto.
 * **Sonido de salto**: Sonido realizado al saltar.
