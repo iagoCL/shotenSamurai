@@ -44,22 +44,22 @@ Se detallarán los conceptos claves del desarrollo del juego incluyendo mecánic
 ### Género
 La idea de *Shoten Samurai* nace de ideas como *Lumberjack*, *Geometry Dash* y *Fruit Ninja*, ideas simples y desafiantes, por lo tanto el juego es una mezcla de varios géneros como:
 * **Endless Running**: La torre es infinita, escalando hasta donde aguantemos.
-* **Arcade**: Cada vez más dificultad, aumentando la velocidad y más objetos por pantalla.
+* **Arcade**: Cada vez más dificultad, aumentando la velocidad y los objetos en pantalla.
 ### Proṕosito y Público objetivo
 Es un juego que está pensado para todos los públicos, tanto para gente con mucho tiempo libre que busca un desafío que lo entretenga, como para personas con poco tiempo libre y que buscan partidas cortas para consumir los ratos muertos del día a día.
 ### Jugabilidad
 El juego se compondrá de un solo nivel infinito cuyo fondo y objetos en pantalla cambiarán según la dificultad. El personaje deberá saltar entre las dos paredes de la torre, destruyendo los objetos rompibles para conseguir más puntuación y esquivando aquellos obstáculos que le causarán una muerte terrible y dolorosa.
 * **Movilidad**: Personaje que asciende por una torre, saltando de pared en pared con un ángulo de 45 grados.
-*  **Obstáculos y objetos**: En las paredes habrá objetos fijos que habrá que esquivar y por el centro caerán objetos, algunos rompibles (bambú, tela, madera...) y otros indestructibles como (vigas de piedra, artefactos de joyas preciosas, etc.)
+*  **Obstáculos y objetos**: En las paredes habrá objetos fijos que habrá que esquivar y por el centro caerán objetos, algunos rompibles (bambú, tela, madera...) y otros indestructibles (vigas de piedra, artefactos de joyas preciosas, etc.)
 ### Estilo visual
 Presenta una estética oriental con toques de pixel art, el juego será un reclamo para aficionados de este estilo visual y los nostálgicos de los 16 bits.
-Los colores utilizados en el juego están basados en la paleta estándar representativa de la cultura oriental feudal: tonos rojizos, dorados, marrones, incluso verdes.
+Los colores utilizados en el juego están basados en la paleta estándar representativa de la cultura oriental feudal: tonos rojizos, dorados, marrones e incluso verdes.
 ### Alcance
 El objetivo de este proyecto es presentar un juego con mecánicas sencillas, que sea fácil de entender y muy entretenido.
 En un futuro se podrán incluir mejoras en las partidas o un apartado de personalización.
 ## Mecánicas del juego
 En este apartado se explicará con detalle todo lo relacionado con las mecánicas del juego de Shoten Samurai.
-De forma concisa y clara se mostrarán todos los aspectos importantes en cuanto las partidas, indicando cómo serán los niveles, cómo avanzará el personaje, qué objetos aparecerán por pantalla y demás.
+De forma concisa y clara se mostrarán todos los aspectos importantes en cuanto a las partidas se refiere; indicando cómo serán los niveles, cómo avanzará el personaje, qué objetos aparecerán por pantalla y demás.
 ### Jugabilidad
 Los controles de *Shoten Samurai* serán simples y directos: un único click en la pantalla o en botón *space* del teclado para que el personaje salte a la otra pared. El jugador deberá calcular cuándo debe saltar para poder esquivar correctamente los objetos de los laterales, romper los que caen por el centro o para no quedarse mucho tiempo en la misma pared y perder así la partida. Todos los saltos se realizarán con un ángulo de 45 grados hacia la pared contraria.
 #### Niveles
@@ -67,7 +67,7 @@ Cada partida de Shoten Samurai se desarrollará en un único escenario infinito,
 #### Dificultad
 Cuanto más aguantemos, más se incrementará la dificultad de la siguiente forma:
 * Los objetos y los obstáculos de las paredes caerán con más velocidad.
-* Habrá más objetos por pantalla.
+* Habrá más objetos en pantalla.
  
 El jugador deberá prestar cada vez más atención y dependerá de sus propios reflejos y capacidad de predicción (en los niveles más avanzados).
 
@@ -85,11 +85,11 @@ Cuando el jugador entra en el juego, se verá un menú de inicio con una estéti
   
 Si el usuario pulsa el botón de *Créditos* , se mostrará una pantalla con el nombre de los desarrolladores del juego y los roles de cada uno, además de un link para acceder a las páginas del equipo de Heimdall Games.
   
-El botón de *Mejores Puntuaciones* llevará al usuario al ranking de los jugadores, con sus respectivos nombres, que han conseguido los mejores récords.
+El botón de *Mejores Puntuaciones* llevará al usuario al ranking de los jugadores, con sus respectivos nombres, que han conseguido las mejores puntuaciones.
   
 Si pulsas la llave inglesa, se entrará en el menú de ajustes, donde el jugador podrá cambiar el idioma y activar o desactivar el sonido.
   
-El botón de *Jugar* hará que el usuario entre directamente en la partida, donde posiblemnte se incluya un pequeño vídeo introductorio para poner en contexto al jugador y dar comienzo a la experiencia de juego como tal. El jugador deberá escalar una torre esquivando obstáculos en los laterales y a su vez rompiendo algunos de los que caen por el centro para conseguir puntuación. Se trata de un juego tipo Endless Running, por lo tanto el objetivo del jugador es aguantar lo máximo posible sin caerse ni sin ser golpeado por los objetos. Cada vez que el jugador pulse la pantalla del móvil o pulse el botón de *barra espaciadora* en el teclado, el personaje hará un salto de 45 grados a la pared opuesta. Cuanto más aguante el usuario, mayor será la dificultad de la partida, con un incremento de la velocidad y con más objetos por pantalla.
+El botón de *Jugar* hará que el usuario entre directamente en la partida, donde posiblemnte se incluya un pequeño vídeo introductorio para poner en contexto al jugador y dar comienzo a la experiencia de juego como tal. El jugador deberá escalar una torre esquivando obstáculos en los laterales y a su vez rompiendo algunos de los que caen por el centro para aumentar su puntuación. Se trata de un juego tipo Endless Running, por lo tanto el objetivo del jugador es aguantar lo máximo posible sin caerse y sin ser golpeado por los objetos. Cada vez que el jugador pulse la pantalla del móvil o pulse el botón de *barra espaciadora* en el teclado, el personaje hará un salto de 45 grados a la pared opuesta. Cuanto más aguante el usuario, mayor será la dificultad de la partida, con un incremento de la velocidad y con más objetos en pantalla.
   
 Si el jugador muere, se dará paso a la pantalla de *Game Over*. Aquí, el usuario podrá introducir su nombre si consigue un nuevo récord en la puntuación, además podrá volver a jugar una partida o volver al menú principal.
 ### Personajes y objetos
@@ -105,11 +105,11 @@ Como se ha mencionado, el jugador está continuamente ascendiendo por la torre m
 
 El único movimiento posible es el de saltar a la pared opuesta, realizando un salto de 45 grados sobre el eje horizontal del personaje, al pulsa la pantalla del móvil o botón de *barra espaciadora*.
  
-Cuando el protagonista choque contra algún objeto de los laterales del escenario morirá, al igual que si choca contra algún objeto irromplible del centro de la torre. El mismo movimiento de salto hace que el Samurái pueda cortar algunos de los objetos que caen del centro, para conseguir puntos.
+Cuando el protagonista choque contra algún objeto de los laterales del escenario morirá, al igual que si choca contra algún objeto indestructible del centro de la torre. El mismo movimiento de salto hace que el Samurái pueda cortar algunos de los objetos que caen del centro, para conseguir más puntos.
 ## Interfaz
  En esta sección se especificará con detalle cada una de las pantallas que componen *Shoten Samurai*.
  Además, se indicarán las transiciones entre ellas así como la utilidad de cada elemento de la GUI (Graphical User Interface).
- Las imágenes adjuntas son bocetos muy básicos que ilustran los componentes que debe contener cada pantalla, no obstante, se planea hacer cambios en la apariencia y disposición y aspecto de los elementos.
+ Las imágenes adjuntas son bocetos muy básicos que ilustran los componentes que debe contener cada pantalla, no obstante, se planea hacer cambios en la apariencia y disposición de los elementos.
 ### Diagrama de flujo
 El siguiente diagrama de estados muestra las pantallas presentes a lo largo de *Shoten Samurai*, así como las transiciones entre ellas.
 En puntos posteriores nos centraremos en ellas de forma individual.
@@ -128,7 +128,7 @@ Lista y descripción de todos sus componentes.
 * **Botón Jugar**: Este botón mostrará la cinematica de inicio, la cual dará inicio a una nueva partida cuando acabe.
 * **Botón Créditos**: Este botón llevará al usuario a la pantalla de créditos.
 * **Botón Mejores Puntuaciones**: Este botón llevará a la pantalla de mejores puntuaciones.
-* **Botón llave inglesa**: Este botón llevará a la pantalla de configuración.
+* **Botón Llave Inglesa**: Este botón llevará a la pantalla de configuración.
 ### Créditos
 A continuación el boceto de la pantalla de *Créditos*:
 
@@ -191,8 +191,8 @@ El fichero de trabajo debe tener una calidad superior a la requerida en el juego
 
 * **Interfaz**:
     * **Logo del Juego**: Logo del juego para poner en el menú principal
-    * **Icono de configuración**: Icono que llevará a la pantalla de configuración.
-    * **Icono menú principal**: Icono que hará regresar a la pantalla del menú principal.
+    * **Icono de Configuración**: Icono que llevará a la pantalla de configuración.
+    * **Icono Menú Principal**: Icono que hará regresar a la pantalla del menú principal.
 * **Personaje**:
     * **Samurai**: Deberá tener una animación de correr, salto, aterrizaje, corte y muerte.
     * **Obstáculo en pared**: Obstáculo en las paredes que obligarán a saltar al personaje. Se aconseja hacer varios modelos.
