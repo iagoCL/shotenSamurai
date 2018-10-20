@@ -19,6 +19,7 @@
             - [La Torre](#la-torre)
             - [Objetos del escenario](#objetos-del-escenario)
         - [Movimientos](#movimientos)
+        - [Interacciones](#interacciones)
     - [Interfaz](#interfaz)
         - [Diagrama de flujo](#diagrama-de-flujo)
         - [Menú Principal](#menú-principal)
@@ -106,6 +107,13 @@ Como se ha mencionado, el jugador está continuamente ascendiendo por la torre m
 El único movimiento posible es el de saltar a la pared opuesta, realizando un salto de 45 grados sobre el eje horizontal del personaje, al pulsa la pantalla del móvil o botón de *barra espaciadora*.
  
 Cuando el protagonista choque contra algún objeto de los laterales del escenario morirá, al igual que si choca contra algún objeto indestructible del centro de la torre. El mismo movimiento de salto hace que el Samurái pueda cortar algunos de los objetos que caen del centro, para conseguir más puntos.
+### Interacciones
+ Tal como se especificaba anteriormente, con el objetivo de dificultar la ascensión de la torre del samurái, ciertos obstáculos aparecerán en los laterales de la torre y cayendo por el centro de la misma, algunos de estos destruibles. 
+ Las siguientes colisiones estarán presentes en juego:
+ 
+* Samurái-Torre
+* Samurái-Objeto
+ 
 ## Interfaz
  En esta sección se especificará con detalle cada una de las pantallas que componen *Shoten Samurai*.
  Además, se indicarán las transiciones entre ellas así como la utilidad de cada elemento de la GUI (Graphical User Interface).
