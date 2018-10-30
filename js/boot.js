@@ -8,9 +8,9 @@ function boot() {
     }
     imagesLoaded = true;
     images = {
-        scene_easy: loadImage("images/fondo.jpg"),
-        scene_mid: loadImage("images/fondo.jpg"),
-        scene_hard: loadImage("images/fondo.jpg"),
+        scene_easy: loadImage("images/fondo-easy.jpg"),
+        scene_mid: loadImage("images/fondo-mid.jpg"),
+        scene_hard: loadImage("images/fondo-hard.jpg"),
         character_walk: {
             num_frames: 2,
             images: [
@@ -25,7 +25,12 @@ function boot() {
                 loadImage("images/personaje/personaje4.png")
             ]
         },
-        character_air: loadImage("images/personaje/personaje3.png"),
+        character_air: {
+            num_frames: 1,
+            images: [
+                loadImage("images/personaje/personaje2.png")
+            ]
+        },
         character_death: {
             num_frames: 2,
             images: [
@@ -33,13 +38,48 @@ function boot() {
                 loadImage("images/personaje/personaje4.png")
             ]
         },
-        obstacle_wall: loadImage("images/obstacle.png"),
-        obstacle_hit_easy: loadImage("images/obstacle.png"),
-        obstacle_hit_mid: loadImage("images/obstacle.png"),
-        obstacle_hit_hard: loadImage("images/obstacle.png"),
-        obstacle_cut_easy: loadImage("images/obstacle.png"),
-        obstacle_cut_mid: loadImage("images/obstacle.png"),
-        obstacle_cut_hard: loadImage("images/obstacle.png"),
+        obstacle_wall:{
+            num_frames: 1,
+            images: [
+                loadImage("images/obstacle.png")
+            ]
+        },
+        obstacle_hit_easy:{
+            num_frames: 1,
+            images: [
+                loadImage("images/obstacle.png")
+            ]
+        },
+        obstacle_hit_mid:{
+            num_frames: 1,
+            images: [
+                loadImage("images/obstacle.png")
+            ]
+        },
+        obstacle_hit_hard:{
+            num_frames: 1,
+            images: [
+                loadImage("images/obstacle.png")
+            ]
+        },
+        obstacle_cut_easy:{
+            num_frames: 1,
+            images: [
+                loadImage("images/obstacle.png")
+            ]
+        },
+        obstacle_cut_mid:{
+            num_frames: 1,
+            images: [
+                loadImage("images/obstacle.png")
+            ]
+        },
+        obstacle_cut_hard:{
+            num_frames: 1,
+            images: [
+                loadImage("images/obstacle.png")
+            ]
+        },
         obstacle_cut_easy_death: {
             num_frames: 2,
             images: [

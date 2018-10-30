@@ -1,11 +1,8 @@
+var game;
 $( document ).ready(function() {
-    var game = new mainGame();
+    game = new MainGame();
     game.startGame();
+    $(document).click(function() {
+        game.character.cambiarLado();
+    });
 });
-
-
-
-
-
-
-
