@@ -77,8 +77,8 @@ class MainGame {
         });
     }
     resizeCanvas( ) {
-        this.canvasWidth = window.innerWidth;
-        this.canvasHeight = window.innerHeight;       
+        this.canvasWidth = 0.98*window.innerWidth;
+        this.canvasHeight = 0.98*window.innerHeight;       
         let canvasWidthB = this.canvasHeight/this.aspectRatio;   
         let canvasHeightB = this.canvasWidth*this.aspectRatio;
         if(this.canvasWidth>canvasWidthB)

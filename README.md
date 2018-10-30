@@ -1,4 +1,4 @@
-﻿# Shoten Samurai - GDD
+﻿# [Shoten Samurai - GDD](shotenSamurai.html)
 - [Shoten Samurai - GDD](#shoten-samurai---gdd)
     - [Introducción](#introducci%C3%B3n)
         - [Concepto del juego](#concepto-del-juego)
