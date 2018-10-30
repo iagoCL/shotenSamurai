@@ -1,31 +1,31 @@
 ﻿# Shoten Samurai - GDD
 - [Shoten Samurai - GDD](#shoten-samurai---gdd)
-    - [Introducción](#introducción)
+    - [Introducción](#introducci%C3%B3n)
         - [Concepto del juego](#concepto-del-juego)
-        - [Características distintivas](#características-distintivas)
-        - [Género](#género)
-        - [Proṕosito y Público objetivo](#proṕosito-y-público-objetivo)
+        - [Características distintivas](#caracter%C3%ADsticas-distintivas)
+        - [Género](#g%C3%A9nero)
+        - [Proṕosito y Público objetivo](#prop%CC%81osito-y-p%C3%BAblico-objetivo)
         - [Jugabilidad](#jugabilidad)
         - [Estilo visual](#estilo-visual)
         - [Alcance](#alcance)
-    - [Mecánicas del juego](#mecánicas-del-juego)
-        - [Jugabilidad](#jugabilidad)
+    - [Mecánicas del juego](#mec%C3%A1nicas-del-juego)
+        - [Jugabilidad](#jugabilidad-1)
             - [Niveles](#niveles)
             - [Dificultad](#dificultad)
-            - [Puntuación](#puntuación)
+            - [Puntuación](#puntuaci%C3%B3n)
         - [Flujo del juego](#flujo-del-juego)
         - [Personajes y objetos](#personajes-y-objetos)
-            - [Samurái](#samurái)
+            - [Samurái](#samur%C3%A1i)
             - [La Torre](#la-torre)
             - [Objetos del escenario](#objetos-del-escenario)
         - [Movimientos](#movimientos)
         - [Interacciones](#interacciones)
     - [Interfaz](#interfaz)
         - [Diagrama de flujo](#diagrama-de-flujo)
-        - [Menú Principal](#menú-principal)
-        - [Créditos](#créditos)
+        - [Menú Principal](#men%C3%BA-principal)
+        - [Créditos](#cr%C3%A9ditos)
         - [Mejores puntuaciones](#mejores-puntuaciones)
-        - [Configuración](#configuración)
+        - [Configuración](#configuraci%C3%B3n)
         - [Pantalla principal](#pantalla-principal)
         - [Game Over](#game-over)
     - [Arte](#arte)
@@ -122,13 +122,13 @@ Cuando el protagonista choque contra algún objeto de los laterales del escenari
 El siguiente diagrama de estados muestra las pantallas presentes a lo largo de *Shoten Samurai*, así como las transiciones entre ellas.
 En puntos posteriores nos centraremos en ellas de forma individual.
 
-![alt text](images/diagrama.JPG "Figura 1: Diagrama de flujo de pantallas en el juego.")
+![alt text](images/gdd/diagrama.JPG "Figura 1: Diagrama de flujo de pantallas en el juego.")
 
 *Figura 1: Diagrama de flujo de pantallas en el juego.*
 ### Menú Principal
 A continuación el boceto de la pantalla de *Menú Principal*:
 
-![alt text](images/menuPrincipal.JPG "Figura 2: Boceto del menú principal.")
+![alt text](images/gdd/menuPrincipal.JPG "Figura 2: Boceto del menú principal.")
 
 *Figura 2: Boceto del menú principal.*
 
@@ -140,7 +140,7 @@ Lista y descripción de todos sus componentes.
 ### Créditos
 A continuación el boceto de la pantalla de *Créditos*:
 
-![alt text](images/creditos.JPG "Figura 3: Boceto de la pantalla de créditos.")
+![alt text](images/gdd/creditos.JPG "Figura 3: Boceto de la pantalla de créditos.")
 
 *Figura 3: Boceto de la pantalla de créditos.*
 
@@ -149,7 +149,7 @@ Lista y descripción de todos sus componentes.
 ### Mejores puntuaciones
 A continuación el boceto de la pantalla de *Mejores puntuaciones*:
 
-![alt text](images/puntuaciones.JPG "Figura 4: Boceto de la pantalla de mejores puntuaciones.")
+![alt text](images/gdd/puntuaciones.JPG "Figura 4: Boceto de la pantalla de mejores puntuaciones.")
 
 *Figura 4: Boceto de la pantalla de mejores puntuaciones.*
 
@@ -158,7 +158,7 @@ Lista y descripción de todos sus componentes.
 ### Configuración
 A continuación el boceto de la pantalla de *Configuración*:
 
-![alt text](images/configuracion.JPG "Figura 5: Boceto de la pantalla de configuración.")
+![alt text](images/gdd/configuracion.JPG "Figura 5: Boceto de la pantalla de configuración.")
 
 *Figura 5: Boceto de la pantalla de configuración.*
 
@@ -169,7 +169,7 @@ Lista y descripción de todos sus componentes.
 ### Pantalla principal
 A continuación el boceto de la pantalla *principal*:
 
-![alt text](images/juego.JPG "Figura 6: Boceto de la pantalla principal.")
+![alt text](images/gdd/juego.JPG "Figura 6: Boceto de la pantalla principal.")
 
 *Figura 6: Boceto de la pantalla principal.*
 
@@ -177,11 +177,11 @@ Esta pantalla será la pantalla principal, donde el jugador pasará la mayor par
 ### Game Over
 A continuación el boceto de las variantes de la pantalla de *Game Over*:
 
-![alt text](images/gameOver.JPG "Figura 7: Boceto de la pantalla de Game Over.")
+![alt text](images/gdd/gameOver.JPG "Figura 7: Boceto de la pantalla de Game Over.")
 
 *Figura 7: Boceto de la pantalla de Game Over.*
 
-![alt text](images/gameOverRecord.JPG "Figura 8: Boceto de la pantalla de Game Over batiendo un nuevo record.")
+![alt text](images/gdd/gameOverRecord.JPG "Figura 8: Boceto de la pantalla de Game Over batiendo un nuevo record.")
 
 *Figura 8: Boceto de la pantalla de Game Over batiendo un nuevo record.*
 
