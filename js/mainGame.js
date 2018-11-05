@@ -5,7 +5,6 @@ const dificulty = {
 };
 
 const levelPoints = {
-    EASY: 0,
     MEDIUM: 20,
     HARD: 40,
 };
@@ -26,7 +25,7 @@ class MainGame {
         this.actualHitImage = this.images.obstacle_hit_easy;
         this.actualCutImageDeath = this.images.obstacle_hit_easy;
         this.stage = new Stage(this.ctx, this.images.scene_easy);
-        this.character = new Character(this.ctx, this.nextLevel.bind(this), this.images.character_walk,this.images.character_jumping,this.images.character_air,this.images.character_death);
+        this.character = new Character(this.ctx, this.nextLevel.bind(this), this.images.character_walk_izq,this.images.character_jumping_izq,this.images.character_walk_der,this.images.character_jumping_der,this.images.character_air,this.images.character_death);
         this.arrayObjects = [];
     }
     startGame(){

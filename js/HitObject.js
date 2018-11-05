@@ -10,13 +10,12 @@ class HitObject {
         this.game = game_;//todo: use to remove destroyed Objects, and end game
         this.character = character_;//todo: use detect collision
 
-        this.repaintsPerFrame = 12;
         this.objectSpriteCut = objectSpriteCut_;
         this.objectSprite = objectSprite_;
         this.acualAnim = this.objectSprite;
         this.ctx = ctx_;
 
-        this.framesRestantes = this.repaintsPerFrame;
+        this.framesRestantes = this.actualAnim.repaintsPerFrame;
         this.animFrame = 0;
         this.acualImag = this.acualAnim.images[this.animFrame];
     }
@@ -34,7 +33,7 @@ class HitObject {
         if(this.framesRestantes == 0)
         {
             this.animFrame=(this.animFrame+1)%this.acualAnim.num_frames;
-            this.framesRestantes  = this.repaintsPerFrame;
+            this.framesRestantes  = this.actualAnim.repaintsPerFrame;
             this.acualImag = this.acualAnim.images[this.animFrame];
         }
         this.ctx.drawImage(this.acualImag, this.drawPosX, this.drawPosY, this.width, this.height);
