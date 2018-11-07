@@ -14,6 +14,7 @@ class Stage {
     changeImg(img_) {
         this.img3 = img_;
     }
+        
     repaint() {
         let sHeight = this.relativePosY * this.img.height;
         let dy = this.relativePosY * this.height;

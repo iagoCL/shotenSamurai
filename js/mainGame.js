@@ -15,6 +15,7 @@ class MainGame {
         this.aspectRatio = 2.1;
         this.paintRefresh = 45;
         this.logicRefresh = 30;
+        this.obstacleRefresh=2000; //this gonna change with difficulty
         this.canvas = document.getElementById("mainGame");
         this.ctx = this.canvas.getContext("2d");
     }
@@ -40,10 +41,22 @@ class MainGame {
     updateGameLogic(){
         this.stage.update();
         this.character.update();
+        this.obstacleInterval=setInterval(this.genObstacle.bind(this),this.obstacleRefresh);
         this.arrayObjects.forEach(function(element) {
             element.update();
         });
         //todo: Generar nuevos hitObject
+    }
+
+    //Generate obstacles for the character to evade or destroy
+    genObstacle(){
+        probabilityOfItem=Math.floor(Math.random() * (101 - 0)) + 0;
+        if(probabilityOfItem>=20){
+            this.arrayObjects.add(new HitObject(this.ctx));
+        }else{
+            //genDestructible
+        }
+
     }
 
     nextLevel(actualPoints_){
