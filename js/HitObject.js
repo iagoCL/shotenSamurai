@@ -1,5 +1,5 @@
 class HitObject {
-    constructor(ctx_, relativePosY_, relativePosX_, game_, objectSprite_, objectSpriteCut_, character_) {
+    constructor(ctx_, relativePosY_, relativePosX_, game_, objectSprite_, objectSpriteCut_, character_, isBreakable_, celerity_) {
         //todo: type wall, cut or normal
         this.relativeWidth = 0.3;
         this.aspectRatio = 0.9;
@@ -18,6 +18,12 @@ class HitObject {
         this.framesRestantes = this.actualAnim.repaintsPerFrame;
         this.animFrame = 0;
         this.acualImag = this.acualAnim.images[this.animFrame];
+
+        this.offSetRadius=0.3; //Offset radius to calculate if an item should be created
+        this.collisionRadius=0.1; //Actual collision radius, to hit the character
+        this.isBreakable=isBreakable_; //To know if the character is able to destroy it
+
+        this.celerity=celerity_; //TODO: Waiting for physics . The speed at which the item falls
     }
     resize(width_,height_) {
         this.width = width_*this.relativeWidth;
@@ -44,5 +50,13 @@ class HitObject {
         //todo: avanzar
         //todo: see collision con character
         //todo: sumar puntos/acabar partida si procede
+    }
+    collision(){
+        if(this.isBreakable){
+            
+            //Destroy object, add points
+        }else{
+            //Kill player, end game
+        }
     }
 }
