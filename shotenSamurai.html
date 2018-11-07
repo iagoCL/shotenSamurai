@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <head>
-            <title>Shoten Samurai - Juego</title>
-            <link rel="stylesheet" type="text/css" href="css/index.css">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-            <script src="js/PersonalAnimation.js"></script>
-            <script src="js/Boot.js"></script>
-            <script src="js/Character.js"></script>
-            <script src="js/MainGame.js"></script>
-            <script src="js/HitObject.js"></script>
-            <script src="js/Stage.js"></script>
-            <script src="js/shotenSamurai.js"></script>
-    </head>
-<body>
+<head>
+    <title>Shoten Samurai - Juego</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/PersonalAnimation.js"></script>
+    <script src="js/Boot.js"></script>
+    <script src="js/Character.js"></script>
+    <script src="js/MainGame.js"></script>
+    <script src="js/HitObject.js"></script>
+    <script src="js/Stage.js"></script>
+    <script src="js/shotenSamurai.js"></script>
+</head>
 
-    <canvas id="mainGame">
-        Your browser does not support the HTML5 canvas tag.</canvas>
+<body>
+    <div class="outer">
+        <div class="middle">
+            <div id="loadingGame">
+                <h1>Loading...</h1>
+                <p id="loadingProgress">x / x</p>
+                <p id="clickText">click to start</p>
+            </div>
+            <canvas id="mainGame">
+                Your browser does not support the HTML5 canvas tag.
+            </canvas>
+
+        </div>
+    </div>
 </body>
+
 </html>

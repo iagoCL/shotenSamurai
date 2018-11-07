@@ -1,26 +1,46 @@
+/*global PersonalAnimation game*/
+/*exported animations sounds boot images assets */
 var images;
-var imagesLoaded = false;
+var animations;
+var sounds;
+const totalResources = 34;
+var resourcesLoaded = 0;
+const endLoadingProgress = " / "+totalResources;
 
 function boot() {
-    if(imagesLoaded)
-    {
-        return images;
-    }
+    game.loadingProgress.innerHTML = 0+endLoadingProgress;
     const defaultRepaintsPerFrame = 12;
-    imagesLoaded = true;
+    const repaintsPerJumpFrame = 3;
     images = {
         scene_easy: loadImage("images/fondo-easy.jpg"),
+        scene_easyToMid: loadImage("images/fondo-easyToMid.jpg"),
         scene_mid: loadImage("images/fondo-mid.jpg"),
-        scene_hard: loadImage("images/fondo-hard.jpg"),
+        scene_midToHard: loadImage("images/fondo-midToHard.jpg"),
+        scene_hard: loadImage("images/fondo-hard.jpg")
+    };
+    sounds={
+        cut: loadAudio("sounds/cut.wav"),
+        death: loadAudio("sounds/death.wav"),
+        jump: loadAudio("sounds/jump.wav"),
+        music: loadAudio("sounds/music.mp3")
+    };
+    sounds.music.loop = true;
+
+    //todo: when definitive sprites avoid duplicated loads.
+    animations={
         character_walk_izq: new PersonalAnimation(defaultRepaintsPerFrame,
             [
                 loadImage("images/personaje/player_walk_izq_1.png"),
                 loadImage("images/personaje/player_walk_izq_2.png")
             ]
         ),
-        character_jumping_izq: new PersonalAnimation(defaultRepaintsPerFrame,
+        character_jumping_izq: new PersonalAnimation(repaintsPerJumpFrame,
             [
-                loadImage("images/personaje/player_walk_izq_2.png"),
+                loadImage("images/personaje/player_jump_izq.png")
+            ]
+        ),
+        character_land_izq: new PersonalAnimation(repaintsPerJumpFrame,
+            [
                 loadImage("images/personaje/player_jump_izq.png")
             ]
         ),
@@ -30,15 +50,24 @@ function boot() {
                 loadImage("images/personaje/player_walk_der_2.png")
             ]
         ),
-        character_jumping_der: new PersonalAnimation(defaultRepaintsPerFrame,
+        character_jumping_der: new PersonalAnimation(repaintsPerJumpFrame,
             [
-                loadImage("images/personaje/player_walk_der_2.png"),
                 loadImage("images/personaje/player_jump_der.png")
             ]
         ),
-        character_air: new PersonalAnimation(defaultRepaintsPerFrame,
+        character_land_der: new PersonalAnimation(repaintsPerJumpFrame,
             [
-                loadImage("images/personaje/player_air.png")
+                loadImage("images/personaje/player_jump_der.png")
+            ]
+        ),
+        character_air_der: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
+                loadImage("images/personaje/player_air_der.png")
+            ]
+        ),
+        character_air_izq: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
+                loadImage("images/personaje/player_air_izq.png")
             ]
         ),
         character_death: new PersonalAnimation(defaultRepaintsPerFrame,
@@ -101,12 +130,30 @@ function boot() {
             ]
         )
     };
-    return images;
 }
 function loadImage(src_) {
     let img = new Image();
-    img.onload = function () {
-    };
+    img.addEventListener("load", resourceLoaded);
     img.src = src_;
     return img;
+}
+
+function loadAudio(src_){
+    let audio = new Audio(src_);
+    audio.addEventListener("canplaythrough", function () {
+        resourceLoaded();
+    }, false);
+    return audio;
+}
+
+function resourceLoaded(){
+    game.loadingProgress.innerHTML = ++resourcesLoaded+endLoadingProgress;
+    if(resourcesLoaded == totalResources){
+        $("#clickText").css( "visibility", "visible" );
+        $(document).click(function(){
+            $("#loadingGame").hide();
+            game.canvas.style.display = "block";
+            game.startGame();
+        });
+    }
 }

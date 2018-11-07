@@ -1,18 +1,18 @@
+/*exported Stage */
 class Stage {
     constructor(ctx_, img_) {
         this.relativePosY = 1;
         this.vel = 0.01;
-        this.img = img_;
-        this.img2 = img_;
-        this.img3 = img_;
+        this.img = this.img2 = this.img3 = this.img4 =img_;
         this.ctx = ctx_;
     }
     resize(width_, height_) {
         this.width = width_;
         this.height = height_;
     }
-    changeImg(img_) {
-        this.img3 = img_;
+    changeImg(img1_,img2_) {
+        this.img3 = img1_;
+        this.img4 = img2_;
     }
     repaint() {
         let sHeight = this.relativePosY * this.img.height;
@@ -27,6 +27,7 @@ class Stage {
         if (this.relativePosY < 0) {
             this.img = this.img2;
             this.img2 = this.img3;
+            this.img3 = this.img4;
             this.relativePosY = 1;
         }
     }

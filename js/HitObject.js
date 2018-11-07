@@ -1,3 +1,4 @@
+/*exported HitObject*/
 class HitObject {
     constructor(ctx_, relativePosY_, relativePosX_, game_, objectSprite_, objectSpriteCut_, character_) {
         //todo: type wall, cut or normal

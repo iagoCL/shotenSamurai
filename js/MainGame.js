@@ -1,3 +1,5 @@
+/*global Stage Character animations images sounds*/
+/*exported MainGame*/
 const dificulty = {
     EASY: 0,
     MEDIUM: 1,
@@ -11,21 +13,21 @@ const levelPoints = {
 
 class MainGame {
     constructor() {
-        this.images = boot();
         this.aspectRatio = 2.1;
         this.paintRefresh = 45;
         this.logicRefresh = 30;
         this.canvas = document.getElementById("mainGame");
+        this.loadingProgress = document.getElementById("loadingProgress");
         this.ctx = this.canvas.getContext("2d");
     }
 
     startLogic(){
         this.actualLevel = dificulty.EASY;
-        this.actualCutImage = this.images.obstacle_cut_easy;
-        this.actualHitImage = this.images.obstacle_hit_easy;
-        this.actualCutImageDeath = this.images.obstacle_hit_easy;
-        this.stage = new Stage(this.ctx, this.images.scene_easy);
-        this.character = new Character(this.ctx, this.nextLevel.bind(this), this.images.character_walk_izq,this.images.character_jumping_izq,this.images.character_walk_der,this.images.character_jumping_der,this.images.character_air,this.images.character_death);
+        this.actualCutImage = images.obstacle_cut_easy;
+        this.actualHitImage = images.obstacle_hit_easy;
+        this.actualCutImageDeath = images.obstacle_hit_easy;
+        this.stage = new Stage(this.ctx, images.scene_easy);
+        this.character = new Character(this.ctx, this.nextLevel.bind(this), animations.character_walk_izq,animations.character_jumping_izq,animations.character_land_izq,animations.character_walk_der,animations.character_jumping_der,animations.character_land_der,animations.character_air_izq,animations.character_air_der,animations.character_death,sounds.jump,sounds.death);
         this.arrayObjects = [];
     }
     startGame(){
@@ -33,6 +35,7 @@ class MainGame {
         window.addEventListener("resize",this.resizeCanvas.bind(this), false);
         this.resizeCanvas();
         this.repaint();
+        sounds.music.play();
         this.paintInterval = setInterval(this.repaint.bind(this), this.paintRefresh);
         this.logicInterval = setInterval(this.updateGameLogic.bind(this), this.logicRefresh);
     }
@@ -49,17 +52,17 @@ class MainGame {
     nextLevel(actualPoints_){
         if(this.actualLevel == dificulty.EASY && actualPoints_>levelPoints.MEDIUM){
             this.actualLevel = dificulty.MEDIUM;
-            this.actualCutImage = this.images.obstacle_cut_mid;
-            this.actualHitImage = this.images.obstacle_hit_mid;
-            this.actualCutImageDeath = this.images.obstacle_hit_mid;
-            this.stage.changeImg(this.images.scene_mid);
+            this.actualCutImage = images.obstacle_cut_mid;
+            this.actualHitImage = images.obstacle_hit_mid;
+            this.actualCutImageDeath = images.obstacle_hit_mid;
+            this.stage.changeImg(images.scene_easyToMid,images.scene_mid);
         }
         else if(this.actualLevel == dificulty.MEDIUM && actualPoints_>levelPoints.HARD){
             this.actualLevel = dificulty.HARD;
-            this.actualCutImage = this.images.obstacle_cut_hard;
-            this.actualHitImage = this.images.obstacle_hit_hard;
-            this.actualCutImageDeath = this.images.obstacle_hit_hard;
-            this.stage.changeImg(this.images.scene_hard);
+            this.actualCutImage = images.obstacle_cut_hard;
+            this.actualHitImage = images.obstacle_hit_hard;
+            this.actualCutImageDeath = images.obstacle_hit_hard;
+            this.stage.changeImg(images.scene_midToHard,images.scene_hard);
         }
     }
     

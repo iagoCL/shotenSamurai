@@ -1,5 +1,6 @@
+/*exported Character */
 class Character {
-    constructor(ctx_, nextLevel, character_walk_izq, character_jumping_izq, character_walk_der, character_jumping_der, character_air, character_death) {
+    constructor(ctx_, nextLevel, character_walk_izq, character_jumping_izq, character_land_izq,character_walk_der,character_jumping_der,character_land_der,character_air_izq,character_air_der, character_death,jump_sound,death_sound) {
         
         this.relativePosYInicial = this.relativePosY = 0.85;
         this.relativePosYMaximo = 0.72;
@@ -20,14 +21,21 @@ class Character {
         this.character_jumping_izq = character_jumping_izq;
         this.character_walk_der = character_walk_der;
         this.character_jumping_der = character_jumping_der;
-        this.character_air = character_air;
+        this.character_air_der = character_air_der;
+        this.character_air_izq = character_air_izq;
+        this.character_land_der = character_land_der;
+        this.character_land_izq = character_land_izq;
         this.character_death = character_death;
         this.actualAnim = this.character_walk_izq;
+        this.jump_sound = jump_sound;
+        this.death_sound = death_sound;
         this.ctx = ctx_;
         this.cambiandoLado = false;
         this.estaIZQ = true;
 
         this.actualAnim.restart();
+
+        $(document).unbind("click").click(this.cambiarLado.bind(this));
     }
     resize(width_,height_) {
         this.width = width_*this.relativeWidth;
@@ -44,8 +52,24 @@ class Character {
         if(!this.cambiandoLado)
         {
             console.log("cambiando lado");
-            this.cambiandoLado = true;
-            this.update();
+            if(this.estaIZQ){
+                this.character_jumping_izq.restartAndDo(function(){
+                    this.character_air_izq.restart();
+                    this.actualAnim = this.character_air_izq;
+                    this.cambiandoLado = true;
+                    this.update();
+                }.bind(this));
+                this.actualAnim= this.character_jumping_izq; 
+            }else{
+                this.character_jumping_der.restartAndDo(function(){
+                    this.character_air_der.restart();
+                    this.actualAnim = this.character_air_der;
+                    this.cambiandoLado = true;
+                    this.update();
+                }.bind(this));
+                this.actualAnim= this.character_jumping_der; 
+            }
+            this.jump_sound.play();
         }
     }
 
@@ -66,8 +90,6 @@ class Character {
             //maximo y salto
             //minimo y muerte
 
-            //reproducir 1 vez anim salto
-            //cambiar a anim aire
             //reproducir 1 vez anim salto marcha atras
             //cambiar a anim caminar
 
@@ -79,8 +101,14 @@ class Character {
                 }
                 else {
                     this.relativePosX=this.relativePosXDer;
-                    this.estaIZQ = false;
+                    this.estaIZQ = false;                    
                     this.cambiandoLado = false;
+                    this.character_land_der.restartAndDo(function(){
+                        this.character_walk_der.restart();
+                        this.actualAnim = this.character_walk_der;
+                        this.update();
+                    }.bind(this));
+                    this.actualAnim= this.character_land_der;
                 }
             }
             else if(this.relativePosX>this.relativePosXIzq){
@@ -91,6 +119,12 @@ class Character {
                 this.relativePosX=this.relativePosXIzq;
                 this.estaIZQ = true;
                 this.cambiandoLado = false;
+                this.character_land_izq.restartAndDo(function(){
+                    this.character_walk_izq.restart();
+                    this.actualAnim = this.character_walk_izq;
+                    this.update();
+                }.bind(this));
+                this.actualAnim= this.character_land_izq;
             }
         }
         else if(this.relativePosY>=this.relativePosYInicial){
