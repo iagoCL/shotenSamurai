@@ -1,13 +1,17 @@
 class Character {
     constructor(ctx_, nextLevel, character_walk_izq, character_jumping_izq, character_walk_der, character_jumping_der, character_air, character_death) {
         
-        this.relativePosYInicial = 0.85;
+        this.relativePosYInicial = this.relativePosY = 0.85;
         this.relativePosYMaximo = 0.72;
 
-        this.relativePosXIzq = 0.05;
-        this.relativePosXDer = 0.72;
+        this.relativePosXIzq = this.relativePosX = 0.25;
+        this.relativePosXDer = 0.66;
 
-        this.relativeWidth = 0.19;
+        this.relativeCelerityX = 0.015;
+        this.relativeCelerityYJump = -0.003;
+        this.relativeCelerityY = 0.0009;
+
+        this.relativeWidth = 0.09;
         this.aspectRatio = 0.9;
 
         this.points = 0;
@@ -23,14 +27,7 @@ class Character {
         this.cambiandoLado = false;
         this.estaIZQ = true;
 
-        this.framesRestantes = this.actualAnim.repaintsPerFrame;
-        this.animFrame = 0;
-        this.actualImag = this.actualAnim.images[this.animFrame];
-
-        this.relativePosXMed = Math.floor(0.5*(this.relativePosXIzq+this.relativePosXDer));
-
-        this.relativePosY = this.relativePosYInicial;
-        this.relativePosX = this.relativePosXIzq;
+        this.actualAnim.restart();
     }
     resize(width_,height_) {
         this.width = width_*this.relativeWidth;
@@ -48,22 +45,14 @@ class Character {
         {
             console.log("cambiando lado");
             this.cambiandoLado = true;
+            this.update();
         }
     }
 
     repaint() {
-        --this.framesRestantes;
-        if(this.framesRestantes == 0)
-        {
-            this.animFrame=(this.animFrame+1)%this.actualAnim.num_frames;
-            this.framesRestantes  = this.actualAnim.repaintsPerFrame;
-            this.actualImag = this.actualAnim.images[this.animFrame];
-        }
-        this.drawPosX = this.relativePosX * this.canvasWidth;
-        this.drawPosY = this.relativePosY * this.canvasHeight;
-
-        this.ctx.drawImage(this.actualImag, this.drawPosX, this.drawPosY, this.width, this.height);
+        this.actualAnim.paint(this.ctx, this.relativePosX * this.canvasWidth, this.relativePosY * this.canvasHeight, this.width, this.height);
         
+        //paint points
         this.ctx.font = this.pointsFormat;
         this.ctx.textAlign="center";
         this.ctx.fillStyle = "#ffeedd";
@@ -74,23 +63,40 @@ class Character {
         if(this.cambiandoLado){
             //todo: cambiando lado paulatino
 
+            //maximo y salto
+            //minimo y muerte
+
             //reproducir 1 vez anim salto
             //cambiar a anim aire
             //reproducir 1 vez anim salto marcha atras
             //cambiar a anim caminar
 
-            //aumentar x
-            //aumentar y hasta el centro y luego disminuirla
+            //console.log("x: "+this.relativePosX+" y: "+this.relativePosY+" b: "+this.estaIZQ);
             if( this.estaIZQ){
-                this.estaIZQ = false;
-                this.relativePosX=this.relativePosXDer;
+                if(this.relativePosX<this.relativePosXDer){
+                    this.relativePosY += this.relativeCelerityYJump;
+                    this.relativePosX += this.relativeCelerityX;
+                }
+                else {
+                    this.relativePosX=this.relativePosXDer;
+                    this.estaIZQ = false;
+                    this.cambiandoLado = false;
+                }
             }
-            else
-            {
-                this.estaIZQ = true;
+            else if(this.relativePosX>this.relativePosXIzq){
+                this.relativePosY += this.relativeCelerityYJump;
+                this.relativePosX -= this.relativeCelerityX;
+            }
+            else {
                 this.relativePosX=this.relativePosXIzq;
+                this.estaIZQ = true;
+                this.cambiandoLado = false;
             }
-            this.cambiandoLado = false;
+        }
+        else if(this.relativePosY>=this.relativePosYInicial){
+            this.relativePosY=this.relativePosYInicial;
+        } else {
+            this.relativePosY += this.relativeCelerityY;
         }
     }
 

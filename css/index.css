@@ -1,15 +1,22 @@
 canvas {
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 0;
+    margin: 0 auto;
     display: block;
+}
+
+html {
+  height: 100%;
+  width: 100%;
 }
 
 body {
     background-image: url("../images/fondo-menu.png");
-    background-size: 100% 100%;
+    background-size: 103% 103%;
     background-color: #9e7342;
-    width: 98%;
-    height: 98%;
+    min-width: 98.5%;
+    min-height: 98.5%;
+	max-width: 98.5%;
+    max-height: 98.5%;
+	overflow: hidden;
+	margin: 0.65%;
 }
