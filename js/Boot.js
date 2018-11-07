@@ -12,126 +12,94 @@ function boot() {
         scene_easy: loadImage("images/fondo-easy.jpg"),
         scene_mid: loadImage("images/fondo-mid.jpg"),
         scene_hard: loadImage("images/fondo-hard.jpg"),
-        character_walk_izq: {
-            num_frames: 2,
-            repaintsPerFrame: defaultRepaintsPerFrame,
-            images: [
+        character_walk_izq: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
                 loadImage("images/personaje/player_walk_izq_1.png"),
                 loadImage("images/personaje/player_walk_izq_2.png")
             ]
-        },
-        character_jumping_izq: {
-            num_frames: 2,
-            repaintsPerFrame: defaultRepaintsPerFrame,
-            images: [
+        ),
+        character_jumping_izq: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
                 loadImage("images/personaje/player_walk_izq_2.png"),
                 loadImage("images/personaje/player_jump_izq.png")
             ]
-        },
-        character_walk_der: {
-            num_frames: 2,
-            repaintsPerFrame: defaultRepaintsPerFrame,
-            images: [
+        ),
+        character_walk_der: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
                 loadImage("images/personaje/player_walk_der_1.png"),
                 loadImage("images/personaje/player_walk_der_2.png")
             ]
-        },
-        character_jumping_der: {
-            num_frames: 2,
-            repaintsPerFrame: defaultRepaintsPerFrame,
-            images: [
+        ),
+        character_jumping_der: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
                 loadImage("images/personaje/player_walk_der_2.png"),
                 loadImage("images/personaje/player_jump_der.png")
             ]
-        },
-        character_air: {
-            num_frames: 1,
-            repaintsPerFrame: defaultRepaintsPerFrame,
-            images: [
+        ),
+        character_air: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
                 loadImage("images/personaje/player_air.png")
             ]
-        },
-        character_death: {
-            num_frames: 2,
-            repaintsPerFrame: defaultRepaintsPerFrame,
-            images: [
+        ),
+        character_death: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
                 loadImage("images/personaje/player_death_1.png"),
                 loadImage("images/personaje/player_death_2.png")
             ]
-        },
-        obstacle_wall:{
-            num_frames: 1,
-            repaintsPerFrame: defaultRepaintsPerFrame,
-            images: [
+        ),
+        obstacle_wall: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
                 loadImage("images/obstacle.png")
             ]
-        },
-        obstacle_hit_easy:{
-            num_frames: 1,
-            repaintsPerFrame: defaultRepaintsPerFrame,
-            images: [
+        ),
+        obstacle_hit_easy: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
                 loadImage("images/obstacle.png")
             ]
-        },
-        obstacle_hit_mid:{
-            num_frames: 1,
-            repaintsPerFrame: defaultRepaintsPerFrame,
-            images: [
+        ),
+        obstacle_hit_mid: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
                 loadImage("images/obstacle.png")
             ]
-        },
-        obstacle_hit_hard:{
-            num_frames: 1,
-            repaintsPerFrame: defaultRepaintsPerFrame,
-            images: [
+        ),
+        obstacle_hit_hard: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
                 loadImage("images/obstacle.png")
             ]
-        },
-        obstacle_cut_easy:{
-            num_frames: 1,
-            repaintsPerFrame: defaultRepaintsPerFrame,
-            images: [
+        ),
+        obstacle_cut_easy: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
                 loadImage("images/obstacle.png")
             ]
-        },
-        obstacle_cut_mid:{
-            num_frames: 1,
-            repaintsPerFrame: defaultRepaintsPerFrame,
-            images: [
+        ),
+        obstacle_cut_mid: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
                 loadImage("images/obstacle.png")
             ]
-        },
-        obstacle_cut_hard:{
-            num_frames: 1,
-            repaintsPerFrame: defaultRepaintsPerFrame,
-            images: [
+        ),
+        obstacle_cut_hard: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
                 loadImage("images/obstacle.png")
             ]
-        },
-        obstacle_cut_easy_death: {
-            num_frames: 2,
-            repaintsPerFrame: defaultRepaintsPerFrame,
-            images: [
+        ),
+        obstacle_cut_easy_death: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
                 loadImage("images/personaje/personaje3.png"),
                 loadImage("images/personaje/personaje4.png")
             ]
-        },
-        obstacle_cut_mid_death: {
-            num_frames: 2,
-            repaintsPerFrame: defaultRepaintsPerFrame,
-            images: [
+        ),
+        obstacle_cut_mid_death: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
                 loadImage("images/personaje/personaje3.png"),
                 loadImage("images/personaje/personaje4.png")
             ]
-        },
-        obstacle_cut_hard_death: {
-            num_frames: 2,
-            repaintsPerFrame: defaultRepaintsPerFrame,
-            images: [
+        ),
+        obstacle_cut_hard_death: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
                 loadImage("images/personaje/personaje3.png"),
                 loadImage("images/personaje/personaje4.png")
             ]
-        },
+        )
     };
     return images;
 }

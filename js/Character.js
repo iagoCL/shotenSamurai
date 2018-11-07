@@ -27,9 +27,7 @@ class Character {
         this.cambiandoLado = false;
         this.estaIZQ = true;
 
-        this.framesRestantes = this.actualAnim.repaintsPerFrame;
-        this.animFrame = 0;
-        this.actualImag = this.actualAnim.images[this.animFrame];
+        this.actualAnim.restart();
     }
     resize(width_,height_) {
         this.width = width_*this.relativeWidth;
@@ -47,22 +45,14 @@ class Character {
         {
             console.log("cambiando lado");
             this.cambiandoLado = true;
+            this.update();
         }
     }
 
     repaint() {
-        --this.framesRestantes;
-        if(this.framesRestantes == 0)
-        {
-            this.animFrame=(this.animFrame+1)%this.actualAnim.num_frames;
-            this.framesRestantes  = this.actualAnim.repaintsPerFrame;
-            this.actualImag = this.actualAnim.images[this.animFrame];
-        }
-        this.drawPosX = this.relativePosX * this.canvasWidth;
-        this.drawPosY = this.relativePosY * this.canvasHeight;
-
-        this.ctx.drawImage(this.actualImag, this.drawPosX, this.drawPosY, this.width, this.height);
+        this.actualAnim.paint(this.ctx, this.relativePosX * this.canvasWidth, this.relativePosY * this.canvasHeight, this.width, this.height);
         
+        //paint points
         this.ctx.font = this.pointsFormat;
         this.ctx.textAlign="center";
         this.ctx.fillStyle = "#ffeedd";
@@ -81,7 +71,7 @@ class Character {
             //reproducir 1 vez anim salto marcha atras
             //cambiar a anim caminar
 
-            console.log("x: "+this.relativePosX+" y: "+this.relativePosY+" b: "+this.estaIZQ);
+            //console.log("x: "+this.relativePosX+" y: "+this.relativePosY+" b: "+this.estaIZQ);
             if( this.estaIZQ){
                 if(this.relativePosX<this.relativePosXDer){
                     this.relativePosY += this.relativeCelerityYJump;
