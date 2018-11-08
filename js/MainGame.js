@@ -14,8 +14,8 @@ const levelPoints = {
 class MainGame {
     constructor() {
         this.aspectRatio = 2.1;
-        this.paintRefresh = 45;
-        this.logicRefresh = 30;
+        this.paintRefresh = 25;
+        this.logicRefresh = 12;
         this.canvas = document.getElementById("mainGame");
         this.loadingProgress = document.getElementById("loadingProgress");
         this.ctx = this.canvas.getContext("2d");
@@ -41,12 +41,18 @@ class MainGame {
     }
     
     updateGameLogic(){
+	//let logicStart = (new Date()).getMilliseconds();//Debug performance
         this.stage.update();
         this.character.update();
         this.arrayObjects.forEach(function(element) {
             element.update();
         });
         //todo: Generar nuevos hitObject
+
+	/**Debug performance*
+	let oldLogic = this.lastLogic
+	this.lastLogic = (new Date()).getMilliseconds();
+	console.log("lastLogic: "+this.lastLogic+ " logicIterval: "+(this.lastLogic-oldLogic)+" logicDuration: "+(this.lastLogic-logicStart));//*/
     }
 
     nextLevel(actualPoints_){
@@ -72,11 +78,16 @@ class MainGame {
     }
     
     repaint(){
+	//let paintStart = (new Date()).getMilliseconds();//Debug performance
         this.stage.repaint();
         this.character.repaint();
         this.arrayObjects.forEach(function(element) {
             element.repaint();
         });
+	/**Debug performance*
+	let oldPaint = this.lastPaint;
+	this.lastPaint = (new Date()).getMilliseconds();
+	console.log("lastPaint: "+this.lastPaint+ " paintIterval: "+(this.lastPaint-oldPaint)+" paintDuration: "+(this.lastPaint-paintStart));//*/
     }
     resizeCanvas( ) {
         this.canvasWidth = 0.985*window.innerWidth;

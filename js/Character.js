@@ -38,13 +38,17 @@ class Character {
         $(document).unbind("click").click(this.cambiarLado.bind(this));
     }
     resize(width_,height_) {
-        this.width = width_*this.relativeWidth;
-        this.height = this.width*this.aspectRatio;
+        this.width = Math.ceil(width_*this.relativeWidth);
+        this.height = Math.ceil(this.width*this.aspectRatio);
         this.canvasWidth = width_;
         this.canvasHeight = height_;
         this.textPosX = this.canvasWidth*0.88;
         this.textPosY = this.canvasHeight*0.05;
-        this.pointsFormat = +Math.ceil(this.canvasHeight*0.05)+"px serif";
+
+        //paint points
+        this.ctx.font = Math.ceil(this.canvasHeight*0.05)+"px serif";
+        this.ctx.textAlign="center";
+        this.ctx.fillStyle = "#ffeedd";
     }
 
     cambiarLado()
@@ -74,12 +78,8 @@ class Character {
     }
 
     repaint() {
-        this.actualAnim.paint(this.ctx, this.relativePosX * this.canvasWidth, this.relativePosY * this.canvasHeight, this.width, this.height);
+        this.actualAnim.paint(this.ctx, Math.ceil(this.relativePosX * this.canvasWidth), Math.ceil(this.relativePosY * this.canvasHeight), this.width, this.height);
         
-        //paint points
-        this.ctx.font = this.pointsFormat;
-        this.ctx.textAlign="center";
-        this.ctx.fillStyle = "#ffeedd";
         this.ctx.fillText(" "+Math.floor(this.points),this.textPosX,this.textPosY);
     }
     update() {

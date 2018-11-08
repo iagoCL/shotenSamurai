@@ -19,10 +19,10 @@ function boot() {
         scene_hard: loadImage("images/fondo-hard.jpg")
     };
     sounds={
-        cut: loadAudio("sounds/cut.wav"),
-        death: loadAudio("sounds/death.wav"),
-        jump: loadAudio("sounds/jump.wav"),
-        music: loadAudio("sounds/music.mp3")
+        cut: loadAudio("sounds/cut.ogg"),
+        death: loadAudio("sounds/death.ogg"),
+        jump: loadAudio("sounds/jump.ogg"),
+        music: loadAudio("sounds/music.ogg")
     };
     sounds.music.loop = true;
 
