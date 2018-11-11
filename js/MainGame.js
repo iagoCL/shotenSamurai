@@ -1,4 +1,4 @@
-/*global Stage Character animations images sounds*/
+/*global Stage Character animations images sounds musicActivated*/
 /*exported MainGame*/
 const dificulty = {
     EASY: 0,
@@ -8,7 +8,7 @@ const dificulty = {
 
 const levelPoints = {
     MEDIUM: 20,
-    HARD: 40,
+    HARD: 80,
 };
 
 class MainGame {
@@ -27,7 +27,7 @@ class MainGame {
         this.actualHitImage = images.obstacle_hit_easy;
         this.actualCutImageDeath = images.obstacle_hit_easy;
         this.stage = new Stage(this.ctx, images.scene_start, images.scene_easy);
-        this.character = new Character(this.ctx, this.nextLevel.bind(this), animations.character_walk_izq,animations.character_jumping_izq,animations.character_land_izq,animations.character_walk_der,animations.character_jumping_der,animations.character_land_der,animations.character_air_izq,animations.character_air_der,animations.character_death,sounds.jump,sounds.death);
+        this.character = new Character(this.ctx, animations.character_walk_izq,animations.character_jumping_izq,animations.character_land_izq,animations.character_walk_der,animations.character_jumping_der,animations.character_land_der,animations.character_air_izq,animations.character_air_der,animations.character_death,animations.character_death_fall,sounds.jump,sounds.death);
         this.arrayObjects = [];
     }
     startGame(){
@@ -35,7 +35,10 @@ class MainGame {
         window.addEventListener("resize",this.resizeCanvas.bind(this), false);
         this.resizeCanvas();
         this.repaint();
-        sounds.music.play();
+        if(musicActivated){
+            sounds.music.loop = true;
+            sounds.music.play();
+        }
         this.paintInterval = setInterval(this.repaint.bind(this), this.paintRefresh);
         this.logicInterval = setInterval(this.updateGameLogic.bind(this), this.logicRefresh);
     }
@@ -75,6 +78,9 @@ class MainGame {
     endGame(){
         clearInterval(this.paintInterval);
         clearInterval(this.logicInterval);
+        sessionStorage.setItem("ultimaPuntuacion",this.character.points);
+        location.href = "gameOver.html";
+
     }
     
     repaint(){

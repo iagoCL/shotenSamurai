@@ -1,13 +1,15 @@
-/*global PersonalAnimation game*/
-/*exported animations sounds boot images assets */
+/*global PersonalAnimation game updateMusicActivated updateSoundActivated soundActivated musicActivated*/
+/*exported animations sounds boot images assets checkSoundAndPlay */
 var images;
 var animations;
 var sounds;
-const totalResources = 35;
+const totalResources = 36;
 var resourcesLoaded = 0;
 const endLoadingProgress = " / "+totalResources;
 
 function boot() {
+    updateMusicActivated();
+    updateSoundActivated();
     game.loadingProgress.innerHTML = 0+endLoadingProgress;
     const defaultRepaintsPerFrame = 12;
     const repaintsPerJumpFrame = 3;
@@ -20,12 +22,11 @@ function boot() {
         scene_hard: loadImage("images/stage/fondo-hard.jpg")
     };
     sounds={
-        cut: loadAudio("sounds/cut.ogg"),
-        death: loadAudio("sounds/death.ogg"),
-        jump: loadAudio("sounds/jump.ogg"),
-        music: loadAudio("sounds/music.ogg")
+        cut: loadAudio("sounds/cut.ogg",soundActivated),
+        death: loadAudio("sounds/death.ogg",soundActivated),
+        jump: loadAudio("sounds/jump.ogg",soundActivated),
+        music: loadAudio("sounds/music.ogg",musicActivated)
     };
-    sounds.music.loop = true;
 
     //todo: when definitive sprites avoid duplicated loads.
     animations={
@@ -74,6 +75,11 @@ function boot() {
         character_death: new PersonalAnimation(defaultRepaintsPerFrame,
             [
                 loadImage("images/personaje/player_death_1.png"),
+                loadImage("images/personaje/player_death_2.png")
+            ]
+        ),
+        character_death_fall: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
                 loadImage("images/personaje/player_death_2.png")
             ]
         ),
@@ -143,17 +149,23 @@ function loadImage(src_) {
     return img;
 }
 
-function loadAudio(src_){
-    let audio = new Audio(src_);
-    audio.addEventListener("canplaythrough", function () {
+function loadAudio(src_,load_){
+    if(load_){
+        let audio = new Audio(src_);
+        audio.addEventListener("canplaythrough", function () {
+            resourceLoaded();
+        }, false);
+        audio.addEventListener("error", function ()
+        {
+            console.log("COULD NOT LOAD AUDIO");
+        });
+        audio.load();
+        return audio;
+    } else {
         resourceLoaded();
-    }, false);
-    audio.addEventListener("error", function ()
-    {
-        console.log("COULD NOT LOAD AUDIO");
-    });
-    audio.load();
-    return audio;
+        return null;
+    }
+    
 }
 
 function resourceLoaded(){
@@ -166,5 +178,11 @@ function resourceLoaded(){
             game.canvas.style.display = "block";
             game.startGame();
         });
+    }
+}
+
+function checkSoundAndPlay(sound_){
+    if(soundActivated){
+        sound_.play();
     }
 }
