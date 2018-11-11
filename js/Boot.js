@@ -3,7 +3,7 @@
 var images;
 var animations;
 var sounds;
-const totalResources = 34;
+const totalResources = 35;
 var resourcesLoaded = 0;
 const endLoadingProgress = " / "+totalResources;
 
@@ -12,11 +12,12 @@ function boot() {
     const defaultRepaintsPerFrame = 12;
     const repaintsPerJumpFrame = 3;
     images = {
-        scene_easy: loadImage("images/fondo-easy.jpg"),
-        scene_easyToMid: loadImage("images/fondo-easyToMid.jpg"),
-        scene_mid: loadImage("images/fondo-mid.jpg"),
-        scene_midToHard: loadImage("images/fondo-midToHard.jpg"),
-        scene_hard: loadImage("images/fondo-hard.jpg")
+        scene_start: loadImage("images/stage/fondo-easyStart.jpg"),
+        scene_easy: loadImage("images/stage/fondo-easy.jpg"),
+        scene_easyToMid: loadImage("images/stage/fondo-easyToMid.jpg"),
+        scene_mid: loadImage("images/stage/fondo-mid.jpg"),
+        scene_midToHard: loadImage("images/stage/fondo-midToHard.jpg"),
+        scene_hard: loadImage("images/stage/fondo-hard.jpg")
     };
     sounds={
         cut: loadAudio("sounds/cut.ogg"),
@@ -134,6 +135,10 @@ function boot() {
 function loadImage(src_) {
     let img = new Image();
     img.addEventListener("load", resourceLoaded);
+    img.addEventListener("error", function ()
+    {
+        console.log("COULD NOT LOAD IMAGE");
+    });
     img.src = src_;
     return img;
 }
@@ -143,11 +148,17 @@ function loadAudio(src_){
     audio.addEventListener("canplaythrough", function () {
         resourceLoaded();
     }, false);
+    audio.addEventListener("error", function ()
+    {
+        console.log("COULD NOT LOAD AUDIO");
+    });
+    audio.load();
     return audio;
 }
 
 function resourceLoaded(){
     game.loadingProgress.innerHTML = ++resourcesLoaded+endLoadingProgress;
+    //console.log("r: "+resourcesLoaded);
     if(resourcesLoaded == totalResources){
         $("#clickText").css( "visibility", "visible" );
         $(document).click(function(){

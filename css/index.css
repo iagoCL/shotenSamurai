@@ -1,40 +1,7 @@
-#mainGame {
-    padding: 0;
-    margin: 0 auto;
-    display: none;
-}
-
 html {
   height: 100vh;
   width: 100vw;
 }
-
-#loadingGame{
-    text-align: center;    
-}
-
-#loadingGame>h1{
-    font-size: 7em;
-}
-#loadingProgress{
-    font-size: 3em;
-}
-#clickText{
-    font-size: 1.5em;
-    visibility: hidden;
-}
-
-.outer {
-    display: table;
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-  }
-  
-  .middle {
-    display: table-cell;
-    vertical-align: middle;
-  }
 
 body {
     background-image: url("../images/fondo-menu.png");
@@ -46,3 +13,100 @@ body {
     max-height: 98.5vh;
 	overflow: hidden;
 }
+
+.scrollButton-max,.scrollButton-min {
+    display: block;
+    background-image: url("../images/btm-left.png"),url("../images/btm-mid.png"),url("../images/btm-right.png");
+    background-repeat: no-repeat;
+    background-size: 15% 100%, 70% 100%, 15% 100%;
+    background-position-x: 0%, 50%, 100%;
+    text-decoration: none;
+}
+.scrollButton-max{
+    height: 20vh;
+    width: 60vw;
+    margin: 2vh auto;
+}
+.scrollButton-min{
+    height: 12vh;
+    width: 25vw;
+    margin: 2vh 0;
+}
+.scrollButton-max:hover, .scrollButton-min:hover {
+    display: block;
+    background-image: url("../images/btm-left-hover.png"),url("../images/btm-mid-hover.png"),url("../images/btm-right-hover.png");
+    color: #e3e6e6;
+}
+.scrollButton-max:hover{
+    height: 22vh;
+    width: 62vw;
+    margin: 1vh auto;
+}
+.scrollButton-min:hover{
+    height: 13vh;
+    width: 26vw;
+    margin: 1vh 0;
+}
+a:link,a:visited,a:active{
+    color:white;
+}
+@font-face {
+    font-family: "Silkscreen";
+    src: url("slkscr.ttf");
+  }
+
+
+.scrollButton-min>p,.scrollButton-max>p{
+    text-anchor: middle;
+    text-align: center;
+    text-orientation: middle;
+    font-family: "Silkscreen";
+}
+.scrollButton-max>p{
+    padding: 7vh 15%;
+    font-size: 2.5em;
+}
+.scrollButton-min>p{
+    padding: 5vh 15%;
+    font-size: 1.5em;
+}
+
+header{
+    height: 10vh;
+    width: 85vw;
+    background-color: #9e7342;
+    margin: 3vh auto;
+    font-family: "Silkscreen";
+    text-align: center;
+    font-size: 5em; 
+}
+@media (max-aspect-ratio: 1/3) {
+    header{
+        font-size: 2em; 
+    }
+}
+
+@media (max-aspect-ratio: 85/100)and ( min-aspect-ratio: 1/3) {
+    header{
+        font-size:  6em; 
+    }
+}
+
+@media (max-aspect-ratio: 1/1)and ( min-aspect-ratio: 85/100) {
+    header{
+        font-size:  4em; 
+    }
+}
+
+section{
+    height: 58vh;
+    width: 81vw;
+    background-color: #9e7342;
+    margin: 2vh auto;
+    font-family: "Silkscreen";
+    padding-top: 8vh;
+    padding-left: 4vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+

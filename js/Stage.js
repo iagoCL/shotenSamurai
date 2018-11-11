@@ -1,9 +1,10 @@
 /*exported Stage */
 class Stage {
-    constructor(ctx_, img_) {
+    constructor(ctx_, imgStart_, imgLevel_) {
         this.relativePosY = 1;
-        this.vel = 0.01;
-        this.img = this.img2 = this.img3 = this.img4 =img_;
+        this.vel = 0.008;
+        this.img = imgStart_;
+        this.img2 = this.img3 = this.img4 =imgLevel_;
         this.ctx = ctx_;
     }
     resize(width_, height_) {

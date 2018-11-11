@@ -26,7 +26,7 @@ class MainGame {
         this.actualCutImage = images.obstacle_cut_easy;
         this.actualHitImage = images.obstacle_hit_easy;
         this.actualCutImageDeath = images.obstacle_hit_easy;
-        this.stage = new Stage(this.ctx, images.scene_easy);
+        this.stage = new Stage(this.ctx, images.scene_start, images.scene_easy);
         this.character = new Character(this.ctx, this.nextLevel.bind(this), animations.character_walk_izq,animations.character_jumping_izq,animations.character_land_izq,animations.character_walk_der,animations.character_jumping_der,animations.character_land_der,animations.character_air_izq,animations.character_air_der,animations.character_death,sounds.jump,sounds.death);
         this.arrayObjects = [];
     }
@@ -41,7 +41,7 @@ class MainGame {
     }
     
     updateGameLogic(){
-	//let logicStart = (new Date()).getMilliseconds();//Debug performance
+        //let logicStart = (new Date()).getMilliseconds();//Debug performance
         this.stage.update();
         this.character.update();
         this.arrayObjects.forEach(function(element) {
@@ -49,10 +49,10 @@ class MainGame {
         });
         //todo: Generar nuevos hitObject
 
-	/**Debug performance*
-	let oldLogic = this.lastLogic
-	this.lastLogic = (new Date()).getMilliseconds();
-	console.log("lastLogic: "+this.lastLogic+ " logicIterval: "+(this.lastLogic-oldLogic)+" logicDuration: "+(this.lastLogic-logicStart));//*/
+        /**Debug performance*
+    	let oldLogic = this.lastLogic
+    	this.lastLogic = (new Date()).getMilliseconds();
+	    console.log("lastLogic: "+this.lastLogic+ " logicIterval: "+(this.lastLogic-oldLogic)+" logicDuration: "+(this.lastLogic-logicStart));//*/
     }
 
     nextLevel(actualPoints_){
@@ -78,16 +78,16 @@ class MainGame {
     }
     
     repaint(){
-	//let paintStart = (new Date()).getMilliseconds();//Debug performance
+        //let paintStart = (new Date()).getMilliseconds();//Debug performance
         this.stage.repaint();
         this.character.repaint();
         this.arrayObjects.forEach(function(element) {
             element.repaint();
         });
-	/**Debug performance*
-	let oldPaint = this.lastPaint;
-	this.lastPaint = (new Date()).getMilliseconds();
-	console.log("lastPaint: "+this.lastPaint+ " paintIterval: "+(this.lastPaint-oldPaint)+" paintDuration: "+(this.lastPaint-paintStart));//*/
+        /**Debug performance*
+    	let oldPaint = this.lastPaint;
+    	this.lastPaint = (new Date()).getMilliseconds();
+    	console.log("lastPaint: "+this.lastPaint+ " paintIterval: "+(this.lastPaint-oldPaint)+" paintDuration: "+(this.lastPaint-paintStart));//*/
     }
     resizeCanvas( ) {
         this.canvasWidth = 0.985*window.innerWidth;

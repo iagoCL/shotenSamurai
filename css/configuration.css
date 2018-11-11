@@ -1,0 +1,97 @@
+
+.pregunta{
+  height: 6vh;
+  width: 81vw;
+  margin: 7vh 0;
+}
+.pregunta>label{
+  width: 50%;
+}
+label {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.onoffswitch {
+  display: inline-block;
+  position: relative;
+  width: 111px;
+  user-select: none;
+}
+
+.onoffswitch-checkbox {
+  display: none;
+}
+
+.onoffswitch-label {
+  display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #E3E3E3;
+  border-radius: 36px;
+}
+
+.onoffswitch-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 36px;
+  padding: 0;
+  line-height: 36px;
+  font-size: 16px;
+  color: white;
+  font-family: Trebuchet, Arial, sans-serif;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.onoffswitch-inner:before {
+  padding-left: 10px;
+  background-color: #64C263;
+  color: #FFFFFF;
+}
+
+.music:before {
+  content: "Music";
+}
+
+.sound:before {
+  content: "Sound";
+}
+
+.onoffswitch-inner:after {
+  content: "Silence";
+  padding-right: 10px;
+  background-color: #FFFFFF;
+  color: #666666;
+  text-align: right;
+}
+
+.onoffswitch-switch {
+  display: block;
+  width: 35px;
+  margin: 0.5px;
+  background: #FFFFFF;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 71px;
+  border: 2px solid #E3E3E3;
+  border-radius: 36px;
+  transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
+  right: 0px;
+}
