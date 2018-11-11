@@ -102,11 +102,13 @@ class MainGame {
         let canvasHeightB = this.canvasWidth*this.aspectRatio;
         if(this.canvasWidth>canvasWidthB)
         {
-            this.canvasWidth=canvasWidthB;
+            this.canvasWidth=Math.floor(canvasWidthB);
+            this.canvasHeight=Math.floor(this.canvasHeight);
         }
         else 
         {
-            this.canvasHeight=canvasHeightB;
+            this.canvasHeight=Math.floor(canvasHeightB);
+            this.canvasWidth=Math.floor(this.canvasWidth);
         }
         this.canvas.width = this.canvasWidth;
         this.canvas.height = this.canvasHeight;
