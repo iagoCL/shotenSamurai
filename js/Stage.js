@@ -20,7 +20,7 @@ class Stage {
         let dy = this.relativePosY * this.height;
         let dy2 = this.height - dy;
         let sHeight2 = this.img.height - sHeight;
-        this.ctx.drawImage(this.img2, 0, sHeight, this.img2.width, sHeight2, 0, 0, this.width, dy2);
+        this.ctx.drawImage(this.img2, 0, sHeight, this.img2.width, sHeight2, 0, 0, this.width, dy2);     
         this.ctx.drawImage(this.img, 0, 0, this.img.width, sHeight, 0, dy2, this.width, dy);
     }
     update() {

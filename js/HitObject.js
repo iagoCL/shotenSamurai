@@ -1,34 +1,31 @@
 class HitObject {
-    constructor(ctx_, relativePosY_, relativePosX_, game_, objectSprite_, objectSpriteCut_, character_, isBreakable_, celerity_) {
+    constructor(ctx_, relativePosY_, relativePosX_, game_, objectSprite_, 
+        objectSpriteCut_, character_, isBreakable_, celerity_) {
         //todo: type wall, cut or normal
-        this.relativeWidth = 0.3;
+        this.relativeWidth = 0.2;
         this.aspectRatio = 0.9;
-
-        this.relativePosY =relativePosY_;
-        this.relativePosX =relativePosX_;
-
+        this.offSetRadius=0.10; //Offset radius to calculate if an item should be created
+        
+        this.relativePosX=relativePosX_;
+        this.relativePosY=relativePosY_;
+        
         this.game = game_;//todo: use to remove destroyed Objects, and end game
         this.character = character_;//todo: use detect collision
 
         this.objectSpriteCut = objectSpriteCut_.clone();
         this.objectSprite = objectSprite_.clone();
-        this.acualAnim = this.objectSprite;
-        this.ctx = ctx_;
+        this.actualAnim = this.objectSprite;
 
-<<<<<<< HEAD
-        this.framesRestantes = this.actualAnim.repaintsPerFrame;
-        this.animFrame = 0;
-        this.acualImag = this.acualAnim.images[this.animFrame];
-
-        this.offSetRadius=0.3; //Offset radius to calculate if an item should be created
-        this.collisionRadius=0.1; //Actual collision radius, to hit the character
+        this.ctx = ctx_;    
+        this.collisionRadius=0.1; //Actual collision radius, to hit the character. Not needed?
         this.isBreakable=isBreakable_; //To know if the character is able to destroy it
-
         this.celerity=celerity_; //TODO: Waiting for physics . The speed at which the item falls
-=======
-        this.acualAnim.restart();
->>>>>>> af24106d62a4fe47eb61879ed3c1545756695ad7
+
+        this.actualAnim.restart();
     }
+ 
+    
+    
     resize(width_,height_) {
         this.width = width_*this.relativeWidth;
         this.height = this.width*this.aspectRatio;
@@ -40,6 +37,7 @@ class HitObject {
         this.actualAnim.paint(this.ctx, this.relativePosX * this.canvasWidth, this.relativePosY * this.canvasHeight, this.width, this.height);
     }
     update() {
+        this.relativePosY+=this.celerity;
         //todo: avanzar
         //todo: see collision con character
         //todo: sumar puntos/acabar partida/poner animacion destuir si procede
