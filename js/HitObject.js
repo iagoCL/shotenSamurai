@@ -1,3 +1,4 @@
+/*exported HitObject*/
 class HitObject {
     constructor(ctx_, relativePosY_, relativePosX_, game_, objectSprite_, 
         objectSpriteCut_, character_, isBreakable_, celerity_) {
@@ -38,9 +39,16 @@ class HitObject {
     }
     update() {
         this.relativePosY+=this.celerity;
-        //todo: avanzar
+        //checkCollision();
         //todo: see collision con character
         //todo: sumar puntos/acabar partida/poner animacion destuir si procede
+    }
+
+    checkCollision(){
+        if(this.objectSprite){
+            
+        }
+
     }
     collision(){
         if(this.isBreakable){

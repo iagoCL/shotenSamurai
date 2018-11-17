@@ -1,3 +1,4 @@
+/*exported PersonalAnimation */
 class PersonalAnimation {
     constructor( repaintsPerFrame_, images_){
         this.images = images_;
@@ -23,7 +24,7 @@ class PersonalAnimation {
     complexPaint(ctx, drawPosX, drawPosY, width, height){
         if(--this.framesRestantes == 0)
         {
-            if(++this.animFrame>this.num_frames){
+            if(++this.animFrame>=this.num_frames){
                 this.endAnimationFucntion();
             }
             else{
