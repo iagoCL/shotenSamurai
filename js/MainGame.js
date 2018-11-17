@@ -50,10 +50,17 @@ class MainGame {
         //let logicStart = (new Date()).getMilliseconds();//Debug performance
         this.stage.update();
         this.character.update();
+        let index;
         this.arrayObjects.forEach(function(element) {
+            if(element.relativePosY>=1){
+                index=this.arrayObjects.indexOf(element);
+            }
             element.update();
             
-        });
+        }.bind(this));
+        if(index>-1){
+            this.arrayObjects.splice(index,1);
+        }
         //todo: Generar nuevos hitObject
 
         /**Debug performance*
