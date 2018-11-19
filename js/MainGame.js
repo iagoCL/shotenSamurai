@@ -55,7 +55,7 @@ class MainGame {
         let index;
         this.arrayObjects.forEach(function(element) {
             //To delete items that are not on the screen
-            if(element.relativePosY>=1 || element.destroyed){
+            if(element.relativePosY>=1 || element.isDestroyed){
                 index=this.arrayObjects.indexOf(element);
             }
             element.update();

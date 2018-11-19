@@ -6,7 +6,8 @@ class HitObject {
         this.relativeWidth = 0.2;
         this.aspectRatio = 0.9;
         this.offSetRadius=0.10; //Offset radius to calculate if an item should be created
-        
+        this.isDestroyed=false;
+
         this.relativePosX=relativePosX_;
         this.relativePosY=relativePosY_;
         
@@ -39,17 +40,33 @@ class HitObject {
     }
     update() {
         this.relativePosY+=this.celerity;
-       // checkCollision();
+        this.checkCollision();
         //todo: see collision con character
         //todo: sumar puntos/acabar partida/poner animacion destuir si procede
     }
 
+    checkCollision(){
+        let oxPos=this.relativePosX*this.canvasWidth;
+        let cxPos=this.character.relativePosX*this.canvasWidth;
+        let oyPos=this.relativePosY*this.canvasHeight;
+        let cyPos=this.character.relativePosY*this.canvasHeight;
+
+        if(oxPos < cxPos + this.character.width && oxPos + this.width > cxPos &&
+           oyPos < cyPos + this.character.height && oyPos + this.height > cyPos){
+               this.collision();
+           }
+
+        
+ }
+
     collision(){
         if(this.isBreakable){
-            
-            //Destroy object, add points
+            this.isDestroyed=true;
+            //points ++; combo+1;
+
         }else{
-            //Kill player, end game
+            this.character.kill();
         }
     }
+
 }
