@@ -3,7 +3,7 @@
 var images;
 var animations;
 var sounds;
-const totalResources = 42;
+const totalResources = 50;
 var resourcesLoaded = 0;
 const endLoadingProgress = " / "+totalResources;
 
@@ -11,7 +11,7 @@ function boot() {
     updateMusicActivated();
     updateSoundActivated();
     game.loadingProgress.innerHTML = 0+endLoadingProgress;
-    const defaultRepaintsPerFrame = 12;
+    const defaultRepaintsPerFrame = 6;
     const repaintsPerJumpFrame = 3;
     images = {
         scene_start: loadImage("images/stage/fondo-easyStart.png"),
@@ -30,12 +30,16 @@ function boot() {
         music: loadAudio("sounds/music.ogg",musicActivated)
     };
 
-    //todo: when definitive sprites avoid duplicated loads.
+    //todo: avoid duplicated loads.
     animations={
         character_walk_izq: new PersonalAnimation(defaultRepaintsPerFrame,
             [
                 loadImage("images/personaje/player_walk_izq_1.png"),
-                loadImage("images/personaje/player_walk_izq_2.png")
+                loadImage("images/personaje/player_walk_izq_2.png"),
+                loadImage("images/personaje/player_walk_izq_3.png"),
+                loadImage("images/personaje/player_walk_izq_4.png"),
+                loadImage("images/personaje/player_walk_izq_5.png"),
+                loadImage("images/personaje/player_walk_izq_6.png")
             ]
         ),
         character_jumping_izq: new PersonalAnimation(repaintsPerJumpFrame,
@@ -51,7 +55,11 @@ function boot() {
         character_walk_der: new PersonalAnimation(defaultRepaintsPerFrame,
             [
                 loadImage("images/personaje/player_walk_der_1.png"),
-                loadImage("images/personaje/player_walk_der_2.png")
+                loadImage("images/personaje/player_walk_der_2.png"),
+                loadImage("images/personaje/player_walk_der_3.png"),
+                loadImage("images/personaje/player_walk_der_4.png"),
+                loadImage("images/personaje/player_walk_der_5.png"),
+                loadImage("images/personaje/player_walk_der_6.png")
             ]
         ),
         character_jumping_der: new PersonalAnimation(repaintsPerJumpFrame,
@@ -132,26 +140,26 @@ function boot() {
         ),
         obstacle_cut_easy_death: new PersonalAnimation(defaultRepaintsPerFrame,
             [
-                loadImage("images/personaje/personaje3.png"),
-                loadImage("images/personaje/personaje4.png")
+                loadImage("images/obstacle.png"),
+                loadImage("images/obstacle.png")
             ]
         ),
         obstacle_cut_mid_death: new PersonalAnimation(defaultRepaintsPerFrame,
             [
-                loadImage("images/personaje/personaje3.png"),
-                loadImage("images/personaje/personaje4.png")
+                loadImage("images/obstacle.png"),
+                loadImage("images/obstacle.png")
             ]
         ),
         obstacle_cut_hard_death: new PersonalAnimation(defaultRepaintsPerFrame,
             [
-                loadImage("images/personaje/personaje3.png"),
-                loadImage("images/personaje/personaje4.png")
+                loadImage("images/obstacle.png"),
+                loadImage("images/obstacle.png")
             ]
         ),
         obstacle_cut_hell_death: new PersonalAnimation(defaultRepaintsPerFrame,
             [
-                loadImage("images/personaje/personaje3.png"),
-                loadImage("images/personaje/personaje4.png")
+                loadImage("images/obstacle.png"),
+                loadImage("images/obstacle.png")
             ]
         )
     };

@@ -106,7 +106,31 @@ class MainGame {
             }
             return false;
         }else{
-            //genDestructible
+            for(var i=0;i<10;i++){
+                posX=Number(Math.random()*(0.6-0.15)+0.15);
+                posX=posX.toFixed(3);
+                posY=0.2;
+                //El primero lo hace bien, el resto no...?
+                //Al coger la posicion de la X ?    
+                if(this.arrayObjects.length<=0){
+                    var obstacle=new HitObject(this.ctx,posY,posX,null,
+                        animations.character_death,animations.character_death,
+                        this.character,true,0.01);
+                        obstacle.resize(this.canvasWidth,this.canvasHeight);
+                        this.arrayObjects.push(obstacle);
+                       
+                        return true;
+                }else if(this.checkPosition(posX,posY,this.arrayObjects)){
+                        var obstacle=new HitObject(this.ctx,posY,posX,null,
+                        animations.character_death,animations.character_death,
+                        this.character,true,0.01);
+                        obstacle.resize(this.canvasWidth,this.canvasHeight);
+                        this.arrayObjects.push(obstacle);
+                        
+                        return true;
+                }
+            }
+            return false;
         }
 
     }

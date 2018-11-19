@@ -62,6 +62,7 @@ class HitObject {
     collision(){
         if(this.isBreakable){
             this.isDestroyed=true;
+            //alert("este");
             //points ++; combo+1;
 
         }else{
