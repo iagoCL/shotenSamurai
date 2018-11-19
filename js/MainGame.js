@@ -4,11 +4,13 @@ const dificulty = {
     EASY: 0,
     MEDIUM: 1,
     HARD: 2,
+    HELL: 3,
 };
 
 const levelPoints = {
-    MEDIUM: 20,
-    HARD: 80,
+    MEDIUM: 80,
+    HARD: 180,
+    HELL: 450,
 };
 
 class MainGame {
@@ -72,6 +74,13 @@ class MainGame {
             this.actualHitImage = images.obstacle_hit_hard;
             this.actualCutImageDeath = images.obstacle_hit_hard;
             this.stage.changeImg(images.scene_midToHard,images.scene_hard);
+        }
+        else if(this.actualLevel == dificulty.HARD && actualPoints_>levelPoints.HELL){
+            this.actualLevel = dificulty.HELL;
+            this.actualCutImage = images.obstacle_cut_hell;
+            this.actualHitImage = images.obstacle_hit_hell;
+            this.actualCutImageDeath = images.obstacle_hit_hell;
+            this.stage.changeImg(images.scene_hardToHell,images.scene_hell);
         }
     }
     
