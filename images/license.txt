@@ -1,2 +1,1 @@
 provisional personaje/personaje_* animations are from Kenney Vleugels (Kenney.nl) and are licensed under CC0 http://creativecommons.org/publicdomain/zero/1.0/
-provisional fondo-easy, fondo-hard, fondo-mid, obstacle, personaje/personaje1, personaje/personaje2, personaje/personaje3, personaje/personaje4, are licensed under CC0 http://creativecommons.org/publicdomain/zero/1.0/

@@ -3,7 +3,7 @@
 var images;
 var animations;
 var sounds;
-const totalResources = 36;
+const totalResources = 42;
 var resourcesLoaded = 0;
 const endLoadingProgress = " / "+totalResources;
 
@@ -14,12 +14,14 @@ function boot() {
     const defaultRepaintsPerFrame = 12;
     const repaintsPerJumpFrame = 3;
     images = {
-        scene_start: loadImage("images/stage/fondo-easyStart.jpg"),
-        scene_easy: loadImage("images/stage/fondo-easy.jpg"),
-        scene_easyToMid: loadImage("images/stage/fondo-easyToMid.jpg"),
-        scene_mid: loadImage("images/stage/fondo-mid.jpg"),
-        scene_midToHard: loadImage("images/stage/fondo-midToHard.jpg"),
-        scene_hard: loadImage("images/stage/fondo-hard.jpg")
+        scene_start: loadImage("images/stage/fondo-easyStart.png"),
+        scene_easy: loadImage("images/stage/fondo-easy.png"),
+        scene_easyToMid: loadImage("images/stage/fondo-easyToMid.png"),
+        scene_mid: loadImage("images/stage/fondo-mid.png"),
+        scene_midToHard: loadImage("images/stage/fondo-midToHard.png"),
+        scene_hard: loadImage("images/stage/fondo-hard.png"),
+        scene_hardToHell: loadImage("images/stage/fondo-hardToHell.png"),
+        scene_hell: loadImage("images/stage/fondo-hell.png")
     };
     sounds={
         cut: loadAudio("sounds/cut.ogg",soundActivated),
@@ -103,6 +105,11 @@ function boot() {
                 loadImage("images/obstacle.png")
             ]
         ),
+        obstacle_hit_hell: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
+                loadImage("images/obstacle.png")
+            ]
+        ),
         obstacle_cut_easy: new PersonalAnimation(defaultRepaintsPerFrame,
             [
                 loadImage("images/obstacle.png")
@@ -114,6 +121,11 @@ function boot() {
             ]
         ),
         obstacle_cut_hard: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
+                loadImage("images/obstacle.png")
+            ]
+        ),
+        obstacle_cut_hell: new PersonalAnimation(defaultRepaintsPerFrame,
             [
                 loadImage("images/obstacle.png")
             ]
@@ -131,6 +143,12 @@ function boot() {
             ]
         ),
         obstacle_cut_hard_death: new PersonalAnimation(defaultRepaintsPerFrame,
+            [
+                loadImage("images/personaje/personaje3.png"),
+                loadImage("images/personaje/personaje4.png")
+            ]
+        ),
+        obstacle_cut_hell_death: new PersonalAnimation(defaultRepaintsPerFrame,
             [
                 loadImage("images/personaje/personaje3.png"),
                 loadImage("images/personaje/personaje4.png")
