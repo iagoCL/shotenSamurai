@@ -7,16 +7,16 @@ class Character {
         this.relativePosYMaximo = 0.12;
         this.relativePosY = 0.62;
 
-        this.relativePosXIzq = this.relativePosX = 0.25;
-        this.relativePosXDer = 0.66;
+        this.relativePosXIzq = this.relativePosX = 0.24;
+        this.relativePosXDer = 0.64;
 
         this.relativeCelerityX = 0.015;
         this.relativeCelerityYJump = -0.003;
         this.relativeCelerityY = 0.0009;
         this.deathCelerity = 1.5*this.relativeCelerityY;
 
-        this.relativeWidth = 0.09;
-        this.aspectRatio = 0.9;
+        this.relativeWidth = 0.15;
+        this.aspectRatio = 1.0;
 
         this.points = 0;
         this.character_walk_izq = character_walk_izq;

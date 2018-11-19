@@ -1,12 +1,14 @@
 #mainGame {
     padding: 0;
-    margin: 0 auto;
+    margin: 0 auto 1vh auto;
     display: none;
 }
 
 html {
   height: 100vh;
   width: 100vw;
+  padding: 0;
+  margin: 0;
 }
 
 #loadingGame{
@@ -39,12 +41,13 @@ html {
 body {
     background-image: url("../images/fondo-menu.png");
     background-size: 103vw 103vh;
-    background-color: #9e7342;
-    min-width: 98.5vw;
-    min-height: 98.5vh;
-	max-width: 98.5vw;
-    max-height: 98.5vh;
-	overflow: hidden;
+    min-width: 100vw;
+    min-height: 100vh;
+	max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
 }
 @media (max-aspect-ratio: 85/100)and ( min-aspect-ratio: 1/3) {
     #loadingGame>h1{
