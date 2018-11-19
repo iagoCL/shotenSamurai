@@ -37,26 +37,12 @@ class HitObject {
     repaint() {
         this.actualAnim.paint(this.ctx, this.relativePosX * this.canvasWidth, this.relativePosY * this.canvasHeight, this.width, this.height);
     }
-
-    
     update() {
         this.relativePosY+=this.celerity;
-        this.checkCollision();
+       // checkCollision();
         //todo: see collision con character
         //todo: sumar puntos/acabar partida/poner animacion destuir si procede
     }
-
-    checkCollision(){
-        let sum=((this.width/2) + (this.width*0.05)) + (this.character.width/2);
-        let x=this.relativePosX - this.character.relativePosX;
-        let y=this.relativePosY- this.character.relativePosY;
-        let sol=Math.sqrt((x*x)+(y*y));
-         if(sum>sol){
-             
-         }else{
-             alert("me toco");
-         }
- }
 
     collision(){
         if(this.isBreakable){
@@ -66,5 +52,4 @@ class HitObject {
             //Kill player, end game
         }
     }
-
 }
