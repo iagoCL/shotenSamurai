@@ -1,8 +1,7 @@
 /*exported Character */
 /*global checkSoundAndPlay game*/
 class Character {
-    constructor(ctx_, character_walk_izq, character_jumping_izq, character_land_izq,character_walk_der,character_jumping_der,character_land_der,character_air_izq,character_air_der, character_death,character_death_fall,jump_sound,death_sound) {
-        
+    constructor(ctx_, character_walk_izq, character_jumping_izq, character_land_izq,character_walk_der, character_jumping_der, character_land_der, character_air_izq, character_air_der, character_death, character_death_fall, jump_sound, death_sound) {
         this.relativePosYMin = 0.92;
         this.relativePosYMaximo = 0.12;
         this.relativePosY = 0.62;
@@ -13,13 +12,13 @@ class Character {
         this.relativeCelerityX = 0.015;
         this.relativeCelerityYJump = -0.003;
         this.relativeCelerityY = 0.0009;
-        this.deathCelerity = 1.5*this.relativeCelerityY;
+        this.deathCelerity = 2.5*this.relativeCelerityY;
 
         this.relativeWidth = 0.15;
         this.aspectRatio = 1.0;
 
         this.points = 0;
-	this.pointsPerUpdate = 0.08;
+        this.pointsPerUpdate = 0.08;
 
         this.character_walk_izq = character_walk_izq;
         this.character_jumping_izq = character_jumping_izq;
@@ -90,15 +89,15 @@ class Character {
         this.ctx.fillText(" "+Math.floor(this.points),this.textPosX,this.textPosY);
     }
     basicMovement(){
-	this.sumarPuntos(this.pointsPerUpdate);
+        this.sumarPuntos(this.pointsPerUpdate);
         if(this.relativePosY>=this.relativePosYMin){
-            this.kill();
+            //this.kill();
         } else {
             this.relativePosY += this.relativeCelerityY;
         }
     }
     cambiandoLadoIzq(){
-	this.sumarPuntos(this.pointsPerUpdate);
+        this.sumarPuntos(this.pointsPerUpdate);
         if(this.relativePosX<this.relativePosXDer){
             this.relativePosY += this.relativeCelerityYJump;
             this.relativePosX += this.relativeCelerityX;
@@ -117,7 +116,7 @@ class Character {
         }
     }
     cambiandoLadoDer(){
-	this.sumarPuntos(this.pointsPerUpdate);
+        this.sumarPuntos(this.pointsPerUpdate);
         if(this.relativePosX>this.relativePosXIzq){
             this.relativePosY += this.relativeCelerityYJump;
             this.relativePosX -= this.relativeCelerityX;
@@ -154,7 +153,7 @@ class Character {
     kill(){
         checkSoundAndPlay(this.death_sound);
         this.cambiandoLado = true;
-	this.chosedMovement = this.dying;
+        this.chosedMovement = this.dying;
         this.character_death.restartAndDo(function(){
             this.character_death_fall.restart();
             this.actualAnim = this.character_death_fall;

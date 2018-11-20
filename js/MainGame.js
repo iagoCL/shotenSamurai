@@ -1,4 +1,4 @@
-/*global Stage Character animations images sounds musicActivated*/
+/*global Stage Character animations images sounds musicActivated HitObject*/
 /*exported MainGame*/
 const dificulty = {
     EASY: 0,
@@ -22,14 +22,13 @@ class MainGame {
         this.canvas = document.getElementById("mainGame");
         this.loadingProgress = document.getElementById("loadingProgress");
         this.ctx = this.canvas.getContext("2d");
-      //  this.arrayObjects;
+        //  this.arrayObjects;
     }
 
     startLogic(){
         this.actualLevel = dificulty.EASY;
-        this.actualCutImage = images.obstacle_cut_easy;
-        this.actualHitImage = images.obstacle_hit_easy;
-        this.actualCutImageDeath = images.obstacle_hit_easy;
+        this.actualWallLeftObstacle = animations.obstacle_wall_right.easy;
+        this.actualWallRightObstacle = animations.obstacle_wall_left.easy;
         this.stage = new Stage(this.ctx, images.scene_start, images.scene_easy);
         this.character = new Character(this.ctx, animations.character_walk_izq,animations.character_jumping_izq,animations.character_land_izq,animations.character_walk_der,animations.character_jumping_der,animations.character_land_der,animations.character_air_izq,animations.character_air_der,animations.character_death,animations.character_death_fall,sounds.jump,sounds.death);
         this.arrayObjects = [];
@@ -52,18 +51,16 @@ class MainGame {
         //let logicStart = (new Date()).getMilliseconds();//Debug performance
         this.stage.update();
         this.character.update();
-        let index;
         this.arrayObjects.forEach(function(element) {
             //To delete items that are not on the screen
-            if(element.relativePosY>=1 || element.isDestroyed){
-                index=this.arrayObjects.indexOf(element);
+            if( element.relativePosY>=1 ){
+                this.arrayObjects.splice(this.arrayObjects.indexOf(element),1);
             }
-            element.update();
-            
+            else
+            {
+                element.update();
+            }            
         }.bind(this));
-        if(index>-1){
-            this.arrayObjects.splice(index,1);
-        }
         //todo: Generar nuevos hitObject
 
         /**Debug performance*
@@ -76,103 +73,77 @@ class MainGame {
     genObstacle(){
         let probabilityOfItem=Math.floor(Math.random() * (101 - 0)) + 0;
         let posX;
-        let posY;
+        let posY=0.05;
 
         if(probabilityOfItem>=20){
             // Does 10 tries to generate objects
             for(var i=0;i<10;i++){
                 posX=Number(Math.random()*(0.6-0.15)+0.15);
                 posX=posX.toFixed(3);
-                posY=0.2;
                 //El primero lo hace bien, el resto no...?
                 //Al coger la posicion de la X ?    
-                if(this.arrayObjects.length<=0){
-                    var obstacle=new HitObject(this.ctx,posY,posX,
-                        animations.obstacle_wall,animations.character_death,
-                        this.character,false,0.01);
-                        obstacle.resize(this.canvasWidth,this.canvasHeight);
-                        this.arrayObjects.push(obstacle);
-                       
-                        return true;
-                }else if(this.checkPosition(posX,posY,this.arrayObjects)){
-                        var obstacle=new HitObject(this.ctx,posY,posX,
-                        animations.obstacle_wall,animations.character_death,
-                        this.character,false,0.01);
-                        obstacle.resize(this.canvasWidth,this.canvasHeight);
-                        this.arrayObjects.push(obstacle);
-                        
-                        return true;
+                if(this.arrayObjects.length<=0 || this.checkPosition(posX,posY,this.arrayObjects)){
+                    let animationChosed = animations.obstacle_objects[Math.floor(Math.random() * animations.obstacle_objects.length)];
+                    let obstacle=new HitObject(this.ctx,posY,posX,
+                        animationChosed.normal, animationChosed.destroy,
+                        animationChosed.destroyed, this.character,false,0.01);
+                    obstacle.resize(this.canvasWidth,this.canvasHeight);
+                    this.arrayObjects.push(obstacle);
+                    return true;
                 }
             }
             return false;
         }else{
-            for(var i=0;i<10;i++){
+            for(let i=0; i<10; i++){
                 posX=Number(Math.random()*(0.6-0.15)+0.15);
                 posX=posX.toFixed(3);
-                posY=0.2;
                 //El primero lo hace bien, el resto no...?
                 //Al coger la posicion de la X ?    
-                if(this.arrayObjects.length<=0){
-                    var obstacle=new HitObject(this.ctx,posY,posX,
-                        animations.character_death,animations.obstacle_wall,
-                        this.character,true,0.01);
-                        obstacle.resize(this.canvasWidth,this.canvasHeight);
-                        this.arrayObjects.push(obstacle);
-                       
-                        return true;
-                }else if(this.checkPosition(posX,posY,this.arrayObjects)){
-                        var obstacle=new HitObject(this.ctx,posY,posX,
-                        animations.character_death,animations.obstacle_wall,
-                        this.character,true,0.01);
-                        obstacle.resize(this.canvasWidth,this.canvasHeight);
-                        this.arrayObjects.push(obstacle);
-                        
-                        return true;
+                if(this.arrayObjects.length<=0 || this.checkPosition(posX,posY,this.arrayObjects)){
+                    let animationChosed = animations.cut_objects[Math.floor(Math.random() * animations.cut_objects.length)];
+                    let obstacle=new HitObject(this.ctx,posY,posX,
+                        animationChosed.normal, animationChosed.destroy,
+                        animationChosed.destroyed, this.character,true,0.01);
+                    obstacle.resize(this.canvasWidth,this.canvasHeight);
+                    this.arrayObjects.push(obstacle);
+                    return true;
                 }
             }
             return false;
         }
-
     }
     
     //Needed to check offsets of new items
     checkPosition(relativePosX_,relativePosY_,objectList_){
-        let sol; // Needed to calculate offset position
-        let sum; //Need to calculate offset position
-        let x;
-        let y;
         for(var i=0;i<objectList_.length;i++){
-            sum=objectList_[i].offSetRadius*2;
-            x=relativePosX_ - objectList_[i].relativePosX;
-            y=relativePosY_ - objectList_[i].relativePosY;
-            sol=Math.sqrt((x*x)+(y*y));
+            let sum=objectList_[i].offSetRadius*2;//Need to calculate offset position
+            let x=relativePosX_ - objectList_[i].relativePosX;
+            let y=relativePosY_ - objectList_[i].relativePosY;
+            let sol=Math.sqrt((x*x)+(y*y));// Needed to calculate offset position
             if(sum>sol){
                 return false;
             }
-         }
-         return true;
         }
+        return true;
+    }
 
     nextLevel(actualPoints_){
         if(this.actualLevel == dificulty.EASY && actualPoints_>levelPoints.MEDIUM){
             this.actualLevel = dificulty.MEDIUM;
-            this.actualCutImage = images.obstacle_cut_mid;
-            this.actualHitImage = images.obstacle_hit_mid;
-            this.actualCutImageDeath = images.obstacle_hit_mid;
+            this.actualWallLeftObstacle = animations.obstacle_wall_right.medium;
+            this.actualWallRightObstacle = animations.obstacle_wall_left.medium;
             this.stage.changeImg(images.scene_easyToMid,images.scene_mid);
         }
         else if(this.actualLevel == dificulty.MEDIUM && actualPoints_>levelPoints.HARD){
             this.actualLevel = dificulty.HARD;
-            this.actualCutImage = images.obstacle_cut_hard;
-            this.actualHitImage = images.obstacle_hit_hard;
-            this.actualCutImageDeath = images.obstacle_hit_hard;
+            this.actualWallLeftObstacle = animations.obstacle_wall_right.hard;
+            this.actualWallRightObstacle = animations.obstacle_wall_left.hard;
             this.stage.changeImg(images.scene_midToHard,images.scene_hard);
         }
         else if(this.actualLevel == dificulty.HARD && actualPoints_>levelPoints.HELL){
             this.actualLevel = dificulty.HELL;
-            this.actualCutImage = images.obstacle_cut_hell;
-            this.actualHitImage = images.obstacle_hit_hell;
-            this.actualCutImageDeath = images.obstacle_hit_hell;
+            this.actualWallLeftObstacle = animations.obstacle_wall_right.hell;
+            this.actualWallRightObstacle = animations.obstacle_wall_left.hell;
             this.stage.changeImg(images.scene_hardToHell,images.scene_hell);
         }
     }
@@ -183,7 +154,6 @@ class MainGame {
         clearInterval(this.obstacleInterval);
         sessionStorage.setItem("ultimaPuntuacion",this.character.points);
         location.href = "gameOver.html";
-
     }
     
     repaint(){
@@ -218,7 +188,6 @@ class MainGame {
         this.stage.resize(this.canvasWidth,this.canvasHeight);
         this.character.resize(this.canvasWidth,this.canvasHeight);
         this.arrayObjects.forEach(function(element) {
-            console.log("hola");
             element.resize(this.canvasWidth,this.canvasHeight);
         }.bind(this));
         //console.log("resize to w: "+canvas.width + " h: "+canvas.height);
