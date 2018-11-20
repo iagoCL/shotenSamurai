@@ -6,15 +6,15 @@ class Character {
         this.relativePosYMaximo = 0.12;
         this.relativePosY = 0.62;
 
-        this.relativePosXIzq = this.relativePosX = 0.24;
-        this.relativePosXDer = 0.64;
+        this.relativePosXIzq = this.relativePosX = 0.26;
+        this.relativePosXDer = 0.62;
 
         this.relativeCelerityX = 0.015;
         this.relativeCelerityYJump = -0.003;
         this.relativeCelerityY = 0.0009;
         this.deathCelerity = 2.5*this.relativeCelerityY;
 
-        this.relativeWidth = 0.15;
+        this.relativeWidth = 0.12;
         this.aspectRatio = 1.0;
 
         this.points = 0;
@@ -91,7 +91,7 @@ class Character {
     basicMovement(){
         this.sumarPuntos(this.pointsPerUpdate);
         if(this.relativePosY>=this.relativePosYMin){
-            //this.kill();
+            this.kill();
         } else {
             this.relativePosY += this.relativeCelerityY;
         }

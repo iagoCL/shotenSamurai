@@ -13,7 +13,7 @@ function boot() {
     game.loadingProgress.innerHTML = 0 + endLoadingProgress;
     const longRepaintsPerFrame = 9;
     const defaultRepaintsPerFrame = 6;
-    const shortRepaintsPerFrame = 3;
+    const shortRepaintsPerFrame = 5;
 
     images = {
         scene_start: loadImage("images/stage/fondo-easyStart.png"),
