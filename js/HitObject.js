@@ -1,7 +1,7 @@
 /*exported HitObject*/
 class HitObject {
     constructor(ctx_, relativePosY_, relativePosX_, objectSprite_, 
-        objectSpriteCut_, character_, isBreakable_, celerity_) {
+        objectSpriteCut_, objectSpriteCutted_, character_, isBreakable_, celerity_) {
         //todo: type wall, cut or normal
         this.relativeWidth = 0.1;
         this.aspectRatio = 0.9;
@@ -15,11 +15,13 @@ class HitObject {
 
         this.objectSpriteCut = objectSpriteCut_.clone();
         this.actualAnim = this.objectSprite = objectSprite_.clone();
+        this.objectSpriteCutted = objectSpriteCutted_.clone();
 
         this.ctx = ctx_;    
         this.collisionRadius=0.1; //Actual collision radius, to hit the character. Not needed?
         this.isBreakable=isBreakable_; //To know if the character is able to destroy it
         this.celerity=celerity_; //TODO: Waiting for physics . The speed at which the item falls
+        this.destroyedCelerity = 1.8*this.celerity;
 
         this.actualAnim.restart();
     }
@@ -37,8 +39,14 @@ class HitObject {
         this.actualAnim.paint(this.ctx, this.relativePosX * this.canvasWidth, this.relativePosY * this.canvasHeight, this.width, this.height);
     }
     update() {
-        this.relativePosY+=this.celerity;
-        this.checkCollision();
+        if(this.isDestroyed){
+            this.relativePosY+=this.destroyedCelerity;
+        }
+        else{
+            this.relativePosY+=this.celerity;
+            this.checkCollision();
+        }
+
         //todo: see collision con character
         //todo: sumar puntos/acabar partida/poner animacion destuir si procede
     }
@@ -51,21 +59,23 @@ class HitObject {
 
         if(oxPos < cxPos + this.character.width && oxPos + this.width > cxPos &&
            oyPos < cyPos + this.character.height && oyPos + this.height > cyPos){
-               this.collision();
-           }
+            this.collision();
+        }
 
         
- }
-
-    collision(){
-       // this.objectSpriteCut.restartAndDo(function(){
-	    if(this.isBreakable){	    
-                this.character.sumarPuntos(20);
-            }else{
-                this.character.kill();
-            }
-        //}.bind(this));
-        this.actualAnim = this.objectSpriteCut;
     }
 
+    collision(){
+        if(this.isBreakable){
+            this.character.sumarPuntos(20);	    
+        }else{
+            this.character.kill();
+        }
+        this.objectSpriteCut.restartAndDo(function(){
+            this.isDestroyed=true;
+            this.objectSpriteCutted.restart();
+            this.actualAnim = this.objectSpriteCutted;
+        }.bind(this));
+        this.actualAnim = this.objectSpriteCut;
+    }
 }
