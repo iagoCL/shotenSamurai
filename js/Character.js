@@ -12,7 +12,7 @@ class Character {
         this.relativeCelerityX = 0.015;
         this.relativeCelerityYJump = -0.003;
         this.relativeCelerityY = 0.0009;
-        this.deathCelerity = 2.5*this.relativeCelerityY;
+        this.deathCelerity = 5.5*this.relativeCelerityY;
 
         this.relativeWidth = 0.15;
         this.aspectRatio = 1.0;

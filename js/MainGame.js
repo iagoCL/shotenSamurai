@@ -18,7 +18,8 @@ class MainGame {
         this.aspectRatio = 2.1;
         this.paintRefresh = 25;
         this.logicRefresh = 12;
-        this.obstacleRefresh=2000; //this gonna change with difficulty
+        this.obstacleRefresh=1500; //this gonna change with difficulty
+        this.lateralRefresh=1000;
         this.canvas = document.getElementById("mainGame");
         this.loadingProgress = document.getElementById("loadingProgress");
         this.ctx = this.canvas.getContext("2d");
@@ -44,7 +45,8 @@ class MainGame {
         }
         this.paintInterval = setInterval(this.repaint.bind(this), this.paintRefresh);
         this.logicInterval = setInterval(this.updateGameLogic.bind(this), this.logicRefresh);
-        this.obstacleInterval=setInterval(this.genObstacle.bind(this),this.obstacleRefresh);
+        //this.obstacleInterval = setInterval(this.genObstacle.bind(this),this.obstacleRefresh);
+        this.callGenLateralObstacle();
     }
     
     updateGameLogic(){
@@ -68,17 +70,57 @@ class MainGame {
     	this.lastLogic = (new Date()).getMilliseconds();
 	    console.log("lastLogic: "+this.lastLogic+ " logicIterval: "+(this.lastLogic-oldLogic)+" logicDuration: "+(this.lastLogic-logicStart));//*/
     }
+    //Generate lateral obstacles
+    callGenLateralObstacle(){
+        this.genLateralObstacle();
+        this.obstacleLateral = setTimeout(this.callGenLateralObstacle.bind(this),this.lateralRefresh);
+    }
+    genLateralObstacle(){
+        let probabilityOfSide=Math.floor(Math.random()*(101-0)+0);
+        let posX;
+        let posY;
+        if(probabilityOfSide>=50){
+            posX=0.8;
+            posY=0.0;
+            for(var i=0;i<10;i++){
+                if(this.arrayObjects.length<=0 || this.checkPosition(posX,posY,this.arrayObjects)){
+                    let obstacle=new HitObject(this.ctx,posY,posX,
+                        animations.character_death,animations.character_death,
+                        animations.character_death,this.character,false,0.01);
+                    obstacle.resize(this.canvasWidth,this.canvasHeight);
+                    this.arrayObjects.push(obstacle);
+                    return true;
+                }
+                return false;
+            }
 
+        }else{
+            posX=0.2;
+            posY=0.0;
+            for(var i=0;i<10;i++){
+                if(this.arrayObjects.length<=0 || this.checkPosition(posX,posY,this.arrayObjects)){
+                    let obstacle=new HitObject(this.ctx,posY,posX,
+                        animations.character_death,animations.character_death,
+                        animations.character_death,this.character,false,0.01);
+                    obstacle.resize(this.canvasWidth,this.canvasHeight);
+                    this.arrayObjects.push(obstacle);
+                    return true;
+                }
+                return false;
+            }
+        }
+
+    }
     //Generate obstacles for the character to evade or destroy
     genObstacle(){
         let probabilityOfItem=Math.floor(Math.random() * (101 - 0)) + 0;
         let posX;
-        let posY=0.05;
+        let posY=0.02;
 
-        if(probabilityOfItem>=20){
+        if(probabilityOfItem>=60){
             // Does 10 tries to generate objects
             for(var i=0;i<10;i++){
-                posX=Number(Math.random()*(0.6-0.15)+0.15);
+                posX=Number(Math.random()*(0.53-0.38)+0.38);
                 posX=posX.toFixed(3);
                 //El primero lo hace bien, el resto no...?
                 //Al coger la posicion de la X ?    
@@ -95,10 +137,8 @@ class MainGame {
             return false;
         }else{
             for(let i=0; i<10; i++){
-                posX=Number(Math.random()*(0.6-0.15)+0.15);
+                posX=Number(Math.random()*(0.53-0.38)+0.38);
                 posX=posX.toFixed(3);
-                //El primero lo hace bien, el resto no...?
-                //Al coger la posicion de la X ?    
                 if(this.arrayObjects.length<=0 || this.checkPosition(posX,posY,this.arrayObjects)){
                     let animationChosed = animations.cut_objects[Math.floor(Math.random() * animations.cut_objects.length)];
                     let obstacle=new HitObject(this.ctx,posY,posX,

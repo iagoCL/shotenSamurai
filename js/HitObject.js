@@ -57,8 +57,8 @@ class HitObject {
         let oyPos=this.relativePosY*this.canvasHeight;
         let cyPos=this.character.relativePosY*this.canvasHeight;
 
-        if(oxPos < cxPos + this.character.width && oxPos + this.width > cxPos &&
-           oyPos < cyPos + this.character.height && oyPos + this.height > cyPos){
+        if(oxPos < cxPos + this.character.width*0.5 && oxPos + this.width > cxPos &&
+           oyPos < cyPos + this.character.height*0.5 && oyPos + this.height > cyPos){
             this.collision();
         }
 
