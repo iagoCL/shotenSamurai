@@ -9,9 +9,9 @@ class Character {
         this.relativePosXIzq = this.relativePosX = 0.26;
         this.relativePosXDer = 0.62;
 
-        this.relativeCelerityX = 0.015;
-        this.relativeCelerityYJump = -0.003;
-        this.relativeCelerityY = 0.0009;
+        this.relativeCelerityX = 0.035;
+        this.relativeCelerityYJump = -0.015;
+        this.relativeCelerityY = 0.0018;
         this.deathCelerity = 2.5*this.relativeCelerityY;
 
         this.relativeWidth = 0.12;
