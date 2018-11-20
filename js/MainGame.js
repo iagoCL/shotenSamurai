@@ -87,16 +87,16 @@ class MainGame {
                 //El primero lo hace bien, el resto no...?
                 //Al coger la posicion de la X ?    
                 if(this.arrayObjects.length<=0){
-                    var obstacle=new HitObject(this.ctx,posY,posX,null,
-                        animations.obstacle_wall,animations.obstacle_wall,
+                    var obstacle=new HitObject(this.ctx,posY,posX,
+                        animations.obstacle_wall,animations.character_death,
                         this.character,false,0.01);
                         obstacle.resize(this.canvasWidth,this.canvasHeight);
                         this.arrayObjects.push(obstacle);
                        
                         return true;
                 }else if(this.checkPosition(posX,posY,this.arrayObjects)){
-                        var obstacle=new HitObject(this.ctx,posY,posX,null,
-                        animations.obstacle_wall,animations.obstacle_wall,
+                        var obstacle=new HitObject(this.ctx,posY,posX,
+                        animations.obstacle_wall,animations.character_death,
                         this.character,false,0.01);
                         obstacle.resize(this.canvasWidth,this.canvasHeight);
                         this.arrayObjects.push(obstacle);
@@ -113,16 +113,16 @@ class MainGame {
                 //El primero lo hace bien, el resto no...?
                 //Al coger la posicion de la X ?    
                 if(this.arrayObjects.length<=0){
-                    var obstacle=new HitObject(this.ctx,posY,posX,null,
-                        animations.character_death,animations.character_death,
+                    var obstacle=new HitObject(this.ctx,posY,posX,
+                        animations.character_death,animations.obstacle_wall,
                         this.character,true,0.01);
                         obstacle.resize(this.canvasWidth,this.canvasHeight);
                         this.arrayObjects.push(obstacle);
                        
                         return true;
                 }else if(this.checkPosition(posX,posY,this.arrayObjects)){
-                        var obstacle=new HitObject(this.ctx,posY,posX,null,
-                        animations.character_death,animations.character_death,
+                        var obstacle=new HitObject(this.ctx,posY,posX,
+                        animations.character_death,animations.obstacle_wall,
                         this.character,true,0.01);
                         obstacle.resize(this.canvasWidth,this.canvasHeight);
                         this.arrayObjects.push(obstacle);

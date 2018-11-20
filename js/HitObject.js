@@ -1,6 +1,6 @@
 /*exported HitObject*/
 class HitObject {
-    constructor(ctx_, relativePosY_, relativePosX_, game_, objectSprite_, 
+    constructor(ctx_, relativePosY_, relativePosX_, objectSprite_, 
         objectSpriteCut_, character_, isBreakable_, celerity_) {
         //todo: type wall, cut or normal
         this.relativeWidth = 0.2;
@@ -11,12 +11,10 @@ class HitObject {
         this.relativePosX=relativePosX_;
         this.relativePosY=relativePosY_;
         
-        this.game = game_;//todo: use to remove destroyed Objects, and end game
         this.character = character_;//todo: use detect collision
 
         this.objectSpriteCut = objectSpriteCut_.clone();
-        this.objectSprite = objectSprite_.clone();
-        this.actualAnim = this.objectSprite;
+        this.actualAnim = this.objectSprite = objectSprite_.clone();
 
         this.ctx = ctx_;    
         this.collisionRadius=0.1; //Actual collision radius, to hit the character. Not needed?
@@ -60,14 +58,17 @@ class HitObject {
  }
 
     collision(){
-        if(this.isBreakable){
-            this.isDestroyed=true;
-            //alert("este");
-            //points ++; combo+1;
-
-        }else{
-            this.character.kill();
-        }
+        console.log("collision detected.");
+        this.objectSpriteCut.restartAndDo(function(){
+	    console.log("collision end");
+	    if(this.isBreakable){	    
+                this.isDestroyed=true;
+                this.character.sumarPuntos(20);
+            }else{
+                this.character.kill();
+            }
+        }.bind(this));
+        this.actualAnim = this.objectSpriteCut;
     }
 
 }

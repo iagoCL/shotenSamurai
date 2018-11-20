@@ -138,6 +138,12 @@ section{
     .scrollButton-max{
         width: 72vw;
     }
+    .scrollButton-min:hover{
+        width: 54vw;
+    }
+    .scrollButton-max:hover{
+        width: 78vw;
+    }
     section{
         background-size: 15% 100%, 81% 100%, 10% 100%;
         padding: 8vh 12vw 7vh 14vw;

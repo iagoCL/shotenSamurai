@@ -19,6 +19,8 @@ class Character {
         this.aspectRatio = 1.0;
 
         this.points = 0;
+	this.pointsPerUpdate = 0.08;
+
         this.character_walk_izq = character_walk_izq;
         this.character_jumping_izq = character_jumping_izq;
         this.character_walk_der = character_walk_der;
@@ -88,14 +90,15 @@ class Character {
         this.ctx.fillText(" "+Math.floor(this.points),this.textPosX,this.textPosY);
     }
     basicMovement(){
+	this.sumarPuntos(this.pointsPerUpdate);
         if(this.relativePosY>=this.relativePosYMin){
-            this.chosedMovement = function(){};
             this.kill();
         } else {
             this.relativePosY += this.relativeCelerityY;
         }
     }
     cambiandoLadoIzq(){
+	this.sumarPuntos(this.pointsPerUpdate);
         if(this.relativePosX<this.relativePosXDer){
             this.relativePosY += this.relativeCelerityYJump;
             this.relativePosX += this.relativeCelerityX;
@@ -114,6 +117,7 @@ class Character {
         }
     }
     cambiandoLadoDer(){
+	this.sumarPuntos(this.pointsPerUpdate);
         if(this.relativePosX>this.relativePosXIzq){
             this.relativePosY += this.relativeCelerityYJump;
             this.relativePosX -= this.relativeCelerityX;
@@ -132,7 +136,6 @@ class Character {
         }
     }
     update() {
-        this.sumarPuntos(0.08);
         //console.log("x: "+this.relativePosX+" y: "+this.relativePosY+" b: "+this.estaIZQ);
         this.chosedMovement();
     }
@@ -151,10 +154,10 @@ class Character {
     kill(){
         checkSoundAndPlay(this.death_sound);
         this.cambiandoLado = true;
+	this.chosedMovement = this.dying;
         this.character_death.restartAndDo(function(){
             this.character_death_fall.restart();
             this.actualAnim = this.character_death_fall;
-            this.chosedMovement = this.dying;
             this.update();
         }.bind(this));
         this.actualAnim= this.character_death; 
