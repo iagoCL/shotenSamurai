@@ -45,7 +45,7 @@ class MainGame {
         }
         this.paintInterval = setInterval(this.repaint.bind(this), this.paintRefresh);
         this.logicInterval = setInterval(this.updateGameLogic.bind(this), this.logicRefresh);
-        //this.obstacleInterval = setInterval(this.genObstacle.bind(this),this.obstacleRefresh);
+        this.obstacleInterval = setInterval(this.genObstacle.bind(this),this.obstacleRefresh);
         this.callGenLateralObstacle();
     }
     
@@ -75,18 +75,19 @@ class MainGame {
         this.genLateralObstacle();
         this.obstacleLateral = setTimeout(this.callGenLateralObstacle.bind(this),this.lateralRefresh);
     }
+
     genLateralObstacle(){
         let probabilityOfSide=Math.floor(Math.random()*(101-0)+0);
         let posX;
         let posY;
         if(probabilityOfSide>=50){
-            posX=0.8;
+            posX=0.68;
             posY=0.0;
             for(var i=0;i<10;i++){
                 if(this.arrayObjects.length<=0 || this.checkPosition(posX,posY,this.arrayObjects)){
                     let obstacle=new HitObject(this.ctx,posY,posX,
                         animations.character_death,animations.character_death,
-                        animations.character_death,this.character,false,0.01);
+                        animations.character_death,this.character,false,0.008);
                     obstacle.resize(this.canvasWidth,this.canvasHeight);
                     this.arrayObjects.push(obstacle);
                     return true;
@@ -95,13 +96,13 @@ class MainGame {
             }
 
         }else{
-            posX=0.2;
+            posX=0.23;
             posY=0.0;
             for(var i=0;i<10;i++){
                 if(this.arrayObjects.length<=0 || this.checkPosition(posX,posY,this.arrayObjects)){
                     let obstacle=new HitObject(this.ctx,posY,posX,
                         animations.character_death,animations.character_death,
-                        animations.character_death,this.character,false,0.01);
+                        animations.character_death,this.character,false,0.008);
                     obstacle.resize(this.canvasWidth,this.canvasHeight);
                     this.arrayObjects.push(obstacle);
                     return true;
