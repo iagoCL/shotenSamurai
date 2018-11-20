@@ -3,9 +3,9 @@ class HitObject {
     constructor(ctx_, relativePosY_, relativePosX_, objectSprite_, 
         objectSpriteCut_, character_, isBreakable_, celerity_) {
         //todo: type wall, cut or normal
-        this.relativeWidth = 0.2;
+        this.relativeWidth = 0.1;
         this.aspectRatio = 0.9;
-        this.offSetRadius=0.10; //Offset radius to calculate if an item should be created
+        this.offSetRadius=0.07; //Offset radius to calculate if an item should be created
         this.isDestroyed=false;
 
         this.relativePosX=relativePosX_;
@@ -58,16 +58,13 @@ class HitObject {
  }
 
     collision(){
-        console.log("collision detected.");
-        this.objectSpriteCut.restartAndDo(function(){
-	    console.log("collision end");
+       // this.objectSpriteCut.restartAndDo(function(){
 	    if(this.isBreakable){	    
-                this.isDestroyed=true;
                 this.character.sumarPuntos(20);
             }else{
                 this.character.kill();
             }
-        }.bind(this));
+        //}.bind(this));
         this.actualAnim = this.objectSpriteCut;
     }
 

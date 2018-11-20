@@ -107,11 +107,9 @@ class MainGame {
             return false;
         }else{
             for(var i=0;i<10;i++){
-                posX=Number(Math.random()*(0.6-0.15)+0.15);
+                posX=Number(Math.random()*(0.800-0.200)+0.200);
                 posX=posX.toFixed(3);
-                posY=0.2;
-                //El primero lo hace bien, el resto no...?
-                //Al coger la posicion de la X ?    
+                posY=0.05;    
                 if(this.arrayObjects.length<=0){
                     var obstacle=new HitObject(this.ctx,posY,posX,
                         animations.character_death,animations.obstacle_wall,
