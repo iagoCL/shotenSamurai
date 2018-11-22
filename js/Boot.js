@@ -177,31 +177,31 @@ function boot() {
             }
         ],
         cut_objects: [
-            {
+            {//Bamboo
                 normal: new PersonalAnimation(infiniteRepaintsPerFrame,
                     [ loadImage("images/objetos/Bamboo.png") ]
                 ),
                 destroy: animacionHumo
             },
-            {
+            {//Farol
                 normal: new PersonalAnimation(infiniteRepaintsPerFrame,
                     [ loadImage("images/objetos/Farol.png") ]
                 ),
                 destroy: animacionHumo
             },
-            {
+            {//Moned
                 normal: new PersonalAnimation(infiniteRepaintsPerFrame,
                     [ loadImage("images/objetos/Moneda.png") ]
                 ),
                 destroy: animacionHumo
             },
-            {
+            {//Tela
                 normal: new PersonalAnimation(infiniteRepaintsPerFrame,
                     [ loadImage("images/objetos/Tela.png") ]
                 ),
                 destroy: animacionHumo
             },
-            {
+            {//Tabla
                 normal: new PersonalAnimation(infiniteRepaintsPerFrame,
                     [ loadImage("images/objetos/Tabla.png") ]
                 ),

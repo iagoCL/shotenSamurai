@@ -4,7 +4,7 @@ var musicActivated;
 var idiomaSelected;
 function updateIdiomaSelected() {
     let value = localStorage.getItem("idiomaSelected");
-    if (value == undefined ) {
+    if (value == undefined) {
         idiomaSelected = "es";
     } else {
         idiomaSelected = value;
