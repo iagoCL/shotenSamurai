@@ -15,7 +15,6 @@ class Character {
         this.deathCelerity = 2.5*this.relativeCelerityY;
 
         this.relativeWidth = 0.12;
-        this.aspectRatio = 1.0;
 
         this.points = 0;
         this.pointsPerUpdate = 0.08;
@@ -44,7 +43,7 @@ class Character {
     }
     resize(width_,height_) {
         this.width = Math.ceil(width_*this.relativeWidth);
-        this.height = Math.ceil(this.width*this.aspectRatio);
+        this.height = Math.ceil(this.width*this.actualAnim.aspectRatio);
         this.canvasWidth = width_;
         this.canvasHeight = height_;
         this.textPosX = this.canvasWidth*0.88;
@@ -63,21 +62,25 @@ class Character {
             //console.log("cambiando lado");
             if(this.estaIZQ){
                 this.character_jumping_izq.restartAndDo(function(){
-                    this.character_air_izq.restart();
-                    this.actualAnim = this.character_air_izq;
                     this.cambiandoLado = true;
                     this.chosedMovement = this.cambiandoLadoIzq;
+                    this.character_air_izq.restart();
+                    this.height = Math.ceil(this.width*this.character_air_izq.aspectRatio);
+                    this.actualAnim = this.character_air_izq;
                     this.update();
                 }.bind(this));
-                this.actualAnim= this.character_jumping_izq; 
+                this.height = Math.ceil(this.width*this.character_jumping_izq.aspectRatio);
+                this.actualAnim = this.character_jumping_izq; 
             }else{
                 this.character_jumping_der.restartAndDo(function(){
-                    this.character_air_der.restart();
-                    this.actualAnim = this.character_air_der;
                     this.cambiandoLado = true;
                     this.chosedMovement = this.cambiandoLadoDer;
+                    this.character_air_der.restart();
+                    this.height = Math.ceil(this.width*this.character_air_der.aspectRatio);
+                    this.actualAnim = this.character_air_der;
                     this.update();
                 }.bind(this));
+                this.height = Math.ceil(this.width*this.character_jumping_der.aspectRatio);
                 this.actualAnim= this.character_jumping_der; 
             }
             checkSoundAndPlay(this.jump_sound);
@@ -112,6 +115,7 @@ class Character {
                 this.actualAnim = this.character_walk_der;
                 this.update(); 
             }.bind(this));
+            this.height = Math.ceil(this.width*this.character_land_der.aspectRatio);
             this.actualAnim= this.character_land_der;
         }
     }
@@ -128,9 +132,11 @@ class Character {
             this.chosedMovement = this.basicMovement;
             this.character_land_izq.restartAndDo(function(){
                 this.character_walk_izq.restart();
+                this.height = Math.ceil(this.width*this.character_walk_izq.aspectRatio);
                 this.actualAnim = this.character_walk_izq;
                 this.update();
             }.bind(this));
+            this.height = Math.ceil(this.width*this.character_land_izq.aspectRatio);
             this.actualAnim= this.character_land_izq;
         }
     }
@@ -156,9 +162,11 @@ class Character {
         this.chosedMovement = this.dying;
         this.character_death.restartAndDo(function(){
             this.character_death_fall.restart();
+            this.height = Math.ceil(this.width*this.character_death_fall.aspectRatio);
             this.actualAnim = this.character_death_fall;
             this.update();
         }.bind(this));
+        this.height = Math.ceil(this.width*this.character_death.aspectRatio);
         this.actualAnim= this.character_death; 
     }
 }

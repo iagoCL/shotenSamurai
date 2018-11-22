@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    background-image: url("../images/fondo-menu.png");
+    background-image: url("../images/interfaz/fondo-menu.png");
     background-size: 103vw 103vh;
     min-width: 98.5vw;
     min-height: 98.5vh;
@@ -15,7 +15,7 @@ body {
 
 .scrollButton-max,.scrollButton-min {
     display: block;
-    background-image: url("../images/btm-left.png"),url("../images/btm-mid.png"),url("../images/btm-right.png");
+    background-image: url("../images/interfaz/btm-left.png"),url("../images/interfaz/btm-mid.png"),url("../images/interfaz/btm-right.png");
     background-repeat: no-repeat;
     background-size: 10% 100%, 80% 100%, 10% 100%;
     background-position-x: 0%, 50%, 100%;
@@ -33,7 +33,7 @@ body {
 }
 .scrollButton-max:hover, .scrollButton-min:hover {
     display: block;
-    background-image: url("../images/btm-left-hover.png"),url("../images/btm-mid-hover.png"),url("../images/btm-right-hover.png");
+    background-image: url("../images/interfaz/btm-left-hover.png"),url("../images/interfaz/btm-mid-hover.png"),url("../images/interfaz/btm-right-hover.png");
     color: #e3e6e6;
 }
 .scrollButton-max:hover{
@@ -77,7 +77,7 @@ header{
     font-family: "Silkscreen";
     text-align: center;
     font-size: 3.5em; 
-    background-image: url("../images/btm-left.png"),url("../images/btm-mid.png"),url("../images/btm-right.png");  
+    background-image: url("../images/interfaz/btm-left.png"),url("../images/interfaz/btm-mid.png"),url("../images/interfaz/btm-right.png");  
     background-repeat: no-repeat;
     background-size: 4% 100%, 92% 100%, 4% 100%;
     background-position-x: 0%, 50%, 100%;
@@ -87,7 +87,7 @@ header{
 section{
     height: 56vh;
     width: 74vw;
-    background-image: url("../images/btm-left.png"),url("../images/btm-mid.png"),url("../images/btm-right.png");  
+    background-image: url("../images/interfaz/btm-left.png"),url("../images/interfaz/btm-mid.png"),url("../images/interfaz/btm-right.png");  
     background-repeat: no-repeat;
     background-size: 7% 100%, 86% 100%, 7% 100%;
     background-position-x: 0%, 50%, 100%;

@@ -39,7 +39,7 @@ html {
   }
 
 body {
-    background-image: url("../images/fondo-menu.png");
+    background-image: url("../images/interfaz/fondo-menu.png");
     background-size: 103vw 103vh;
     min-width: 100vw;
     min-height: 100vh;

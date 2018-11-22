@@ -9,12 +9,14 @@ class PersonalAnimation {
         this.framesRestantes = this.repaintsPerFrame;
         this.animFrame = 0;
         this.actualImag = this.images[this.animFrame];
+        this.aspectRatio = this.actualImag.height/this.actualImag.width;
         this.paint = this.basicPaint;
     }
     restartAndDo(endAnimationFucntion_){
         this.framesRestantes = this.repaintsPerFrame;
         this.animFrame = 0;
         this.actualImag = this.images[this.animFrame];
+        this.aspectRatio = this.actualImag.height/this.actualImag.width;
         this.endAnimationFucntion = endAnimationFucntion_;
         this.paint = this.complexPaint;
     }

@@ -55,7 +55,7 @@ class MainGame {
         this.character.update();
         this.arrayObjects.forEach(function(element) {
             //To delete items that are not on the screen
-            if( element.relativePosY>=1 ){
+            if( element.relativePosY>=1 || element.isDestroyed ){
                 this.arrayObjects.splice(this.arrayObjects.indexOf(element),1);
             }
             else
@@ -79,30 +79,25 @@ class MainGame {
     genLateralObstacle(){
         let probabilityOfSide=Math.floor(Math.random()*(101-0)+0);
         let posX;
-        let posY;
+        let posY = 0.0;
         if(probabilityOfSide>=50){
-            posX=0.68;
-            posY=0.0;
-            for(var i=0;i<10;i++){
+            posX = 0.63;
+            for(let i=0;i<10;i++){
                 if(this.arrayObjects.length<=0 || this.checkPosition(posX,posY,this.arrayObjects)){
                     let obstacle=new HitObject(this.ctx,posY,posX,
-                        animations.character_death,animations.character_death,
-                        animations.character_death,this.character,false,0.008);
+                        this.actualWallLeftObstacle,this.character,false,0.008);
                     obstacle.resize(this.canvasWidth,this.canvasHeight);
                     this.arrayObjects.push(obstacle);
                     return true;
                 }
                 return false;
             }
-
         }else{
-            posX=0.23;
-            posY=0.0;
-            for(var i=0;i<10;i++){
+            posX=0.26;
+            for(let i=0;i<10;i++){
                 if(this.arrayObjects.length<=0 || this.checkPosition(posX,posY,this.arrayObjects)){
                     let obstacle=new HitObject(this.ctx,posY,posX,
-                        animations.character_death,animations.character_death,
-                        animations.character_death,this.character,false,0.008);
+                        this.actualWallRightObstacle,this.character,false,0.008);
                     obstacle.resize(this.canvasWidth,this.canvasHeight);
                     this.arrayObjects.push(obstacle);
                     return true;
@@ -110,8 +105,8 @@ class MainGame {
                 return false;
             }
         }
-
     }
+
     //Generate obstacles for the character to evade or destroy
     genObstacle(){
         let probabilityOfItem=Math.floor(Math.random() * (101 - 0)) + 0;
@@ -128,8 +123,7 @@ class MainGame {
                 if(this.arrayObjects.length<=0 || this.checkPosition(posX,posY,this.arrayObjects)){
                     let animationChosed = animations.obstacle_objects[Math.floor(Math.random() * animations.obstacle_objects.length)];
                     let obstacle=new HitObject(this.ctx,posY,posX,
-                        animationChosed.normal, animationChosed.destroy,
-                        animationChosed.destroyed, this.character,false,0.01);
+                        animationChosed, this.character,false,0.01);
                     obstacle.resize(this.canvasWidth,this.canvasHeight);
                     this.arrayObjects.push(obstacle);
                     return true;
@@ -143,8 +137,7 @@ class MainGame {
                 if(this.arrayObjects.length<=0 || this.checkPosition(posX,posY,this.arrayObjects)){
                     let animationChosed = animations.cut_objects[Math.floor(Math.random() * animations.cut_objects.length)];
                     let obstacle=new HitObject(this.ctx,posY,posX,
-                        animationChosed.normal, animationChosed.destroy,
-                        animationChosed.destroyed, this.character,true,0.01);
+                        animationChosed, this.character,true,0.01);
                     obstacle.resize(this.canvasWidth,this.canvasHeight);
                     this.arrayObjects.push(obstacle);
                     return true;
@@ -171,8 +164,8 @@ class MainGame {
     nextLevel(actualPoints_){
         if(this.actualLevel == dificulty.EASY && actualPoints_>levelPoints.MEDIUM){
             this.actualLevel = dificulty.MEDIUM;
-            this.actualWallLeftObstacle = animations.obstacle_wall_right.medium;
-            this.actualWallRightObstacle = animations.obstacle_wall_left.medium;
+            this.actualWallLeftObstacle = animations.obstacle_wall_right.mid;
+            this.actualWallRightObstacle = animations.obstacle_wall_left.mid;
             this.stage.changeImg(images.scene_easyToMid,images.scene_mid);
         }
         else if(this.actualLevel == dificulty.MEDIUM && actualPoints_>levelPoints.HARD){

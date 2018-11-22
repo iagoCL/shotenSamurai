@@ -3,7 +3,7 @@
 var images;
 var animations;
 var sounds;
-const totalResources = 72;
+const totalResources = 50;
 var resourcesLoaded = 0;
 const endLoadingProgress = " / " + totalResources;
 
@@ -11,6 +11,7 @@ function boot() {
     updateMusicActivated();
     updateSoundActivated();
     game.loadingProgress.innerHTML = 0 + endLoadingProgress;
+    const infiniteRepaintsPerFrame = 9999999;
     const longRepaintsPerFrame = 9;
     const defaultRepaintsPerFrame = 6;
     const shortRepaintsPerFrame = 5;
@@ -32,6 +33,42 @@ function boot() {
         music: loadAudio("sounds/music.ogg", musicActivated)
     };
 
+    let animacionHumo =new PersonalAnimation(longRepaintsPerFrame,
+        [ loadImage("images/humo.png") ] 
+    );
+
+    let animacionSaltoIzq = new PersonalAnimation(shortRepaintsPerFrame,
+        [ loadImage("images/personaje/player_jump_izq.png") ]
+    );
+    let animacionSaltoDer =new PersonalAnimation(shortRepaintsPerFrame,
+        [ loadImage("images/personaje/player_jump_der.png") ]
+    );
+
+    let animacionParedEasyDer =new PersonalAnimation(longRepaintsPerFrame,
+        [ loadImage("images/obstaculos/paredEasyDer.png") ] 
+    );
+    let animacionParedMidDer =new PersonalAnimation(longRepaintsPerFrame,
+        [ loadImage("images/obstaculos/paredMidDer.png") ] 
+    );
+    let animacionParedHardDer =new PersonalAnimation(longRepaintsPerFrame,
+        [ loadImage("images/obstaculos/paredHardDer.png") ] 
+    );
+    let animacionParedHellDer =new PersonalAnimation(longRepaintsPerFrame,
+        [ loadImage("images/obstaculos/paredHellDer.png") ] 
+    );
+    let animacionParedEasyIzq =new PersonalAnimation(longRepaintsPerFrame,
+        [ loadImage("images/obstaculos/paredEasyIzq.png") ] 
+    );
+    let animacionParedMidIzq =new PersonalAnimation(longRepaintsPerFrame,
+        [ loadImage("images/obstaculos/paredMidIzq.png") ] 
+    );
+    let animacionParedHardIzq =new PersonalAnimation(longRepaintsPerFrame,
+        [ loadImage("images/obstaculos/paredHardIzq.png") ] 
+    );
+    let animacionParedHellIzq =new PersonalAnimation(longRepaintsPerFrame,
+        [ loadImage("images/obstaculos/paredHellIzq.png") ] 
+    );
+
     //todo: avoid duplicated loads.
     animations = {
         character_walk_izq: new PersonalAnimation(defaultRepaintsPerFrame,
@@ -44,11 +81,7 @@ function boot() {
                 loadImage("images/personaje/player_walk_izq_6.png")
             ]
         ),
-        character_jumping_izq: new PersonalAnimation(shortRepaintsPerFrame,
-            [
-                loadImage("images/personaje/player_jump_izq.png")
-            ]
-        ),
+        character_jumping_izq: animacionSaltoIzq,
         character_land_izq: new PersonalAnimation(shortRepaintsPerFrame,
             [
                 loadImage("images/personaje/player_jump_izq.png")
@@ -64,25 +97,13 @@ function boot() {
                 loadImage("images/personaje/player_walk_der_6.png")
             ]
         ),
-        character_jumping_der: new PersonalAnimation(shortRepaintsPerFrame,
-            [
-                loadImage("images/personaje/player_jump_der.png")
-            ]
+        character_jumping_der: animacionSaltoDer,
+        character_land_der: animacionSaltoDer,
+        character_air_der: new PersonalAnimation(infiniteRepaintsPerFrame,
+            [ loadImage("images/personaje/player_air_der.png") ]
         ),
-        character_land_der: new PersonalAnimation(shortRepaintsPerFrame,
-            [
-                loadImage("images/personaje/player_jump_der.png")
-            ]
-        ),
-        character_air_der: new PersonalAnimation(defaultRepaintsPerFrame,
-            [
-                loadImage("images/personaje/player_air_der.png")
-            ]
-        ),
-        character_air_izq: new PersonalAnimation(defaultRepaintsPerFrame,
-            [
-                loadImage("images/personaje/player_air_izq.png")
-            ]
+        character_air_izq: new PersonalAnimation(infiniteRepaintsPerFrame,
+            [ loadImage("images/personaje/player_air_izq.png") ]
         ),
         character_death: new PersonalAnimation(shortRepaintsPerFrame,
             [
@@ -90,238 +111,101 @@ function boot() {
                 loadImage("images/personaje/player_death_2.png")
             ]
         ),
-        character_death_fall: new PersonalAnimation(defaultRepaintsPerFrame,
-            [
-                loadImage("images/personaje/player_death_2.png")
-            ]
+        character_death_fall: new PersonalAnimation(infiniteRepaintsPerFrame,
+            [ loadImage("images/personaje/player_death_2.png") ]
         ),
         obstacle_wall_right: {
-            easy: {//1
-                normal: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                ),
-                destroy: new PersonalAnimation(longRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                ),
-                destroyed: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                )
+            easy: {
+                normal: animacionParedEasyDer,
+                destroy: animacionParedEasyDer
             },
-            mid: {//2
-                normal: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                ),
-                destroy: new PersonalAnimation(longRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                ),
-                destroyed: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                )
+            mid: {
+                normal: animacionParedMidDer,
+                destroy: animacionParedMidDer
             },
             hard: {
-                normal: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                ),
-                destroy: new PersonalAnimation(longRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                ),
-                destroyed: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                )
+                normal: animacionParedHardDer,
+                destroy: animacionParedHardDer
             },
             hell: {
-                normal: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                ),
-                destroy: new PersonalAnimation(longRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                ),
-                destroyed: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                )
+                normal: animacionParedHellDer,
+                destroy: animacionParedHellDer
             }
         },
         obstacle_wall_left: {
-            easy: {//1
-                normal: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                ),
-                destroy: new PersonalAnimation(longRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                ),
-                destroyed: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                )
+            easy: {
+                normal: animacionParedEasyIzq,
+                destroy: animacionParedEasyIzq
             },
-            mid: {//2
-                normal: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                ),
-                destroy: new PersonalAnimation(longRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                ),
-                destroyed: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                )
+            mid: {
+                normal: animacionParedMidIzq,
+                destroy: animacionParedMidIzq
             },
             hard: {
-                normal: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                ),
-                destroy: new PersonalAnimation(longRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                ),
-                destroyed: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                )
+                normal: animacionParedHardIzq,
+                destroy: animacionParedHardIzq
             },
             hell: {
-                normal: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                ),
-                destroy: new PersonalAnimation(longRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                ),
-                destroyed: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                )
+                normal: animacionParedHellIzq,
+                destroy: animacionParedHellIzq
             }
         },
         obstacle_objects: [
-            {//1
-                normal: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
+            {
+                normal: new PersonalAnimation(infiniteRepaintsPerFrame,
+                    [ loadImage("images/obstaculos/Roca1.png") ]
                 ),
-                destroy: new PersonalAnimation(longRepaintsPerFrame,
-                    [
-                        loadImage("images/personaje/player_air_der.png")
-                    ]
-                ),
-                destroyed: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/personaje/player_jump_der.png")
-                    ]
-                )
+                destroy: animacionHumo
             },
-            {//2
-                normal: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
+            {
+                normal: new PersonalAnimation(infiniteRepaintsPerFrame,
+                    [ loadImage("images/obstaculos/Roca2.png") ]
                 ),
-                destroy: new PersonalAnimation(longRepaintsPerFrame,
-                    [
-                        loadImage("images/personaje/player_air_der.png")
-                    ]
-                ),
-                destroyed: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/personaje/player_jump_der.png")
-                    ]
-                )
+                destroy: animacionHumo
             },
-            {//3
-                normal: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
+            {
+                normal: new PersonalAnimation(infiniteRepaintsPerFrame,
+                    [ loadImage("images/obstaculos/Roca3.png") ]
                 ),
-                destroy: new PersonalAnimation(longRepaintsPerFrame,
-                    [
-                        loadImage("images/personaje/player_air_der.png")
-                    ]
+                destroy: animacionHumo
+            },
+            {
+                normal: new PersonalAnimation(infiniteRepaintsPerFrame,
+                    [ loadImage("images/obstaculos/Roca4.png") ]
                 ),
-                destroyed: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/personaje/player_jump_der.png")
-                    ]
-                )
+                destroy: animacionHumo
             }
         ],
         cut_objects: [
-            {//0
-                normal: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/personaje/player_jump_der.png")
-                    ]
+            {
+                normal: new PersonalAnimation(infiniteRepaintsPerFrame,
+                    [ loadImage("images/objetos/Bamboo.png") ]
                 ),
-                destroy: new PersonalAnimation(longRepaintsPerFrame,
-                    [
-                        loadImage("images/personaje/player_air_der.png")
-                    ]
-                ),
-                destroyed: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                )
+                destroy: animacionHumo
             },
-            {//0
-                normal: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/personaje/player_jump_der.png")
-                    ]
+            {
+                normal: new PersonalAnimation(infiniteRepaintsPerFrame,
+                    [ loadImage("images/objetos/Farol.png") ]
                 ),
-                destroy: new PersonalAnimation(longRepaintsPerFrame,
-                    [
-                        loadImage("images/personaje/player_air_der.png")
-                    ]
+                destroy: animacionHumo
+            },
+            {
+                normal: new PersonalAnimation(infiniteRepaintsPerFrame,
+                    [ loadImage("images/objetos/Moneda.png") ]
                 ),
-                destroyed: new PersonalAnimation(defaultRepaintsPerFrame,
-                    [
-                        loadImage("images/obstacle.png")
-                    ]
-                )
+                destroy: animacionHumo
+            },
+            {
+                normal: new PersonalAnimation(infiniteRepaintsPerFrame,
+                    [ loadImage("images/objetos/Tela.png") ]
+                ),
+                destroy: animacionHumo
+            },
+            {
+                normal: new PersonalAnimation(infiniteRepaintsPerFrame,
+                    [ loadImage("images/objetos/Tabla.png") ]
+                ),
+                destroy: animacionHumo
             }
         ]
     };
@@ -330,7 +214,7 @@ function loadImage(src_) {
     let img = new Image();
     img.addEventListener("load", resourceLoaded);
     img.addEventListener("error", function () {
-        console.log("COULD NOT LOAD IMAGE");
+        console.log("COULD NOT LOAD IMAGE: "+src_);
     });
     img.src = src_;
     return img;
@@ -343,7 +227,7 @@ function loadAudio(src_, load_) {
             resourceLoaded();
         }, false);
         audio.addEventListener("error", function () {
-            console.log("COULD NOT LOAD AUDIO");
+            console.log("COULD NOT LOAD AUDIO: "+ src_);
         });
         audio.load();
         return audio;
