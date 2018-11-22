@@ -34,7 +34,7 @@ function boot() {
     };
 
     let animacionHumo =new PersonalAnimation(longRepaintsPerFrame,
-        [ loadImage("images/Humo.png") ] 
+        [ loadImage("images/destuccionObjeto.png") ] 
     );
 
     let animacionSaltoIzq = new PersonalAnimation(shortRepaintsPerFrame,
