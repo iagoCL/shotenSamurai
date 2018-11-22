@@ -248,6 +248,13 @@ function resourceLoaded() {
             game.canvas.style.display = "block";
             game.startGame();
         });
+        $(document).bind("keypress", function(e) {
+            if (e.which == 32){//space bar
+                $("#loadingGame").hide();
+                game.canvas.style.display = "block";
+                game.startGame();
+            }
+        });
     }
 }
 

@@ -40,6 +40,11 @@ class Character {
         this.actualAnim.restart();
 
         $(document).unbind("click").click(this.cambiarLado.bind(this));
+        $(document).unbind("keypress").bind("keypress", function(e) {
+            if (e.which == 32){//space bar
+                this.cambiarLado();
+            }
+        }.bind(this));
     }
     resize(width_, height_) {
         this.width = Math.ceil(width_ * this.relativeWidth);

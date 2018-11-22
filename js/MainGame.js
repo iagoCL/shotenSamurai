@@ -78,7 +78,7 @@ class MainGame {
     genLateralObstacle() {
         let probabilityOfSide = Math.floor(Math.random() * (101 - 0) + 0);
         let posX;
-        let posY = 0.0;
+        let posY = -0.7;
         if (probabilityOfSide >= 50) {
             posX = 0.63;
             for (let i = 0; i < 10; i++) {
@@ -110,7 +110,7 @@ class MainGame {
     genObstacle() {
         let probabilityOfItem = Math.floor(Math.random() * (101 - 0)) + 0;
         let posX;
-        let posY = 0.02;
+        let posY = -0.7;
 
         if (probabilityOfItem >= 60) {
             // Does 10 tries to generate objects
@@ -202,8 +202,8 @@ class MainGame {
     	console.log("lastPaint: "+this.lastPaint+ " paintIterval: "+(this.lastPaint-oldPaint)+" paintDuration: "+(this.lastPaint-paintStart));//*/
     }
     resizeCanvas() {
-        this.canvasWidth = 0.985 * window.innerWidth;
-        this.canvasHeight = 0.985 * window.innerHeight;
+        this.canvasWidth = 0.995 * window.innerWidth;
+        this.canvasHeight = 0.995 * window.innerHeight;
         let canvasWidthB = this.canvasHeight / this.aspectRatio;
         let canvasHeightB = this.canvasWidth * this.aspectRatio;
         if (this.canvasWidth > canvasWidthB) {

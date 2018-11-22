@@ -38,6 +38,10 @@ html {
     vertical-align: middle;
   }
 
+title {
+    display: none;
+}
+
 body {
     background-image: url("../images/interfaz/fondo-menu.png");
     background-size: 103vw 103vh;
