@@ -41,6 +41,34 @@ html {
 title {
     display: none;
 }
+@font-face {
+    font-family: "Silkscreen";
+    src: url("slkscr.ttf");
+}
+
+#gamePoints {
+    position: absolute;
+    font-family: "Silkscreen";
+    font-size: 2.5em;
+    margin: 0;
+    color: #eedddd;
+    display: none;
+}
+
+#lineaMin{
+    display: none;
+    border-color: #4747b9;
+    background-color:  #4747b9;
+    position: absolute;
+    height: 0.5%;
+}
+#lineaMax{
+    display: none;
+    border-color: #b34226;
+    background-color:  #b34226;;
+    position: absolute;
+    height: 0.5%;
+}
 
 body {
     background-image: url("../images/interfaz/fondo-menu.png");

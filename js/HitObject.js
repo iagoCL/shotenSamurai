@@ -1,4 +1,5 @@
 /*exported HitObject*/
+/*global game */
 class HitObject {
     constructor(ctx_, relativePosY_, relativePosX_, objectSprite_, character_, isBreakable_, celerity_) {
         //todo: type wall, cut or normal
@@ -58,7 +59,7 @@ class HitObject {
 
     collision() {
         if (this.isBreakable) {
-            this.character.sumarPuntos(20);
+            game.sumarPuntos(game.pointsPerObstacle);
         } else {
             this.character.kill();
         }

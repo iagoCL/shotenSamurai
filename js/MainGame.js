@@ -13,6 +13,19 @@ const levelPoints = {
     HELL: 450,
 };
 
+const PointsPerUpdate = {
+    EASY: 0.08,
+    MEDIUM: 0.11,
+    HARD: 0.22,
+    HELL: 0.35,
+};
+const PointsPerObstacle = {
+    EASY: 20,
+    MEDIUM: 30,
+    HARD: 45,
+    HELL: 70,
+};
+
 class MainGame {
     constructor() {
         this.aspectRatio = 2.1;
@@ -21,13 +34,18 @@ class MainGame {
         this.obstacleRefresh = 1500; //this gonna change with difficulty
         this.lateralRefresh = 1000;
         this.canvas = document.getElementById("mainGame");
+        this.pointsText = $("#gamePoints");
+        this.lineaMin = $("#lineaMin");
+        this.lineaMax = $("#lineaMax");
         this.loadingProgress = document.getElementById("loadingProgress");
         this.ctx = this.canvas.getContext("2d");
-        //  this.arrayObjects;
     }
 
     startLogic() {
         this.actualLevel = dificulty.EASY;
+        this.points = 0;
+        this.pointsPerUpdate = PointsPerUpdate.EASY;
+        this.pointsPerObstacle = PointsPerObstacle.EASY;
         this.actualWallLeftObstacle = animations.obstacle_wall_right.easy;
         this.actualWallRightObstacle = animations.obstacle_wall_left.easy;
         this.stage = new Stage(this.ctx, images.scene_start, images.scene_easy);
@@ -62,7 +80,7 @@ class MainGame {
                 element.update();
             }
         }.bind(this));
-        //todo: Generar nuevos hitObject
+        this.sumarPuntos(this.pointsPerUpdate);
 
         /**Debug performance*
     	let oldLogic = this.lastLogic
@@ -104,6 +122,11 @@ class MainGame {
                 return false;
             }
         }
+    }
+
+    sumarPuntos(points_) {
+        this.points += points_;
+        this.nextLevel();
     }
 
     //Generate obstacles for the character to evade or destroy
@@ -160,23 +183,29 @@ class MainGame {
         return true;
     }
 
-    nextLevel(actualPoints_) {
-        if (this.actualLevel == dificulty.EASY && actualPoints_ > levelPoints.MEDIUM) {
+    nextLevel() {
+        if (this.actualLevel == dificulty.EASY && this.points > levelPoints.MEDIUM) {
             this.actualLevel = dificulty.MEDIUM;
             this.actualWallLeftObstacle = animations.obstacle_wall_right.mid;
             this.actualWallRightObstacle = animations.obstacle_wall_left.mid;
+            this.pointsPerUpdate = PointsPerUpdate.MEDIUM;
+            this.pointsPerObstacle = PointsPerObstacle.MEDIUM;
             this.stage.changeImg(images.scene_easyToMid, images.scene_mid);
         }
-        else if (this.actualLevel == dificulty.MEDIUM && actualPoints_ > levelPoints.HARD) {
+        else if (this.actualLevel == dificulty.MEDIUM && this.points > levelPoints.HARD) {
             this.actualLevel = dificulty.HARD;
             this.actualWallLeftObstacle = animations.obstacle_wall_right.hard;
             this.actualWallRightObstacle = animations.obstacle_wall_left.hard;
+            this.pointsPerUpdate = PointsPerUpdate.HARD;
+            this.pointsPerObstacle = PointsPerObstacle.HARD;
             this.stage.changeImg(images.scene_midToHard, images.scene_hard);
         }
-        else if (this.actualLevel == dificulty.HARD && actualPoints_ > levelPoints.HELL) {
+        else if (this.actualLevel == dificulty.HARD && this.points > levelPoints.HELL) {
             this.actualLevel = dificulty.HELL;
             this.actualWallLeftObstacle = animations.obstacle_wall_right.hell;
             this.actualWallRightObstacle = animations.obstacle_wall_left.hell;
+            this.pointsPerUpdate = PointsPerUpdate.HELL;
+            this.pointsPerObstacle = PointsPerObstacle.HELL;
             this.stage.changeImg(images.scene_hardToHell, images.scene_hell);
         }
     }
@@ -196,6 +225,7 @@ class MainGame {
         this.arrayObjects.forEach(function (element) {
             element.repaint();
         });
+        this.pointsText.html(Math.floor(this.points).toString());
         /**Debug performance*
     	let oldPaint = this.lastPaint;
     	this.lastPaint = (new Date()).getMilliseconds();
@@ -221,6 +251,16 @@ class MainGame {
         this.arrayObjects.forEach(function (element) {
             element.resize(this.canvasWidth, this.canvasHeight);
         }.bind(this));
+
+        //paint points
+        let canvasOffset = $("#mainGame").offset();
+        this.pointsText.css({top: canvasOffset.top, left: canvasOffset.left});
+
+        //paint lines
+        this.lineaMax.css({top: (canvasOffset.top+this.canvasHeight*this.character.relativePosYMaximo), left: canvasOffset.left});
+        this.lineaMin.css({top: (canvasOffset.top+this.canvasHeight*this.character.relativePosYMin+this.character.height), left: canvasOffset.left});
+        this.lineaMax.attr("width", this.canvasWidth);
+        this.lineaMin.attr("width", this.canvasWidth);
         //console.log("resize to w: "+canvas.width + " h: "+canvas.height);
     }
 }

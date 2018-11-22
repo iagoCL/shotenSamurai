@@ -246,12 +246,18 @@ function resourceLoaded() {
         $(document).click(function () {
             $("#loadingGame").hide();
             game.canvas.style.display = "block";
+            game.pointsText.css({ display:  "block"});
+            game.lineaMin.css({ display:  "block"});
+            game.lineaMax.css({ display:  "block"});
             game.startGame();
         });
         $(document).bind("keypress", function(e) {
             if (e.which == 32){//space bar
                 $("#loadingGame").hide();
                 game.canvas.style.display = "block";
+                game.pointsText.css({ display:  "block"});
+                game.lineaMin.css({ display:  "block"});
+                game.lineaMax.css({ display:  "block"});
                 game.startGame();
             }
         });

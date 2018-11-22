@@ -2,22 +2,19 @@
 /*global checkSoundAndPlay game*/
 class Character {
     constructor(ctx_, character_walk_izq, character_jumping_izq, character_land_izq, character_walk_der, character_jumping_der, character_land_der, character_air_izq, character_air_der, character_death, character_death_fall, jump_sound, death_sound) {
-        this.relativePosYMin = 0.92;
+        this.relativePosYMin = 0.77;
         this.relativePosYMaximo = 0.12;
-        this.relativePosY = 0.62;
+        this.relativePosY = 0.5*(this.relativePosYMin+this.relativePosYMaximo);
 
         this.relativePosXIzq = this.relativePosX = 0.26;
         this.relativePosXDer = 0.62;
 
-        this.relativeCelerityX = 0.035;
-        this.relativeCelerityYJump = -0.015;
+        this.relativeCelerityX = 0.032;
+        this.relativeCelerityYJump = -0.011;
         this.relativeCelerityY = 0.0018;
         this.deathCelerity = 2.5 * this.relativeCelerityY;
 
         this.relativeWidth = 0.12;
-
-        this.points = 0;
-        this.pointsPerUpdate = 0.08;
 
         this.character_walk_izq = character_walk_izq;
         this.character_jumping_izq = character_jumping_izq;
@@ -40,8 +37,8 @@ class Character {
         this.actualAnim.restart();
 
         $(document).unbind("click").click(this.cambiarLado.bind(this));
-        $(document).unbind("keypress").bind("keypress", function(e) {
-            if (e.which == 32){//space bar
+        $(document).unbind("keypress").bind("keypress", function (e) {
+            if (e.which == 32) {//space bar
                 this.cambiarLado();
             }
         }.bind(this));
@@ -54,10 +51,6 @@ class Character {
         this.textPosX = this.canvasWidth * 0.88;
         this.textPosY = this.canvasHeight * 0.05;
 
-        //paint points
-        this.ctx.font = Math.ceil(this.canvasHeight * 0.05) + "px serif";
-        this.ctx.textAlign = "center";
-        this.ctx.fillStyle = "#ffeedd";
     }
 
     cambiarLado() {
@@ -89,13 +82,10 @@ class Character {
             checkSoundAndPlay(this.jump_sound);
         }
     }
-
     repaint() {
         this.actualAnim.paint(this.ctx, Math.ceil(this.relativePosX * this.canvasWidth), Math.ceil(this.relativePosY * this.canvasHeight), this.width, this.height);
-        this.ctx.fillText(" " + Math.floor(this.points), this.textPosX, this.textPosY);
     }
     basicMovement() {
-        this.sumarPuntos(this.pointsPerUpdate);
         if (this.relativePosY >= this.relativePosYMin) {
             this.kill();
         } else {
@@ -103,7 +93,6 @@ class Character {
         }
     }
     cambiandoLadoIzq() {
-        this.sumarPuntos(this.pointsPerUpdate);
         if (this.relativePosX < this.relativePosXDer) {
             this.relativePosY += this.relativeCelerityYJump;
             this.relativePosX += this.relativeCelerityX;
@@ -123,7 +112,6 @@ class Character {
         }
     }
     cambiandoLadoDer() {
-        this.sumarPuntos(this.pointsPerUpdate);
         if (this.relativePosX > this.relativePosXIzq) {
             this.relativePosY += this.relativeCelerityYJump;
             this.relativePosX -= this.relativeCelerityX;
@@ -148,10 +136,6 @@ class Character {
         this.chosedMovement();
     }
 
-    sumarPuntos(points_) {
-        this.points += points_;
-        game.nextLevel(this.points);
-    }
     dying() {
         if (this.relativePosY > 1) {
             game.endGame();

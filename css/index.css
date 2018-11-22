@@ -12,6 +12,9 @@ body {
     max-height: 98.5vh;
 	overflow: hidden;
 }
+title {
+    display: none;
+}
 
 .scrollButton-max,.scrollButton-min {
     display: block;
@@ -52,7 +55,7 @@ a:link,a:visited,a:active{
 @font-face {
     font-family: "Silkscreen";
     src: url("slkscr.ttf");
-  }
+}
 
 
 .scrollButton-min>p,.scrollButton-max>p{
