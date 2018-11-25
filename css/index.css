@@ -57,6 +57,17 @@ a:link,a:visited,a:active{
     src: url("slkscr.ttf");
 }
 
+#newRecord{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+    font-family: "Silkscreen";
+    font-size: 36px;
+    text-align: center;
+
+}
+
 
 .scrollButton-min>p,.scrollButton-max>p{
     text-anchor: middle;

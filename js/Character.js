@@ -33,7 +33,7 @@ class Character {
         this.cambiandoLado = false;
         this.estaIZQ = true;
         this.chosedMovement = this.basicMovement;
-
+        this.isDeath=false;
         this.actualAnim.restart();
 
         $(document).unbind("click").click(this.cambiarLado.bind(this));
@@ -147,6 +147,9 @@ class Character {
         checkSoundAndPlay(this.death_sound);
         this.cambiandoLado = true;
         this.chosedMovement = this.dying;
+
+        this.isDeath=true;
+
         this.character_death.restartAndDo(function () {
             this.character_death_fall.restart();
             this.height = Math.ceil(this.width * this.character_death_fall.aspectRatio);

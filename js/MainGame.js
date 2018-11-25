@@ -42,8 +42,10 @@ class MainGame {
     }
 
     startLogic() {
+        
         this.actualLevel = dificulty.EASY;
         this.points = 0;
+        this.objectCelerity=0.01;
         this.pointsPerUpdate = PointsPerUpdate.EASY;
         this.pointsPerObstacle = PointsPerObstacle.EASY;
         this.actualWallLeftObstacle = animations.obstacle_wall_right.easy;
@@ -125,8 +127,10 @@ class MainGame {
     }
 
     sumarPuntos(points_) {
+        if(!this.character.isDeath){
         this.points += points_;
         this.nextLevel();
+        }
     }
 
     //Generate obstacles for the character to evade or destroy
@@ -145,7 +149,7 @@ class MainGame {
                 if (this.arrayObjects.length <= 0 || this.checkPosition(posX, posY, this.arrayObjects)) {
                     let animationChosed = animations.obstacle_objects[Math.floor(Math.random() * animations.obstacle_objects.length)];
                     let obstacle = new HitObject(this.ctx, posY, posX,
-                        animationChosed, this.character, false, 0.01);
+                        animationChosed, this.character, false, this.objectCelerity);
                     obstacle.resize(this.canvasWidth, this.canvasHeight);
                     this.arrayObjects.push(obstacle);
                     return true;
@@ -159,7 +163,7 @@ class MainGame {
                 if (this.arrayObjects.length <= 0 || this.checkPosition(posX, posY, this.arrayObjects)) {
                     let animationChosed = animations.cut_objects[Math.floor(Math.random() * animations.cut_objects.length)];
                     let obstacle = new HitObject(this.ctx, posY, posX,
-                        animationChosed, this.character, true, 0.01);
+                        animationChosed, this.character, true, this.objectCelerity);
                     obstacle.resize(this.canvasWidth, this.canvasHeight);
                     this.arrayObjects.push(obstacle);
                     return true;
@@ -186,6 +190,7 @@ class MainGame {
     nextLevel() {
         if (this.actualLevel == dificulty.EASY && this.points > levelPoints.MEDIUM) {
             this.actualLevel = dificulty.MEDIUM;
+            this.objectCelerity=0.013;
             this.actualWallLeftObstacle = animations.obstacle_wall_right.mid;
             this.actualWallRightObstacle = animations.obstacle_wall_left.mid;
             this.pointsPerUpdate = PointsPerUpdate.MEDIUM;
@@ -194,6 +199,7 @@ class MainGame {
         }
         else if (this.actualLevel == dificulty.MEDIUM && this.points > levelPoints.HARD) {
             this.actualLevel = dificulty.HARD;
+            this.objectCelerity=0.016;
             this.actualWallLeftObstacle = animations.obstacle_wall_right.hard;
             this.actualWallRightObstacle = animations.obstacle_wall_left.hard;
             this.pointsPerUpdate = PointsPerUpdate.HARD;
@@ -202,6 +208,7 @@ class MainGame {
         }
         else if (this.actualLevel == dificulty.HARD && this.points > levelPoints.HELL) {
             this.actualLevel = dificulty.HELL;
+            this.objectCelerity=0.02;
             this.actualWallLeftObstacle = animations.obstacle_wall_right.hell;
             this.actualWallRightObstacle = animations.obstacle_wall_left.hell;
             this.pointsPerUpdate = PointsPerUpdate.HELL;
@@ -211,10 +218,10 @@ class MainGame {
     }
 
     endGame() {
+        sessionStorage.setItem("ultimaPuntuacion", this.points);
         clearInterval(this.paintInterval);
         clearInterval(this.logicInterval);
         clearInterval(this.obstacleInterval);
-        sessionStorage.setItem("ultimaPuntuacion", this.character.points);
         location.href = "gameOver.html";
     }
 
