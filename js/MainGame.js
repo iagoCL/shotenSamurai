@@ -48,6 +48,7 @@ class MainGame {
         this.objectCelerity=0.01;
         this.pointsPerUpdate = PointsPerUpdate.EASY;
         this.pointsPerObstacle = PointsPerObstacle.EASY;
+        this.obstacleCombo=1.0; //Needed for combos
         this.actualWallLeftObstacle = animations.obstacle_wall_right.easy;
         this.actualWallRightObstacle = animations.obstacle_wall_left.easy;
         this.stage = new Stage(this.ctx, images.scene_start, images.scene_easy);
@@ -132,7 +133,15 @@ class MainGame {
         this.nextLevel();
         }
     }
-
+    //Need for break combos
+    pointsOnObstacleClear(){
+        let objPoints=this.pointsPerObstacle*this.obstacleCombo;
+       // this.comboTimeOut = setTimeout(this.checkCombo.bind(this), 3000);
+        return objPoints;
+    }
+    checkCombo(){
+        
+    }
     //Generate obstacles for the character to evade or destroy
     genObstacle() {
         let probabilityOfItem = Math.floor(Math.random() * (101 - 0)) + 0;
