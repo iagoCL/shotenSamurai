@@ -36,7 +36,7 @@ class Character {
         this.isDeath=false;
         this.actualAnim.restart();
 
-        $(document).unbind("click").click(this.cambiarLado.bind(this));
+        $(document).unbind("click").bind("mousedown",this.cambiarLado.bind(this));
         $(document).unbind("keypress").bind("keypress", function (e) {
             if (e.which == 32) {//space bar
                 this.cambiarLado();
