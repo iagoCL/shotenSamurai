@@ -60,12 +60,18 @@ class HitObject {
     collision() {
         if (this.isBreakable) {
             game.sumarPuntos(game.pointsOnObstacleClear());
+            this.objectSpriteDestroyed.restartAndDo(function () {
+                this.isDestroyed = true;
+            }.bind(this));
         } else {
             this.character.kill();
+            this.objectSpriteDestroyed.restartAndDo(function () {
+                this.objectSprite.restart();
+                this.height = Math.ceil(this.width * this.objectSprite.aspectRatio);
+                this.actualAnim = this.objectSprite;
+            }.bind(this));
         }
-        this.objectSpriteDestroyed.restartAndDo(function () {
-            this.isDestroyed = true;
-        }.bind(this));
+        
         this.height = Math.ceil(this.width * this.objectSpriteDestroyed.aspectRatio);
         this.actualAnim = this.objectSpriteDestroyed;
     }

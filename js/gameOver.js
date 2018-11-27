@@ -1,53 +1,50 @@
+var puntos = 0;
 $(document).ready(function () {
 
-    let puntos=sessionStorage.getItem("ultimaPuntuacion");
-    $("#puntos").html(parseInt(puntos));
-    if(puntos!=null){
-        var puntuacionesGuardadas = JSON.parse(sessionStorage.getItem("puntuaciones"));
-        if(puntuacionesGuardadas!=null){
-            for(var i=0;i<puntuacionesGuardadas.length;i++){
-                if(puntos>=puntuacionesGuardadas[i].puntos || puntuacionesGuardadas.length<2){
-                    $("#record").show();
-                    break;
-                }else{
-                    $("#record").hide();
-                }
+    puntos = parseInt(sessionStorage.getItem("ultimaPuntuacion"));
+    $("#puntos").html(puntos);
+    if (puntos != null) {
+        var puntuacionesGuardadas = JSON.parse(localStorage.getItem("puntuaciones"));
+        if (puntuacionesGuardadas != null) {
+            if (puntuacionesGuardadas.length<10 ||puntos >= parseInt(puntuacionesGuardadas[puntuacionesGuardadas.length - 1].puntos)) {
+                $("#record").show();
+            } else {
+                $("#record").hide();
             }
         }
-     }
-    
+    }
 });
 
 function clicked() {
-    let puntos=sessionStorage.getItem("ultimaPuntuacion");
-    let nombre=document.getElementById("newRecord").value;
-    if(nombre=="   " ||nombre=="  "||nombre==" "||nombre==""){
-        nombre="aaa";
+    let nombre = document.getElementById("newRecord").value;
+    if (nombre == "   " || nombre == "  " || nombre == " " || nombre == "") {
+        nombre = "aaa";
     }
-    if(puntos!=null){
-        var puntuacionesGuardadas = JSON.parse(sessionStorage.getItem("puntuaciones"));
-        if(puntuacionesGuardadas!=null){ //Next executions
-            for(var i=0;i<puntuacionesGuardadas.length;i++){
-                if(puntos>=puntuacionesGuardadas[i].puntos || puntuacionesGuardadas.length<2){
-                    let nPuntos={nombre,puntos};
-                    puntuacionesGuardadas.push(nPuntos);
-                    break;
-                }
-            }
-    
-            puntuacionesGuardadas.sort(function(a, b){return b.puntos-a.puntos});
-            while(puntuacionesGuardadas.length>2){
+    if (puntos != null && puntos != undefined && puntos != NaN) {
+        var puntuacionesGuardadas = JSON.parse(localStorage.getItem("puntuaciones"));
+        if (puntuacionesGuardadas != null) { //Next executions
+            let nPuntos = {
+                nombre,
+                puntos
+            };
+            puntuacionesGuardadas.push(nPuntos);
+            puntuacionesGuardadas.sort(function (a, b) {
+                return parseInt(b.puntos) - parseInt(a.puntos)
+            });
+            while (puntuacionesGuardadas.length > 10) {
                 puntuacionesGuardadas.pop();
             }
-            sessionStorage.setItem("puntuaciones",JSON.stringify(puntuacionesGuardadas));
-        }else{ //For the first execution of gameOver
-            let nPuntos={nombre,puntos};
-            let primerosPuntos=[];
-            primerosPuntos.push(nPuntos);
-            sessionStorage.setItem("puntuaciones",JSON.stringify(primerosPuntos));
+            localStorage.setItem("puntuaciones", JSON.stringify(puntuacionesGuardadas));
+        } else { //For the first execution of gameOver
+            let nPuntos = {
+                nombre,
+                puntos
+            };
+            let primerosPuntos = [nPuntos];
+            localStorage.setItem("puntuaciones", JSON.stringify(primerosPuntos));
         }
 
-}
+    }
 
-sessionStorage.removeItem("ultimaPuntuacion");
+    sessionStorage.removeItem("ultimaPuntuacion");
 }
