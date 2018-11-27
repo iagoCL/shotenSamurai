@@ -59,7 +59,7 @@ class HitObject {
 
     collision() {
         if (this.isBreakable) {
-            game.sumarPuntos(game.pointsOnObstacleClear());
+            game.sumarPuntos(game.pointsPerObstacle);
         } else {
             this.character.kill();
         }
