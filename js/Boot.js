@@ -247,7 +247,6 @@ function resourceLoaded() {
             $("#loadingGame").hide();
             game.canvas.style.display = "block";
             game.pointsText.css({ display:  "block"});
-            game.comboText.css({display: "block"});
             game.lineaMin.css({ display:  "block"});
             game.lineaMax.css({ display:  "block"});
             game.startGame();
@@ -257,7 +256,6 @@ function resourceLoaded() {
                 $("#loadingGame").hide();
                 game.canvas.style.display = "block";
                 game.pointsText.css({ display:  "block"});
-                game.comboText.css({display:  "block"});
                 game.lineaMin.css({ display:  "block"});
                 game.lineaMax.css({ display:  "block"});
                 game.startGame();
