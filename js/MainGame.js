@@ -35,6 +35,7 @@ class MainGame {
         this.lateralRefresh = 1000;
         this.canvas = document.getElementById("mainGame");
         this.pointsText = $("#gamePoints");
+        this.comboText=$("#comboScore");
         this.lineaMin = $("#lineaMin");
         this.lineaMax = $("#lineaMax");
         this.loadingProgress = document.getElementById("loadingProgress");
@@ -76,13 +77,22 @@ class MainGame {
         this.character.update();
         this.arrayObjects.forEach(function (element) {
             //To delete items that are not on the screen
-            if (element.relativePosY >= 1 || element.isDestroyed) {
+            if (element.relativePosY >= 1) {
+                if(element.isBreakable){
+                    this.obstacleCombo=1.0;
+                    this.obstacleCombo=this.obstacleCombo.toFixed(1);
+                }
+                this.arrayObjects.splice(this.arrayObjects.indexOf(element), 1);
+            }else if(element.isDestroyed){
+                this.obstacleCombo+=0.1;
+                this.obstacleCombo=this.obstacleCombo.toFixed(1);
                 this.arrayObjects.splice(this.arrayObjects.indexOf(element), 1);
             }
             else {
                 element.update();
             }
         }.bind(this));
+
         this.sumarPuntos(this.pointsPerUpdate);
 
         /**Debug performance*
@@ -242,6 +252,8 @@ class MainGame {
             element.repaint();
         });
         this.pointsText.html(Math.floor(this.points).toString());
+        this.comboText.html("x"+this.obstacleCombo.toString());
+
         /**Debug performance*
     	let oldPaint = this.lastPaint;
     	this.lastPaint = (new Date()).getMilliseconds();
@@ -271,6 +283,7 @@ class MainGame {
         //paint points
         let canvasOffset = $("#mainGame").offset();
         this.pointsText.css({top: canvasOffset.top, left: canvasOffset.left});
+        this.comboText.css({top: canvasOffset.top, right: canvasOffset.right});
 
         //paint lines
         this.lineaMax.css({top: (canvasOffset.top+this.canvasHeight*this.character.relativePosYMaximo), left: canvasOffset.left});
