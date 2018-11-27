@@ -46,13 +46,14 @@ title {
     src: url("slkscr.ttf");
 }
 
-#gamePoints {
+#gamePoints,#comboScore {
     position: absolute;
     font-family: "Silkscreen";
     font-size: 2.5em;
     margin: 0;
     color: #eedddd;
     display: none;
+    padding: 0;
 }
 
 #lineaMin{
