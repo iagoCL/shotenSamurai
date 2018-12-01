@@ -16,4 +16,11 @@ $(document).ready(function () {
     $("#idiomaSelector").change(function () {
         localStorage.setItem("idiomaSelected", $("#idiomaSelector").val());
     });
+var este;
+    $.getJSON('languages.json',function(data){
+        console.log(data);
+    //este=data;
+    });
+  //  $(".conHeadLabel").text(este.);
 });
+
