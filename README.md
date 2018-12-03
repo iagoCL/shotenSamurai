@@ -97,10 +97,19 @@ Si el jugador muere, se dará paso a la pantalla de *Game Over*. Aquí, el usuar
  En esta sección se detallarán los objetos que aparecerán a lo largo del juego, así como una descripción del personaje principal.
 #### Samurái
  El protagonista del videojuego es un Samurái de la época feudal japonesa que se encuentra una extraña torre con un cártel muy llamativo.
+ ![alt text](images/objetosgdd/player_death_1.JPG "Figura 1: Personaje principal.")
+
+ *Figura 1: Personaje principal.*
 #### La Torre
   Al pie de esta infinita torre, el personaje se encuentra un cártel con el siguiente mensaje: "*No hay cojones a subirla*".
 #### Objetos del escenario
- El protagonista tendrá que subir la torre destruyendo objetos tales como telas, tablones de madera y cañas de bambú; así como esquivando piedras, trozos de vigas o joyas preciosas y capiteles dorados.
+ El protagonista tendrá que subir la torre destruyendo objetos tales como telas, tablones de madera y cañas de bambú; así como esquivando diferentes tipos de piedras y rocas.
+ ![alt text](images/objetosgdd/Tela.JPG "Figura 2: Ejemplo objeto rompible.")
+  *Figura 2: Ejemplo objeto rompible.*
+  
+  ![alt text](images/objetosgdd/Roca3.JPG "Figura 3: Ejemplo obstáculo no rompible.")
+  *Figura 3: Ejemplo obstáculo no rompible.*
+ 
 ### Movimientos
 Como se ha mencionado, el jugador está continuamente ascendiendo por la torre mientras esquiva ciertos objetos y destruye otros.
 
@@ -134,9 +143,27 @@ A continuación el boceto de la pantalla de *Menú Principal*:
 
 Lista y descripción de todos sus componentes.
 * **Botón Jugar**: Este botón mostrará la cinematica de inicio, la cual dará inicio a una nueva partida cuando acabe.
+![alt text](images/imagenesgdd/botonjugar.JPG "Figura 1: Botón jugar.")
+
+*Figura 1: Botón jugar.*
+
 * **Botón Créditos**: Este botón llevará al usuario a la pantalla de créditos.
+![alt text](images/imagenesgdd/botoncreditos.JPG "Figura 1: Botón créditos.")
+
+*Figura 1: Botón créditos.*
+
+
 * **Botón Mejores Puntuaciones**: Este botón llevará a la pantalla de mejores puntuaciones.
-* **Botón Llave Inglesa**: Este botón llevará a la pantalla de configuración.
+![alt text](images/imagenesgdd/botonpuntuaciones.JPG "Figura 1: Botón para acceder a las mejores puntuaciones.")
+
+*Figura 1: Botón para acceder a las mejores puntuaciones.*
+
+* **Botón Configuración**: Este botón llevará a la pantalla de configuración.
+![alt text](images/imagenesgdd/botonconfiguración.JPG "Figura 1: Botón para acceder a la configuración.")
+
+*Figura 1: Botón para acceder a la configuración.*
+
+
 ### Créditos
 A continuación el boceto de la pantalla de *Créditos*:
 
@@ -145,7 +172,13 @@ A continuación el boceto de la pantalla de *Créditos*:
 *Figura 3: Boceto de la pantalla de créditos.*
 
 Lista y descripción de todos sus componentes.
-* **Botón Flecha**: Este botón devolverá al jugador al menú principal.
+* **Botón Menú**: Este botón devolverá al jugador al menú principal.
+![alt text](images/imagenesgdd/botonmenu.JPG "Figura 1: Botón para volver al menú.")
+
+*Figura 1: Botón para volver al menú.*
+
+
+
 ### Mejores puntuaciones
 A continuación el boceto de la pantalla de *Mejores puntuaciones*:
 
@@ -154,7 +187,10 @@ A continuación el boceto de la pantalla de *Mejores puntuaciones*:
 *Figura 4: Boceto de la pantalla de mejores puntuaciones.*
 
 Lista y descripción de todos sus componentes.
-* **Botón Flecha**: Este botón devolverá al jugador al menú principal.
+* **Botón Menú**: Este botón devolverá al jugador al menú principal.
+![alt text](images/imagenesgdd/botonmenu.JPG "Figura 1: Botón para volver al menú.")
+
+*Figura 1: Botón para volver al menú.*
 ### Configuración
 A continuación el boceto de la pantalla de *Configuración*:
 
@@ -165,7 +201,10 @@ A continuación el boceto de la pantalla de *Configuración*:
 Lista y descripción de todos sus componentes.
 * **Checkbox**: Este checkbox permitirá activar/desactivar el sonido.
 * **Desplegable**: Este desplegable permitirá escoger el idioma, los idiomas que se planean implementar son inglés, español y japonés.
-* **Botón Flecha**: Este botón devolverá al jugador al menú principal.
+* **Botón Menú**: Este botón devolverá al jugador al menú principal.
+![alt text](images/imagenesgdd/botonmenu.JPG "Figura 1: Botón para volver al menú.")
+
+*Figura 1: Botón para volver al menú.*
 ### Pantalla principal
 A continuación el boceto de la pantalla *principal*:
 
@@ -203,7 +242,64 @@ El fichero de trabajo debe tener una calidad superior a la requerida en el juego
     * **Icono Menú Principal**: Icono que hará regresar a la pantalla del menú principal.
 * **Personaje**:
     * **Samurai**: Deberá tener una animación de correr, salto, aterrizaje, corte y muerte.
+        ![alt text](images/imagenesgdd/player_walk_izq_1.JPG "Figura 1: Pose 1 del personaje caminando por la pared izquierda.")
+
+        *Figura 1: Pose 1 del personaje caminando por la pared izquierda.*
+        
+        ![alt text](images/imagenesgdd/player_walk_izq_2.JPG "Figura 1: Pose 2 del personaje caminando por la pared izquierda.")
+
+        *Figura 1: Pose 2 del personaje caminando por la pared izquierda.*
+        
+        ![alt text](images/imagenesgdd/player_walk_izq_3.JPG "Figura 1: Pose 3 del personaje caminando por la pared izquierda.")
+
+        *Figura 1: Pose 3 del personaje caminando por la pared izquierda.*
+        
+        ![alt text](images/imagenesgdd/player_walk_izq_4.JPG "Figura 1: Pose 4 del personaje caminando por la pared izquierda.")
+
+        *Figura 1: Pose 4 del personaje caminando por la pared izquierda.*
+        
+        ![alt text](images/imagenesgdd/player_walk_izq_5.JPG "Figura 1: Pose 5 del personaje caminando por la pared izquierda.")
+
+        *Figura 1: Pose 5 del personaje caminando por la pared izquierda.*
+        
+        ![alt text](images/imagenesgdd/player_walk_izq_6.JPG "Figura 1: Pose 6 del personaje caminando por la pared izquierda.")
+
+        *Figura 1: Pose 6 del personaje caminando por la pared izquierda.*
+        
+        ![alt text](images/imagenesgdd/player_walk_der_1.JPG "Figura 1: Pose 1 del personaje caminando por la pared derecha.")
+
+        *Figura 1: Pose 1 del personaje caminando por la pared derecha.*
+        
+        ![alt text](images/imagenesgdd/player_walk_der_2.JPG "Figura 1: Pose 2 del personaje caminando por la pared derecha.")
+
+        *Figura 1: Pose 2 del personaje caminando por la pared derecha.*
+        
+        ![alt text](images/imagenesgdd/player_walk_der_3.JPG "Figura 1: Pose 3 del personaje caminando por la pared derecha.")
+
+        *Figura 1: Pose 3 del personaje caminando por la pared derecha.*
+        
+        ![alt text](images/imagenesgdd/player_walk_der_4.JPG "Figura 1: Pose 4 del personaje caminando por la pared derecha.")
+
+        *Figura 1: Pose 4 del personaje caminando por la pared derecha.*
+        
+        ![alt text](images/imagenesgdd/player_walk_der_5.JPG "Figura 1: Pose 5 del personaje caminando por la pared derecha.")
+
+        *Figura 1: Pose 5 del personaje caminando por la pared derecha.*
+        
+        ![alt text](images/imagenesgdd/player_walk_der_6.JPG "Figura 1: Pose 6 del personaje caminando por la pared derecha.")
+
+        *Figura 1: Pose 6 del personaje caminando por la pared derecha.*
+        
+        
+        
+        
     * **Obstáculo en pared**: Obstáculo en las paredes que obligarán a saltar al personaje. Se aconseja hacer varios modelos.
+    
+        ![alt text](images/imagenesgdd/player_walk_izq_1.JPG "Figura 1: Pose 1 del personaje caminando por la pared izquierda.")
+
+        *Figura 1: Pose 1 del personaje caminando por la pared izquierda.*
+    
+    
     * **Obstáculo cayendo**: Obstáculo cayendo por el escenario que dificultará el salto. Se aconseja hacer varios modelos.
     * **Objeto cortante Cayendo**: Objeto cayendo por el escenario que permitirá sumar puntos. Deberá haber una animación de destrucción y se aconseja hacer varios modelos.
 * **Escenario**:
