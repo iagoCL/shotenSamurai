@@ -137,46 +137,24 @@ En puntos posteriores nos centraremos en ellas de forma individual.
 ### Menú Principal
 A continuación el boceto de la pantalla de *Menú Principal*:
 
-![alt text](images/gdd/menuPrincipal.JPG "Figura 2: Boceto del menú principal.")
+![alt text](images/imagenesgdd/menu.JPG "Figura 2: Boceto del menú principal.")
 
 *Figura 2: Boceto del menú principal.*
 
 Lista y descripción de todos sus componentes.
 * **Botón Jugar**: Este botón mostrará la cinematica de inicio, la cual dará inicio a una nueva partida cuando acabe.
-![alt text](images/imagenesgdd/botonjugar.JPG "Figura 1: Botón jugar.")
-
-*Figura 1: Botón jugar.*
-
 * **Botón Créditos**: Este botón llevará al usuario a la pantalla de créditos.
-![alt text](images/imagenesgdd/botoncreditos.JPG "Figura 1: Botón créditos.")
-
-*Figura 1: Botón créditos.*
-
-
 * **Botón Mejores Puntuaciones**: Este botón llevará a la pantalla de mejores puntuaciones.
-![alt text](images/imagenesgdd/botonpuntuaciones.JPG "Figura 1: Botón para acceder a las mejores puntuaciones.")
-
-*Figura 1: Botón para acceder a las mejores puntuaciones.*
-
 * **Botón Configuración**: Este botón llevará a la pantalla de configuración.
-![alt text](images/imagenesgdd/botonconfiguración.JPG "Figura 1: Botón para acceder a la configuración.")
-
-*Figura 1: Botón para acceder a la configuración.*
-
-
 ### Créditos
 A continuación el boceto de la pantalla de *Créditos*:
 
-![alt text](images/gdd/creditos.JPG "Figura 3: Boceto de la pantalla de créditos.")
+![alt text](images/imagenesgdd/creditos.JPG "Figura 3: Boceto de la pantalla de créditos.")
 
 *Figura 3: Boceto de la pantalla de créditos.*
 
 Lista y descripción de todos sus componentes.
 * **Botón Menú**: Este botón devolverá al jugador al menú principal.
-![alt text](images/imagenesgdd/botonmenu.JPG "Figura 1: Botón para volver al menú.")
-
-*Figura 1: Botón para volver al menú.*
-
 
 
 ### Mejores puntuaciones
@@ -188,13 +166,11 @@ A continuación el boceto de la pantalla de *Mejores puntuaciones*:
 
 Lista y descripción de todos sus componentes.
 * **Botón Menú**: Este botón devolverá al jugador al menú principal.
-![alt text](images/imagenesgdd/botonmenu.JPG "Figura 1: Botón para volver al menú.")
 
-*Figura 1: Botón para volver al menú.*
 ### Configuración
 A continuación el boceto de la pantalla de *Configuración*:
 
-![alt text](images/gdd/configuracion.JPG "Figura 5: Boceto de la pantalla de configuración.")
+![alt text](images/imagenesgdd/configuracion.JPG "Figura 5: Boceto de la pantalla de configuración.")
 
 *Figura 5: Boceto de la pantalla de configuración.*
 
@@ -216,18 +192,15 @@ Esta pantalla será la pantalla principal, donde el jugador pasará la mayor par
 ### Game Over
 A continuación el boceto de las variantes de la pantalla de *Game Over*:
 
-![alt text](images/gdd/gameOver.JPG "Figura 7: Boceto de la pantalla de Game Over.")
+![alt text](images/imagenesgdd/gameover.JPG "Figura 7: Boceto de la pantalla de Game Over.")
 
 *Figura 7: Boceto de la pantalla de Game Over.*
 
-![alt text](images/gdd/gameOverRecord.JPG "Figura 8: Boceto de la pantalla de Game Over batiendo un nuevo record.")
-
-*Figura 8: Boceto de la pantalla de Game Over batiendo un nuevo record.*
 
 Lista y descripción de todos sus componentes.
 * **Name input**: El jugador usará este campo para introducir sus iniciales. Se mostrarán como iniciales predeterminadas las últimas introducidas y se registrará al pulsar cualquiera de los botones.
 * **Botón Volver a jugar**: Este botón dará directamente inicio a una nueva partida.
-* **Botón Flecha**: Este botón te devolverá al menú principal.
+* **Botón Menú**: Este botón te devolverá al menú principal.
 ## Arte
 *Shoten Samurai* tendrá un estilo de arte pixel art de inspiración oriental.
 
