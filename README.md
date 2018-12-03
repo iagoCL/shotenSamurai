@@ -290,6 +290,33 @@ El fichero de trabajo debe tener una calidad superior a la requerida en el juego
 
         *Figura 1: Pose 6 del personaje caminando por la pared derecha.*
         
+        ![alt text](images/imagenesgdd/player_jump_der.JPG "Figura 1: Pose del personaje preparándose para saltar de derecha a izquierda")
+        
+         *Figura 1: Pose del personaje preparándose para saltar de derecha a izquierda.*
+        
+        ![alt text](images/imagenesgdd/player_air_izq.JPG "Figura 1: Pose del personaje saltando de izquierda a derecha.")
+
+        *Figura 1: Pose del personaje saltando de derecha a izquierda.*
+        
+        ![alt text](images/imagenesgdd/player_jump_izq.JPG "Figura 1: Pose del personaje preparándose para saltar de izquierda a derecha")
+        
+         *Figura 1: Pose del personaje preparándose para saltar de izquierda a derecha.*
+        
+        ![alt text](images/imagenesgdd/player_air_izq.JPG "Figura 1: Pose del personaje saltando de izquierda a derecha.")
+
+        *Figura 1: Pose del personaje saltando de izquierda a derecha.*
+        
+        ![alt text](images/imagenesgdd/player_death_3.JPG "Figura 1: Pose del personaje cuando muere.")
+
+        *Figura 1: Pose del personaje cuando muere.*
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
