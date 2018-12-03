@@ -322,15 +322,101 @@ El fichero de trabajo debe tener una calidad superior a la requerida en el juego
         
     * **Obstáculo en pared**: Obstáculo en las paredes que obligarán a saltar al personaje. Se aconseja hacer varios modelos.
     
-        ![alt text](images/imagenesgdd/player_walk_izq_1.JPG "Figura 1: Pose 1 del personaje caminando por la pared izquierda.")
+        ![alt text](images/imagenesgdd/paredEasy.JPG "Figura 1: Obstáculo lateral (derecha e izquierda) de la primera fase del juego.")
 
-        *Figura 1: Pose 1 del personaje caminando por la pared izquierda.*
+        *Figura 1: Obstáculo lateral (derecha e izquierda) de la primera fase del juego.*
+        
+        ![alt text](images/imagenesgdd/paredMed.JPG "Figura 1: Obstáculo lateral (derecha e izquierda) de la segunda fase del juego.")
+
+        *Figura 1: Obstáculo lateral (derecha e izquierda) de la segunda fase del juego.*
+        
+         ![alt text](images/imagenesgdd/paredHard.JPG "Figura 1: Obstáculo lateral (derecha e izquierda) de la tercera fase del juego.")
+
+        *Figura 1: Obstáculo lateral (derecha e izquierda) de la tercera fase del juego.*
+        
+        ![alt text](images/imagenesgdd/paredHell.JPG "Figura 1: Obstáculo lateral (derecha e izquierda) de la cuarta fase del juego.")
+
+        *Figura 1: Obstáculo lateral (derecha e izquierda) de la cuarta fase del juego.*
     
     
     * **Obstáculo cayendo**: Obstáculo cayendo por el escenario que dificultará el salto. Se aconseja hacer varios modelos.
-    * **Objeto cortante Cayendo**: Objeto cayendo por el escenario que permitirá sumar puntos. Deberá haber una animación de destrucción y se aconseja hacer varios modelos.
+    
+      ![alt text](images/imagenesgdd/Roca1.JPG "Figura 1: Tipo 1 de obstáculo central irrompible.")
+
+        *Figura 1: Tipo 1 de obstáculo central irrompible.*
+        
+      ![alt text](images/imagenesgdd/Roca2.JPG "Figura 1: Tipo 2 de obstáculo central irrompible.")
+
+        *Figura 1: Tipo 2 de obstáculo central irrompible.*
+        
+       ![alt text](images/imagenesgdd/Roca3.JPG "Figura 1: Tipo 3 de obstáculo central irrompible.")
+
+        *Figura 1: Tipo 3 de obstáculo central irrompible.*
+        
+       ![alt text](images/imagenesgdd/Roca4.JPG "Figura 1: Tipo 4 de obstáculo central irrompible.")
+
+        *Figura 1: Tipo 4 de obstáculo central irrompible.*
+        
+    
+    * **Objeto rompible cayendo**: Objeto cayendo por el escenario que permitirá sumar puntos. Deberá haber una animación de destrucción y se aconseja hacer varios modelos.
+    
+   ![alt text](images/imagenesgdd/Bamboo.JPG "Figura 1: Tipo 1 de objeto central rompible.")
+
+     *Figura 1: Tipo 1 de objeto central rompible.*
+    
+   ![alt text](images/imagenesgdd/Farol.JPG "Figura 1: Tipo 2 de objeto central rompible.")
+
+     *Figura 1: Tipo 2 de objeto central rompible.*
+     
+    ![alt text](images/imagenesgdd/Moneda.JPG "Figura 1: Tipo 3 de objeto central rompible.")
+
+     *Figura 1: Tipo 3 de objeto central rompible.*
+    
+    ![alt text](images/imagenesgdd/Tabla.JPG "Figura 1: Tipo 4 de objeto central rompible.")
+
+     *Figura 1: Tipo 4 de objeto central rompible.*
+    
+    ![alt text](images/imagenesgdd/Tela.JPG "Figura 1: Tipo 5 de objeto central rompible.")
+
+     *Figura 1: Tipo 5 de objeto central rompible.*
+     
 * **Escenario**:
     * **Fondo**: Fondo tildeable verticalmente, deberá de haber al menos uno por cada nivel de dificultad.
+    
+    ![alt text](images/imagenesgdd/fondo-easyStart.JPG "Figura 1: Comienzo del escenario de la primera fase.")
+
+     *Figura 1: Comienzo del escenario de la primera fase.*
+     
+     ![alt text](images/imagenesgdd/fondo-easy.JPG "Figura 1: Parte intermedia del escenario de la primera fase.")
+
+     *Figura 1: Parte intermedia del escenario de la primera fase.*
+     
+     ![alt text](images/imagenesgdd/fondo-easyToMid.JPG "Figura 1: Transición de escenario entre la primera y la segunda fase.")
+
+     *Figura 1: Transición de escenario entre la primera y la segunda fase.*
+     
+     ![alt text](images/imagenesgdd/fondo-mid.JPG "Figura 1: Parte intermedia del escenario de la segunda fase.")
+
+     *Figura 1: Parte intermedia del escenario de la segunda fase.*
+     
+     ![alt text](images/imagenesgdd/fondo-MidToHard.JPG "Figura 1: Transición de escenario entre la segunda y la tercera fase.")
+
+     *Figura 1: Transición de escenario entre la segunda y la tercera fase.*
+     
+     ![alt text](images/imagenesgdd/fondo-hard.JPG "Figura 1: Parte intermedia del escenario de la tercera fase.")
+
+     *Figura 1: Parte intermedia del escenario de la tercera fase.*
+     
+     ![alt text](images/imagenesgdd/fondo-HardToHell.JPG "Figura 1: Transición de escenario entre la tercera y la cuarta fase.")
+
+     *Figura 1: Transición de escenario entre la tercera y la cuarta fase.*
+     
+     ![alt text](images/imagenesgdd/fondo-Hell.JPG "Figura 1: Escenario de la fase final.")
+
+     *Figura 1: Escenario de la fase final.*
+     
+      
+    
 ### Animaciones 2D
 Se dará libertad al artista para su implementación, aunque éste deberá de asegurarse que el formato escogido sea fácilmente integrable en HTML5.
 * **Animacion de inicio**: Pequeña animación cómica que dará inicio al juego.
