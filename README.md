@@ -35,10 +35,10 @@
         - [Animaciones 2D](#animaciones-2d)
         - [Sonido](#sonido)
         
-##Heimdall Games
+## Heimdall Games
 Javier Martínez Pablo - Game Designer
 Iago Calvo Lista - Desarrollador
-Iago Cruz - Desarrollador
+Iago Cruz García - Desarrollador
 Germán Matilla Jiménez - Artista 2D
 Ángel Cabanilles Gomar - Artista 2D, Animador 2D
 
