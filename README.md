@@ -178,13 +178,11 @@ Lista y descripción de todos sus componentes.
 * **Checkbox**: Este checkbox permitirá activar/desactivar el sonido.
 * **Desplegable**: Este desplegable permitirá escoger el idioma, los idiomas que se planean implementar son inglés, español y japonés.
 * **Botón Menú**: Este botón devolverá al jugador al menú principal.
-![alt text](images/imagenesgdd/botonmenu.JPG "Figura 1: Botón para volver al menú.")
 
-*Figura 1: Botón para volver al menú.*
 ### Pantalla principal
 A continuación el boceto de la pantalla *principal*:
 
-![alt text](images/gdd/juego.JPG "Figura 6: Boceto de la pantalla principal.")
+![alt text](images/imagenesgdd/pantalla.JPG "Figura 6: Boceto de la pantalla principal.")
 
 *Figura 6: Boceto de la pantalla principal.*
 
