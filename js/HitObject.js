@@ -4,7 +4,7 @@ class HitObject {
     constructor(ctx_, relativePosY_, relativePosX_, objectSprite_, character_, isBreakable_, celerity_) {
         //todo: type wall, cut or normal
         this.relativeWidth = 0.1;
-        this.offSetRadius = 0.07; //Offset radius to calculate if an item should be created
+        this.offSetRadius = 0.005; //Offset radius to calculate if an item should be created
         this.isDestroyed = false;
 
         this.relativePosX = relativePosX_;

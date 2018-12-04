@@ -97,6 +97,7 @@ class MainGame {
     	this.lastLogic = (new Date()).getMilliseconds();
 	    console.log("lastLogic: "+this.lastLogic+ " logicIterval: "+(this.lastLogic-oldLogic)+" logicDuration: "+(this.lastLogic-logicStart));//*/
     }
+
     //Generate lateral obstacles
     callGenLateralObstacle() {
         this.genLateralObstacle();
@@ -281,6 +282,7 @@ class MainGame {
         this.lineaMin.css({top: (canvasOffset.top+this.canvasHeight*this.character.relativePosYMin+this.character.height), left: canvasOffset.left});
         this.lineaMax.attr("width", this.canvasWidth);
         this.lineaMin.attr("width", this.canvasWidth);
+        
         //console.log("resize to w: "+canvas.width + " h: "+canvas.height);
     }
 }
