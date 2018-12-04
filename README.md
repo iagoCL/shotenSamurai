@@ -104,11 +104,11 @@ Si el jugador muere, se dará paso a la pantalla de *Game Over*. Aquí, el usuar
  *Figura 1: Personaje principal.*
 #### La Torre
   Al pie de esta infinita torre, el personaje se encuentra un cártel con el siguiente mensaje: "*No hay cojones a subirla*".
-  ![alt text](images/vineta_4.JPG "Perspectiva contrapicada de la torre.")
+  ![alt text](images/imagenesgdd/vineta_4.JPG "Perspectiva contrapicada de la torre.")
 
  *Figura 1: Perspectiva contrapicada de la torre.*
  
- ![alt text](images/vineta_3.JPG "Figura 1: Cartel al pie de la torre.")
+ ![alt text](images/imagenesgdd/vineta_3.JPG "Figura 1: Cartel al pie de la torre.")
 
  *Figura 1: Cartel al pie de la torre.*
   
@@ -203,26 +203,32 @@ Lista y descripción de todos sus componentes.
 ### Pantalla tutorial
 A continuación el boceto de la pantalla *tutorial*:
 
-![alt text](images/imagenesgdd/pantalla.JPG "Figura 7: Boceto de la pantalla tutorial.")
+![alt text](images/imagenesgdd/pantalla_tutorial.JPG "Figura 7: Primera pantalla del tutorial introductorio.")
 
-*Figura 7: Boceto de la pantalla tutorial.*
+*Figura 7: Primera pantalla del tutorial introductorio.*
 
-Esta pantalla se mostrara la primera vez en cada sesión que un jugador acceda al juego, el jugara ira clickando para observar un tutorial en formato comic del juego.
+![alt text](images/imagenesgdd/nani.JPG "Figura 7: Segunda pantalla del tutorial introductorio.")
+
+*Figura 7: Segunda pantalla del tutorial introductorio.*
+
+
+
+Esta pantalla se mostrará la primera vez en cada sesión que un jugador acceda al juego, el jugara irá clickando para observar un tutorial en formato cómic del juego.
 
 ### Pantalla principal
 A continuación el boceto de la pantalla *principal*:
 
-![alt text](images/imagenesgdd/pantalla.JPG "Figura 8: Boceto de la pantalla principal.")
+![alt text](images/imagenesgdd/pantalla_principal_2.JPG "Figura 8: Captura de la pantalla principal.")
 
-*Figura 8: Boceto de la pantalla principal.*
+*Figura 8: Captura de la pantalla principal.*
 
 Esta pantalla será la pantalla principal, donde el jugador pasará la mayor parte del tiempo, el funcionamiento de las mecánicas han sido explicadas anteriormente por lo que no serán repetidas.
 ### Game Over
 A continuación el boceto de las variantes de la pantalla de *Game Over*:
 
-![alt text](images/imagenesgdd/gameover.JPG "Figura 9: Boceto de la pantalla de Game Over.")
+![alt text](images/imagenesgdd/gameover_2.JPG "Figura 9: Captura de la pantalla de Game Over.")
 
-*Figura 9: Boceto de la pantalla de Game Over.*
+*Figura 9: Captura de la pantalla de Game Over.*
 
 
 Lista y descripción de todos sus componentes.
