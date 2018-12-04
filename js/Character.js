@@ -2,7 +2,7 @@
 /*global checkSoundAndPlay game*/
 class Character {
     constructor(ctx_, character_walk_izq, character_jumping_izq, character_land_izq, character_walk_der, character_jumping_der, character_land_der, character_air_izq, character_air_der, character_death, character_death_fall, jump_sound, death_sound) {
-        this.relativePosYMin = 0.77;
+        this.relativePosYMin = 0.84;
         this.relativePosYMaximo = 0.12;
         this.relativePosY = 0.5*(this.relativePosYMin+this.relativePosYMaximo);
 

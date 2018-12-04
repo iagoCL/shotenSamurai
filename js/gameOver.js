@@ -36,7 +36,7 @@ function clicked() {
     if (nombre == "   " || nombre == "  " || nombre == " " || nombre == "") {
         nombre = "aaa";
     }
-    if (puntos != null && puntos != undefined && !puntos.isNan()) {
+    if (puntos != null && puntos != undefined) {
         var puntuacionesGuardadas = JSON.parse(localStorage.getItem("puntuaciones"));
         if (puntuacionesGuardadas != null) { //Next executions
             let nPuntos = {
