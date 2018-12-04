@@ -104,12 +104,22 @@ Si el jugador muere, se dará paso a la pantalla de *Game Over*. Aquí, el usuar
  *Figura 1: Personaje principal.*
 #### La Torre
   Al pie de esta infinita torre, el personaje se encuentra un cártel con el siguiente mensaje: "*No hay cojones a subirla*".
+  ![alt text](images/vineta_4.JPG "Perspectiva contrapicada de la torre.")
+
+ *Figura 1: Perspectiva contrapicada de la torre.*
+ 
+ ![alt text](images/vineta_3.JPG "Figura 1: Cartel al pie de la torre.")
+
+ *Figura 1: Cartel al pie de la torre.*
+  
 #### Objetos del escenario
  El protagonista tendrá que subir la torre destruyendo objetos tales como telas, tablones de madera y cañas de bambú; así como esquivando diferentes tipos de piedras y rocas.
  ![alt text](images/imagenesgdd/Tela.JPG "Figura 2: Ejemplo objeto rompible.")
+ 
   *Figura 2: Ejemplo objeto rompible.*
   
   ![alt text](images/imagenesgdd/Roca3.JPG "Figura 3: Ejemplo obstáculo no rompible.")
+  
   *Figura 3: Ejemplo obstáculo no rompible.*
  
 ### Movimientos
@@ -133,7 +143,7 @@ Cuando el protagonista choque contra algún objeto de los laterales del escenari
 El siguiente diagrama de estados muestra las pantallas presentes a lo largo de *Shoten Samurai*, así como las transiciones entre ellas.
 En puntos posteriores nos centraremos en ellas de forma individual.
 
-![alt text](images/gdd/diagrama.JPG "Figura 1: Diagrama de flujo de pantallas en el juego.")
+![alt text](images/imagenesgdd/diagrama2.JPG "Figura 1: Diagrama de flujo de pantallas en el juego.")
 
 *Figura 1: Diagrama de flujo de pantallas en el juego.*
 ### Pantalla de bienvenida
