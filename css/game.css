@@ -12,7 +12,8 @@ html {
 }
 
 #loadingGame{
-    text-align: center;    
+    text-align: center;   
+    color: #ddeeed 
 }
 
 #loadingGame>h1{
@@ -46,7 +47,7 @@ title {
     src: url("slkscr.ttf");
 }
 
-#gamePoints,#comboScore {
+#gamePoints, #comboScore {
     position: absolute;
     font-family: "Silkscreen";
     font-size: 2.5em;
@@ -56,17 +57,10 @@ title {
     padding: 0;
 }
 
-#lineaMin{
+#lineaMin, #lineaMax{
     display: none;
     border-color: #4747b9;
     background-color:  #4747b9;
-    position: absolute;
-    height: 0.5%;
-}
-#lineaMax{
-    display: none;
-    border-color: #b34226;
-    background-color:  #b34226;;
     position: absolute;
     height: 0.5%;
 }
