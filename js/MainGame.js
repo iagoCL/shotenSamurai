@@ -8,9 +8,9 @@ const dificulty = {
 };
 
 const levelPoints = {
-    MEDIUM: 80,
-    HARD: 180,
-    HELL: 450,
+    MEDIUM: 100,
+    HARD: 450,
+    HELL: 800,
 };
 
 const PointsPerUpdate = {
