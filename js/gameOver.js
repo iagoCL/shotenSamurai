@@ -28,6 +28,12 @@ $(document).ready(function () {
             }
         }
     }
+    $(document).bind("keypress", function(e) {
+        if (e.which == 32){//space bar
+            clicked();
+            location.href = "shotenSamurai.html";
+        }
+    });
 
 });
 
