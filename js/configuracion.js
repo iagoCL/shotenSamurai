@@ -3,6 +3,13 @@ $(document).ready(function () {
     updateMusicActivated();
     updateIdiomaSelected();
     updateSoundActivated();
+
+    $.getJSON('js/languages.json',function(data){
+        console.log(data);
+        este=data;
+    });
+  //  $(".conHeadLabel").text(este.);
+  
     $("#soundSwitch").prop("checked", soundActivated);
     $("#musicSwitch").prop("checked", musicActivated);
     $("#idiomaSelector").val(idiomaSelected);
@@ -16,11 +23,9 @@ $(document).ready(function () {
     $("#idiomaSelector").change(function () {
         localStorage.setItem("idiomaSelected", $("#idiomaSelector").val());
     });
-var este;
-    $.getJSON('languages.json',function(data){
-        console.log(data);
-    //este=data;
-    });
-  //  $(".conHeadLabel").text(este.);
+    
+    var este;
+
+    
 });
 
