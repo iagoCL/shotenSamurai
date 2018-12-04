@@ -97,17 +97,17 @@ Si el jugador muere, se dará paso a la pantalla de *Game Over*. Aquí, el usuar
  En esta sección se detallarán los objetos que aparecerán a lo largo del juego, así como una descripción del personaje principal.
 #### Samurái
  El protagonista del videojuego es un Samurái de la época feudal japonesa que se encuentra una extraña torre con un cártel muy llamativo.
- ![alt text](images/objetosgdd/player_death_1.JPG "Figura 1: Personaje principal.")
+ ![alt text](images/imagenesgdd/player_death_1.JPG "Figura 1: Personaje principal.")
 
  *Figura 1: Personaje principal.*
 #### La Torre
   Al pie de esta infinita torre, el personaje se encuentra un cártel con el siguiente mensaje: "*No hay cojones a subirla*".
 #### Objetos del escenario
  El protagonista tendrá que subir la torre destruyendo objetos tales como telas, tablones de madera y cañas de bambú; así como esquivando diferentes tipos de piedras y rocas.
- ![alt text](images/objetosgdd/Tela.JPG "Figura 2: Ejemplo objeto rompible.")
+ ![alt text](images/imagenesgdd/Tela.JPG "Figura 2: Ejemplo objeto rompible.")
   *Figura 2: Ejemplo objeto rompible.*
   
-  ![alt text](images/objetosgdd/Roca3.JPG "Figura 3: Ejemplo obstáculo no rompible.")
+  ![alt text](images/imagenesgdd/Roca3.JPG "Figura 3: Ejemplo obstáculo no rompible.")
   *Figura 3: Ejemplo obstáculo no rompible.*
  
 ### Movimientos
@@ -160,7 +160,7 @@ Lista y descripción de todos sus componentes.
 ### Mejores puntuaciones
 A continuación el boceto de la pantalla de *Mejores puntuaciones*:
 
-![alt text](images/gdd/puntuaciones.JPG "Figura 4: Boceto de la pantalla de mejores puntuaciones.")
+![alt text](images/imagenesgdd/puntuaciones.JPG "Figura 4: Boceto de la pantalla de mejores puntuaciones.")
 
 *Figura 4: Boceto de la pantalla de mejores puntuaciones.*
 
