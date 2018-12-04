@@ -22,10 +22,12 @@
         - [Interacciones](#interacciones)
     - [Interfaz](#interfaz)
         - [Diagrama de flujo](#diagrama-de-flujo)
+        - [Pantalla de bienvenida](#pantalla-de-bienvenida)
         - [Menú Principal](#men%C3%BA-principal)
         - [Créditos](#cr%C3%A9ditos)
         - [Mejores puntuaciones](#mejores-puntuaciones)
         - [Configuración](#configuraci%C3%B3n)
+        - [Pantalla tutorial](#pantalla-tutorial)
         - [Pantalla principal](#pantalla-principal)
         - [Game Over](#game-over)
     - [Arte](#arte)
@@ -134,12 +136,21 @@ En puntos posteriores nos centraremos en ellas de forma individual.
 ![alt text](images/gdd/diagrama.JPG "Figura 1: Diagrama de flujo de pantallas en el juego.")
 
 *Figura 1: Diagrama de flujo de pantallas en el juego.*
+### Pantalla de bienvenida
+A continuación el boceto de la pantalla de *bienvenida*:
+
+![alt text](images/imagenesgdd/bienvenida.JPG "Figura 2: Boceto de la pantalla de bienvenida.")
+
+*Figura 2: Boceto de la pantalla de bienvenida.*
+
+La primera vez que se acceda al menu principal se mostrara el logo del juego hasta que el usuario haga click. 
+
 ### Menú Principal
 A continuación el boceto de la pantalla de *Menú Principal*:
 
-![alt text](images/imagenesgdd/menu.JPG "Figura 2: Boceto del menú principal.")
+![alt text](images/imagenesgdd/menu.JPG "Figura 3: Boceto del menú principal.")
 
-*Figura 2: Boceto del menú principal.*
+*Figura 3: Boceto del menú principal.*
 
 Lista y descripción de todos sus componentes.
 * **Botón Jugar**: Este botón mostrará la cinematica de inicio, la cual dará inicio a una nueva partida cuando acabe.
@@ -149,9 +160,9 @@ Lista y descripción de todos sus componentes.
 ### Créditos
 A continuación el boceto de la pantalla de *Créditos*:
 
-![alt text](images/imagenesgdd/creditos.JPG "Figura 3: Boceto de la pantalla de créditos.")
+![alt text](images/imagenesgdd/creditos.JPG "Figura 4: Boceto de la pantalla de créditos.")
 
-*Figura 3: Boceto de la pantalla de créditos.*
+*Figura 4: Boceto de la pantalla de créditos.*
 
 Lista y descripción de todos sus componentes.
 * **Botón Menú**: Este botón devolverá al jugador al menú principal.
@@ -160,9 +171,9 @@ Lista y descripción de todos sus componentes.
 ### Mejores puntuaciones
 A continuación el boceto de la pantalla de *Mejores puntuaciones*:
 
-![alt text](images/imagenesgdd/puntuaciones.JPG "Figura 4: Boceto de la pantalla de mejores puntuaciones.")
+![alt text](images/imagenesgdd/puntuaciones.JPG "Figura 5: Boceto de la pantalla de mejores puntuaciones.")
 
-*Figura 4: Boceto de la pantalla de mejores puntuaciones.*
+*Figura 5: Boceto de la pantalla de mejores puntuaciones.*
 
 Lista y descripción de todos sus componentes.
 * **Botón Menú**: Este botón devolverá al jugador al menú principal.
@@ -170,29 +181,38 @@ Lista y descripción de todos sus componentes.
 ### Configuración
 A continuación el boceto de la pantalla de *Configuración*:
 
-![alt text](images/imagenesgdd/configuracion.JPG "Figura 5: Boceto de la pantalla de configuración.")
+![alt text](images/imagenesgdd/configuracion.JPG "Figura 6: Boceto de la pantalla de configuración.")
 
-*Figura 5: Boceto de la pantalla de configuración.*
+*Figura 6: Boceto de la pantalla de configuración.*
 
 Lista y descripción de todos sus componentes.
 * **Checkbox**: Este checkbox permitirá activar/desactivar el sonido.
 * **Desplegable**: Este desplegable permitirá escoger el idioma, los idiomas que se planean implementar son inglés, español y japonés.
 * **Botón Menú**: Este botón devolverá al jugador al menú principal.
 
+### Pantalla tutorial
+A continuación el boceto de la pantalla *tutorial*:
+
+![alt text](images/imagenesgdd/pantalla.JPG "Figura 7: Boceto de la pantalla tutorial.")
+
+*Figura 7: Boceto de la pantalla tutorial.*
+
+Esta pantalla se mostrara la primera vez en cada sesión que un jugador acceda al juego, el jugara ira clickando para observar un tutorial en formato comic del juego.
+
 ### Pantalla principal
 A continuación el boceto de la pantalla *principal*:
 
-![alt text](images/imagenesgdd/pantalla.JPG "Figura 6: Boceto de la pantalla principal.")
+![alt text](images/imagenesgdd/pantalla.JPG "Figura 8: Boceto de la pantalla principal.")
 
-*Figura 6: Boceto de la pantalla principal.*
+*Figura 8: Boceto de la pantalla principal.*
 
 Esta pantalla será la pantalla principal, donde el jugador pasará la mayor parte del tiempo, el funcionamiento de las mecánicas han sido explicadas anteriormente por lo que no serán repetidas.
 ### Game Over
 A continuación el boceto de las variantes de la pantalla de *Game Over*:
 
-![alt text](images/imagenesgdd/gameover.JPG "Figura 7: Boceto de la pantalla de Game Over.")
+![alt text](images/imagenesgdd/gameover.JPG "Figura 9: Boceto de la pantalla de Game Over.")
 
-*Figura 7: Boceto de la pantalla de Game Over.*
+*Figura 9: Boceto de la pantalla de Game Over.*
 
 
 Lista y descripción de todos sus componentes.
@@ -213,73 +233,73 @@ El fichero de trabajo debe tener una calidad superior a la requerida en el juego
     * **Icono Menú Principal**: Icono que hará regresar a la pantalla del menú principal.
 * **Personaje**:
     * **Samurai**: Deberá tener una animación de correr, salto, aterrizaje, corte y muerte.
-        ![alt text](images/imagenesgdd/player_walk_izq_1.JPG "Figura 1: Pose 1 del personaje caminando por la pared izquierda.")
+        ![alt text](images/imagenesgdd/player_walk_izq_1.JPG "Figura 10: Pose 1 del personaje caminando por la pared izquierda.")
 
-        *Figura 1: Pose 1 del personaje caminando por la pared izquierda.*
+        *Figura 10: Pose 1 del personaje caminando por la pared izquierda.*
         
-        ![alt text](images/imagenesgdd/player_walk_izq_2.JPG "Figura 1: Pose 2 del personaje caminando por la pared izquierda.")
+        ![alt text](images/imagenesgdd/player_walk_izq_2.JPG "Figura 11: Pose 2 del personaje caminando por la pared izquierda.")
 
-        *Figura 1: Pose 2 del personaje caminando por la pared izquierda.*
+        *Figura 11: Pose 2 del personaje caminando por la pared izquierda.*
         
-        ![alt text](images/imagenesgdd/player_walk_izq_3.JPG "Figura 1: Pose 3 del personaje caminando por la pared izquierda.")
+        ![alt text](images/imagenesgdd/player_walk_izq_3.JPG "Figura 12: Pose 3 del personaje caminando por la pared izquierda.")
 
-        *Figura 1: Pose 3 del personaje caminando por la pared izquierda.*
+        *Figura 12: Pose 3 del personaje caminando por la pared izquierda.*
         
-        ![alt text](images/imagenesgdd/player_walk_izq_4.JPG "Figura 1: Pose 4 del personaje caminando por la pared izquierda.")
+        ![alt text](images/imagenesgdd/player_walk_izq_4.JPG "Figura 13: Pose 4 del personaje caminando por la pared izquierda.")
 
-        *Figura 1: Pose 4 del personaje caminando por la pared izquierda.*
+        *Figura 13: Pose 4 del personaje caminando por la pared izquierda.*
         
-        ![alt text](images/imagenesgdd/player_walk_izq_5.JPG "Figura 1: Pose 5 del personaje caminando por la pared izquierda.")
+        ![alt text](images/imagenesgdd/player_walk_izq_5.JPG "Figura 14: Pose 5 del personaje caminando por la pared izquierda.")
 
-        *Figura 1: Pose 5 del personaje caminando por la pared izquierda.*
+        *Figura 14: Pose 5 del personaje caminando por la pared izquierda.*
         
-        ![alt text](images/imagenesgdd/player_walk_izq_6.JPG "Figura 1: Pose 6 del personaje caminando por la pared izquierda.")
+        ![alt text](images/imagenesgdd/player_walk_izq_6.JPG "Figura 15: Pose 6 del personaje caminando por la pared izquierda.")
 
-        *Figura 1: Pose 6 del personaje caminando por la pared izquierda.*
+        *Figura 15: Pose 6 del personaje caminando por la pared izquierda.*
         
-        ![alt text](images/imagenesgdd/player_walk_der_1.JPG "Figura 1: Pose 1 del personaje caminando por la pared derecha.")
+        ![alt text](images/imagenesgdd/player_walk_der_1.JPG "Figura 16: Pose 1 del personaje caminando por la pared derecha.")
 
-        *Figura 1: Pose 1 del personaje caminando por la pared derecha.*
+        *Figura 16: Pose 1 del personaje caminando por la pared derecha.*
         
-        ![alt text](images/imagenesgdd/player_walk_der_2.JPG "Figura 1: Pose 2 del personaje caminando por la pared derecha.")
+        ![alt text](images/imagenesgdd/player_walk_der_2.JPG "Figura 17: Pose 2 del personaje caminando por la pared derecha.")
 
-        *Figura 1: Pose 2 del personaje caminando por la pared derecha.*
+        *Figura 17: Pose 2 del personaje caminando por la pared derecha.*
         
-        ![alt text](images/imagenesgdd/player_walk_der_3.JPG "Figura 1: Pose 3 del personaje caminando por la pared derecha.")
+        ![alt text](images/imagenesgdd/player_walk_der_3.JPG "Figura 18: Pose 3 del personaje caminando por la pared derecha.")
 
-        *Figura 1: Pose 3 del personaje caminando por la pared derecha.*
+        *Figura 18: Pose 3 del personaje caminando por la pared derecha.*
         
-        ![alt text](images/imagenesgdd/player_walk_der_4.JPG "Figura 1: Pose 4 del personaje caminando por la pared derecha.")
+        ![alt text](images/imagenesgdd/player_walk_der_4.JPG "Figura 19: Pose 4 del personaje caminando por la pared derecha.")
 
-        *Figura 1: Pose 4 del personaje caminando por la pared derecha.*
+        *Figura 19: Pose 4 del personaje caminando por la pared derecha.*
         
-        ![alt text](images/imagenesgdd/player_walk_der_5.JPG "Figura 1: Pose 5 del personaje caminando por la pared derecha.")
+        ![alt text](images/imagenesgdd/player_walk_der_5.JPG "Figura 20: Pose 5 del personaje caminando por la pared derecha.")
 
-        *Figura 1: Pose 5 del personaje caminando por la pared derecha.*
+        *Figura 20: Pose 5 del personaje caminando por la pared derecha.*
         
-        ![alt text](images/imagenesgdd/player_walk_der_6.JPG "Figura 1: Pose 6 del personaje caminando por la pared derecha.")
+        ![alt text](images/imagenesgdd/player_walk_der_6.JPG "Figura 21: Pose 6 del personaje caminando por la pared derecha.")
 
-        *Figura 1: Pose 6 del personaje caminando por la pared derecha.*
+        *Figura 21: Pose 6 del personaje caminando por la pared derecha.*
         
-        ![alt text](images/imagenesgdd/player_jump_der.JPG "Figura 1: Pose del personaje preparándose para saltar de derecha a izquierda")
+        ![alt text](images/imagenesgdd/player_jump_der.JPG "Figura 22: Pose del personaje preparándose para saltar de derecha a izquierda")
         
-         *Figura 1: Pose del personaje preparándose para saltar de derecha a izquierda.*
+         *Figura 22: Pose del personaje preparándose para saltar de derecha a izquierda.*
         
-        ![alt text](images/imagenesgdd/player_air_izq.JPG "Figura 1: Pose del personaje saltando de izquierda a derecha.")
+        ![alt text](images/imagenesgdd/player_air_izq.JPG "Figura 23: Pose del personaje saltando de izquierda a derecha.")
 
-        *Figura 1: Pose del personaje saltando de derecha a izquierda.*
+        *Figura 23: Pose del personaje saltando de derecha a izquierda.*
         
-        ![alt text](images/imagenesgdd/player_jump_izq.JPG "Figura 1: Pose del personaje preparándose para saltar de izquierda a derecha")
+        ![alt text](images/imagenesgdd/player_jump_izq.JPG "Figura 24: Pose del personaje preparándose para saltar de izquierda a derecha")
         
-         *Figura 1: Pose del personaje preparándose para saltar de izquierda a derecha.*
+         *Figura 24: Pose del personaje preparándose para saltar de izquierda a derecha.*
         
-        ![alt text](images/imagenesgdd/player_air_izq.JPG "Figura 1: Pose del personaje saltando de izquierda a derecha.")
+        ![alt text](images/imagenesgdd/player_air_izq.JPG "Figura 25: Pose del personaje saltando de izquierda a derecha.")
 
-        *Figura 1: Pose del personaje saltando de izquierda a derecha.*
+        *Figura 25: Pose del personaje saltando de izquierda a derecha.*
         
-        ![alt text](images/imagenesgdd/player_death_3.JPG "Figura 1: Pose del personaje cuando muere.")
+        ![alt text](images/imagenesgdd/player_death_3.JPG "Figura 26: Pose del personaje cuando muere.")
 
-        *Figura 1: Pose del personaje cuando muere.*
+        *Figura 26: Pose del personaje cuando muere.*
         
         
         
@@ -293,98 +313,98 @@ El fichero de trabajo debe tener una calidad superior a la requerida en el juego
         
     * **Obstáculo en pared**: Obstáculo en las paredes que obligarán a saltar al personaje. Se aconseja hacer varios modelos.
     
-        ![alt text](images/imagenesgdd/paredEasy.JPG "Figura 1: Obstáculo lateral (derecha e izquierda) de la primera fase del juego.")
+        ![alt text](images/imagenesgdd/paredEasy.JPG "Figura 27: Obstáculo lateral (derecha e izquierda) de la primera fase del juego.")
 
-        *Figura 1: Obstáculo lateral (derecha e izquierda) de la primera fase del juego.*
+        *Figura 27: Obstáculo lateral (derecha e izquierda) de la primera fase del juego.*
         
-        ![alt text](images/imagenesgdd/paredMed.JPG "Figura 1: Obstáculo lateral (derecha e izquierda) de la segunda fase del juego.")
+        ![alt text](images/imagenesgdd/paredMed.JPG "Figura 28: Obstáculo lateral (derecha e izquierda) de la segunda fase del juego.")
 
-        *Figura 1: Obstáculo lateral (derecha e izquierda) de la segunda fase del juego.*
+        *Figura 28: Obstáculo lateral (derecha e izquierda) de la segunda fase del juego.*
         
-         ![alt text](images/imagenesgdd/paredHard.JPG "Figura 1: Obstáculo lateral (derecha e izquierda) de la tercera fase del juego.")
+         ![alt text](images/imagenesgdd/paredHard.JPG "Figura 29: Obstáculo lateral (derecha e izquierda) de la tercera fase del juego.")
 
-        *Figura 1: Obstáculo lateral (derecha e izquierda) de la tercera fase del juego.*
+        *Figura 29: Obstáculo lateral (derecha e izquierda) de la tercera fase del juego.*
         
-        ![alt text](images/imagenesgdd/paredHell.JPG "Figura 1: Obstáculo lateral (derecha e izquierda) de la cuarta fase del juego.")
+        ![alt text](images/imagenesgdd/paredHell.JPG "Figura 30: Obstáculo lateral (derecha e izquierda) de la cuarta fase del juego.")
 
-        *Figura 1: Obstáculo lateral (derecha e izquierda) de la cuarta fase del juego.*
+        *Figura 30: Obstáculo lateral (derecha e izquierda) de la cuarta fase del juego.*
     
     
     * **Obstáculo cayendo**: Obstáculo cayendo por el escenario que dificultará el salto. Se aconseja hacer varios modelos.
     
-      ![alt text](images/imagenesgdd/Roca1.JPG "Figura 1: Tipo 1 de obstáculo central irrompible.")
+      ![alt text](images/imagenesgdd/Roca1.JPG "Figura 31: Tipo 1 de obstáculo central irrompible.")
 
-        *Figura 1: Tipo 1 de obstáculo central irrompible.*
+        *Figura 31: Tipo 1 de obstáculo central irrompible.*
         
-      ![alt text](images/imagenesgdd/Roca2.JPG "Figura 1: Tipo 2 de obstáculo central irrompible.")
+      ![alt text](images/imagenesgdd/Roca2.JPG "Figura 32: Tipo 2 de obstáculo central irrompible.")
 
-        *Figura 1: Tipo 2 de obstáculo central irrompible.*
+        *Figura 32: Tipo 2 de obstáculo central irrompible.*
         
-       ![alt text](images/imagenesgdd/Roca3.JPG "Figura 1: Tipo 3 de obstáculo central irrompible.")
+       ![alt text](images/imagenesgdd/Roca3.JPG "Figura 33: Tipo 3 de obstáculo central irrompible.")
 
-        *Figura 1: Tipo 3 de obstáculo central irrompible.*
+        *Figura 33: Tipo 3 de obstáculo central irrompible.*
         
-       ![alt text](images/imagenesgdd/Roca4.JPG "Figura 1: Tipo 4 de obstáculo central irrompible.")
+       ![alt text](images/imagenesgdd/Roca4.JPG "Figura 34: Tipo 4 de obstáculo central irrompible.")
 
-        *Figura 1: Tipo 4 de obstáculo central irrompible.*
+        *Figura 34: Tipo 4 de obstáculo central irrompible.*
         
     
     * **Objeto rompible cayendo**: Objeto cayendo por el escenario que permitirá sumar puntos. Deberá haber una animación de destrucción y se aconseja hacer varios modelos.
     
-   ![alt text](images/imagenesgdd/Bamboo.JPG "Figura 1: Tipo 1 de objeto central rompible.")
+   ![alt text](images/imagenesgdd/Bamboo.JPG "Figura 35: Tipo 1 de objeto central rompible.")
 
-     *Figura 1: Tipo 1 de objeto central rompible.*
+     *Figura 35: Tipo 1 de objeto central rompible.*
     
-   ![alt text](images/imagenesgdd/Farol.JPG "Figura 1: Tipo 2 de objeto central rompible.")
+   ![alt text](images/imagenesgdd/Farol.JPG "Figura 36: Tipo 2 de objeto central rompible.")
 
-     *Figura 1: Tipo 2 de objeto central rompible.*
+     *Figura 36: Tipo 2 de objeto central rompible.*
      
-    ![alt text](images/imagenesgdd/Moneda.JPG "Figura 1: Tipo 3 de objeto central rompible.")
+    ![alt text](images/imagenesgdd/Moneda.JPG "Figura 37: Tipo 3 de objeto central rompible.")
 
-     *Figura 1: Tipo 3 de objeto central rompible.*
+     *Figura 37: Tipo 3 de objeto central rompible.*
     
-    ![alt text](images/imagenesgdd/Tabla.JPG "Figura 1: Tipo 4 de objeto central rompible.")
+    ![alt text](images/imagenesgdd/Tabla.JPG "Figura 38: Tipo 4 de objeto central rompible.")
 
-     *Figura 1: Tipo 4 de objeto central rompible.*
+     *Figura 38: Tipo 4 de objeto central rompible.*
     
-    ![alt text](images/imagenesgdd/Tela.JPG "Figura 1: Tipo 5 de objeto central rompible.")
+    ![alt text](images/imagenesgdd/Tela.JPG "Figura 39: Tipo 5 de objeto central rompible.")
 
-     *Figura 1: Tipo 5 de objeto central rompible.*
+     *Figura 39: Tipo 5 de objeto central rompible.*
      
 * **Escenario**:
     * **Fondo**: Fondo tildeable verticalmente, deberá de haber al menos uno por cada nivel de dificultad.
     
-    ![alt text](images/imagenesgdd/fondo-easyStart.JPG "Figura 1: Comienzo del escenario de la primera fase.")
+    ![alt text](images/imagenesgdd/fondo-easyStart.JPG "Figura 40: Comienzo del escenario de la primera fase.")
 
-     *Figura 1: Comienzo del escenario de la primera fase.*
+     *Figura 40: Comienzo del escenario de la primera fase.*
      
-     ![alt text](images/imagenesgdd/fondo-easy.JPG "Figura 1: Parte intermedia del escenario de la primera fase.")
+     ![alt text](images/imagenesgdd/fondo-easy.JPG "Figura 41: Parte intermedia del escenario de la primera fase.")
 
-     *Figura 1: Parte intermedia del escenario de la primera fase.*
+     *Figura 41: Parte intermedia del escenario de la primera fase.*
      
-     ![alt text](images/imagenesgdd/fondo-easyToMid.JPG "Figura 1: Transición de escenario entre la primera y la segunda fase.")
+     ![alt text](images/imagenesgdd/fondo-easyToMid.JPG "Figura 42: Transición de escenario entre la primera y la segunda fase.")
 
-     *Figura 1: Transición de escenario entre la primera y la segunda fase.*
+     *Figura 42: Transición de escenario entre la primera y la segunda fase.*
      
-     ![alt text](images/imagenesgdd/fondo-mid.JPG "Figura 1: Parte intermedia del escenario de la segunda fase.")
+     ![alt text](images/imagenesgdd/fondo-mid.JPG "Figura 43: Parte intermedia del escenario de la segunda fase.")
 
-     *Figura 1: Parte intermedia del escenario de la segunda fase.*
+     *Figura 43: Parte intermedia del escenario de la segunda fase.*
      
-     ![alt text](images/imagenesgdd/fondo-MidToHard.JPG "Figura 1: Transición de escenario entre la segunda y la tercera fase.")
+     ![alt text](images/imagenesgdd/fondo-MidToHard.JPG "Figura 44: Transición de escenario entre la segunda y la tercera fase.")
 
-     *Figura 1: Transición de escenario entre la segunda y la tercera fase.*
+     *Figura 44: Transición de escenario entre la segunda y la tercera fase.*
      
-     ![alt text](images/imagenesgdd/fondo-hard.JPG "Figura 1: Parte intermedia del escenario de la tercera fase.")
+     ![alt text](images/imagenesgdd/fondo-hard.JPG "Figura 45: Parte intermedia del escenario de la tercera fase.")
 
-     *Figura 1: Parte intermedia del escenario de la tercera fase.*
+     *Figura 45: Parte intermedia del escenario de la tercera fase.*
      
-     ![alt text](images/imagenesgdd/fondo-HardToHell.JPG "Figura 1: Transición de escenario entre la tercera y la cuarta fase.")
+     ![alt text](images/imagenesgdd/fondo-HardToHell.JPG "Figura 46: Transición de escenario entre la tercera y la cuarta fase.")
 
-     *Figura 1: Transición de escenario entre la tercera y la cuarta fase.*
+     *Figura 46: Transición de escenario entre la tercera y la cuarta fase.*
      
-     ![alt text](images/imagenesgdd/fondo-Hell.JPG "Figura 1: Escenario de la fase final.")
+     ![alt text](images/imagenesgdd/fondo-Hell.JPG "Figura 47: Escenario de la fase final.")
 
-     *Figura 1: Escenario de la fase final.*
+     *Figura 48: Escenario de la fase final.*
      
       
     

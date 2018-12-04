@@ -137,8 +137,8 @@ class MainGame {
 
     sumarPuntos(points_) {
         if(!this.character.isDeath){
-        this.points += points_;
-        this.nextLevel();
+            this.points += points_;
+            this.nextLevel();
         }
     }
     //Need for break combos
