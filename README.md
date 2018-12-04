@@ -97,10 +97,19 @@ Si el jugador muere, se dará paso a la pantalla de *Game Over*. Aquí, el usuar
  En esta sección se detallarán los objetos que aparecerán a lo largo del juego, así como una descripción del personaje principal.
 #### Samurái
  El protagonista del videojuego es un Samurái de la época feudal japonesa que se encuentra una extraña torre con un cártel muy llamativo.
+ ![alt text](images/objetosgdd/player_death_1.JPG "Figura 1: Personaje principal.")
+
+ *Figura 1: Personaje principal.*
 #### La Torre
   Al pie de esta infinita torre, el personaje se encuentra un cártel con el siguiente mensaje: "*No hay cojones a subirla*".
 #### Objetos del escenario
- El protagonista tendrá que subir la torre destruyendo objetos tales como telas, tablones de madera y cañas de bambú; así como esquivando piedras, trozos de vigas o joyas preciosas y capiteles dorados.
+ El protagonista tendrá que subir la torre destruyendo objetos tales como telas, tablones de madera y cañas de bambú; así como esquivando diferentes tipos de piedras y rocas.
+ ![alt text](images/objetosgdd/Tela.JPG "Figura 2: Ejemplo objeto rompible.")
+  *Figura 2: Ejemplo objeto rompible.*
+  
+  ![alt text](images/objetosgdd/Roca3.JPG "Figura 3: Ejemplo obstáculo no rompible.")
+  *Figura 3: Ejemplo obstáculo no rompible.*
+ 
 ### Movimientos
 Como se ha mencionado, el jugador está continuamente ascendiendo por la torre mientras esquiva ciertos objetos y destruye otros.
 
@@ -128,7 +137,7 @@ En puntos posteriores nos centraremos en ellas de forma individual.
 ### Menú Principal
 A continuación el boceto de la pantalla de *Menú Principal*:
 
-![alt text](images/gdd/menuPrincipal.JPG "Figura 2: Boceto del menú principal.")
+![alt text](images/imagenesgdd/menu.JPG "Figura 2: Boceto del menú principal.")
 
 *Figura 2: Boceto del menú principal.*
 
@@ -136,16 +145,18 @@ Lista y descripción de todos sus componentes.
 * **Botón Jugar**: Este botón mostrará la cinematica de inicio, la cual dará inicio a una nueva partida cuando acabe.
 * **Botón Créditos**: Este botón llevará al usuario a la pantalla de créditos.
 * **Botón Mejores Puntuaciones**: Este botón llevará a la pantalla de mejores puntuaciones.
-* **Botón Llave Inglesa**: Este botón llevará a la pantalla de configuración.
+* **Botón Configuración**: Este botón llevará a la pantalla de configuración.
 ### Créditos
 A continuación el boceto de la pantalla de *Créditos*:
 
-![alt text](images/gdd/creditos.JPG "Figura 3: Boceto de la pantalla de créditos.")
+![alt text](images/imagenesgdd/creditos.JPG "Figura 3: Boceto de la pantalla de créditos.")
 
 *Figura 3: Boceto de la pantalla de créditos.*
 
 Lista y descripción de todos sus componentes.
-* **Botón Flecha**: Este botón devolverá al jugador al menú principal.
+* **Botón Menú**: Este botón devolverá al jugador al menú principal.
+
+
 ### Mejores puntuaciones
 A continuación el boceto de la pantalla de *Mejores puntuaciones*:
 
@@ -154,18 +165,22 @@ A continuación el boceto de la pantalla de *Mejores puntuaciones*:
 *Figura 4: Boceto de la pantalla de mejores puntuaciones.*
 
 Lista y descripción de todos sus componentes.
-* **Botón Flecha**: Este botón devolverá al jugador al menú principal.
+* **Botón Menú**: Este botón devolverá al jugador al menú principal.
+
 ### Configuración
 A continuación el boceto de la pantalla de *Configuración*:
 
-![alt text](images/gdd/configuracion.JPG "Figura 5: Boceto de la pantalla de configuración.")
+![alt text](images/imagenesgdd/configuracion.JPG "Figura 5: Boceto de la pantalla de configuración.")
 
 *Figura 5: Boceto de la pantalla de configuración.*
 
 Lista y descripción de todos sus componentes.
 * **Checkbox**: Este checkbox permitirá activar/desactivar el sonido.
 * **Desplegable**: Este desplegable permitirá escoger el idioma, los idiomas que se planean implementar son inglés, español y japonés.
-* **Botón Flecha**: Este botón devolverá al jugador al menú principal.
+* **Botón Menú**: Este botón devolverá al jugador al menú principal.
+![alt text](images/imagenesgdd/botonmenu.JPG "Figura 1: Botón para volver al menú.")
+
+*Figura 1: Botón para volver al menú.*
 ### Pantalla principal
 A continuación el boceto de la pantalla *principal*:
 
@@ -177,18 +192,15 @@ Esta pantalla será la pantalla principal, donde el jugador pasará la mayor par
 ### Game Over
 A continuación el boceto de las variantes de la pantalla de *Game Over*:
 
-![alt text](images/gdd/gameOver.JPG "Figura 7: Boceto de la pantalla de Game Over.")
+![alt text](images/imagenesgdd/gameover.JPG "Figura 7: Boceto de la pantalla de Game Over.")
 
 *Figura 7: Boceto de la pantalla de Game Over.*
 
-![alt text](images/gdd/gameOverRecord.JPG "Figura 8: Boceto de la pantalla de Game Over batiendo un nuevo record.")
-
-*Figura 8: Boceto de la pantalla de Game Over batiendo un nuevo record.*
 
 Lista y descripción de todos sus componentes.
 * **Name input**: El jugador usará este campo para introducir sus iniciales. Se mostrarán como iniciales predeterminadas las últimas introducidas y se registrará al pulsar cualquiera de los botones.
 * **Botón Volver a jugar**: Este botón dará directamente inicio a una nueva partida.
-* **Botón Flecha**: Este botón te devolverá al menú principal.
+* **Botón Menú**: Este botón te devolverá al menú principal.
 ## Arte
 *Shoten Samurai* tendrá un estilo de arte pixel art de inspiración oriental.
 
@@ -203,11 +215,181 @@ El fichero de trabajo debe tener una calidad superior a la requerida en el juego
     * **Icono Menú Principal**: Icono que hará regresar a la pantalla del menú principal.
 * **Personaje**:
     * **Samurai**: Deberá tener una animación de correr, salto, aterrizaje, corte y muerte.
+        ![alt text](images/imagenesgdd/player_walk_izq_1.JPG "Figura 1: Pose 1 del personaje caminando por la pared izquierda.")
+
+        *Figura 1: Pose 1 del personaje caminando por la pared izquierda.*
+        
+        ![alt text](images/imagenesgdd/player_walk_izq_2.JPG "Figura 1: Pose 2 del personaje caminando por la pared izquierda.")
+
+        *Figura 1: Pose 2 del personaje caminando por la pared izquierda.*
+        
+        ![alt text](images/imagenesgdd/player_walk_izq_3.JPG "Figura 1: Pose 3 del personaje caminando por la pared izquierda.")
+
+        *Figura 1: Pose 3 del personaje caminando por la pared izquierda.*
+        
+        ![alt text](images/imagenesgdd/player_walk_izq_4.JPG "Figura 1: Pose 4 del personaje caminando por la pared izquierda.")
+
+        *Figura 1: Pose 4 del personaje caminando por la pared izquierda.*
+        
+        ![alt text](images/imagenesgdd/player_walk_izq_5.JPG "Figura 1: Pose 5 del personaje caminando por la pared izquierda.")
+
+        *Figura 1: Pose 5 del personaje caminando por la pared izquierda.*
+        
+        ![alt text](images/imagenesgdd/player_walk_izq_6.JPG "Figura 1: Pose 6 del personaje caminando por la pared izquierda.")
+
+        *Figura 1: Pose 6 del personaje caminando por la pared izquierda.*
+        
+        ![alt text](images/imagenesgdd/player_walk_der_1.JPG "Figura 1: Pose 1 del personaje caminando por la pared derecha.")
+
+        *Figura 1: Pose 1 del personaje caminando por la pared derecha.*
+        
+        ![alt text](images/imagenesgdd/player_walk_der_2.JPG "Figura 1: Pose 2 del personaje caminando por la pared derecha.")
+
+        *Figura 1: Pose 2 del personaje caminando por la pared derecha.*
+        
+        ![alt text](images/imagenesgdd/player_walk_der_3.JPG "Figura 1: Pose 3 del personaje caminando por la pared derecha.")
+
+        *Figura 1: Pose 3 del personaje caminando por la pared derecha.*
+        
+        ![alt text](images/imagenesgdd/player_walk_der_4.JPG "Figura 1: Pose 4 del personaje caminando por la pared derecha.")
+
+        *Figura 1: Pose 4 del personaje caminando por la pared derecha.*
+        
+        ![alt text](images/imagenesgdd/player_walk_der_5.JPG "Figura 1: Pose 5 del personaje caminando por la pared derecha.")
+
+        *Figura 1: Pose 5 del personaje caminando por la pared derecha.*
+        
+        ![alt text](images/imagenesgdd/player_walk_der_6.JPG "Figura 1: Pose 6 del personaje caminando por la pared derecha.")
+
+        *Figura 1: Pose 6 del personaje caminando por la pared derecha.*
+        
+        ![alt text](images/imagenesgdd/player_jump_der.JPG "Figura 1: Pose del personaje preparándose para saltar de derecha a izquierda")
+        
+         *Figura 1: Pose del personaje preparándose para saltar de derecha a izquierda.*
+        
+        ![alt text](images/imagenesgdd/player_air_izq.JPG "Figura 1: Pose del personaje saltando de izquierda a derecha.")
+
+        *Figura 1: Pose del personaje saltando de derecha a izquierda.*
+        
+        ![alt text](images/imagenesgdd/player_jump_izq.JPG "Figura 1: Pose del personaje preparándose para saltar de izquierda a derecha")
+        
+         *Figura 1: Pose del personaje preparándose para saltar de izquierda a derecha.*
+        
+        ![alt text](images/imagenesgdd/player_air_izq.JPG "Figura 1: Pose del personaje saltando de izquierda a derecha.")
+
+        *Figura 1: Pose del personaje saltando de izquierda a derecha.*
+        
+        ![alt text](images/imagenesgdd/player_death_3.JPG "Figura 1: Pose del personaje cuando muere.")
+
+        *Figura 1: Pose del personaje cuando muere.*
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     * **Obstáculo en pared**: Obstáculo en las paredes que obligarán a saltar al personaje. Se aconseja hacer varios modelos.
+    
+        ![alt text](images/imagenesgdd/paredEasy.JPG "Figura 1: Obstáculo lateral (derecha e izquierda) de la primera fase del juego.")
+
+        *Figura 1: Obstáculo lateral (derecha e izquierda) de la primera fase del juego.*
+        
+        ![alt text](images/imagenesgdd/paredMed.JPG "Figura 1: Obstáculo lateral (derecha e izquierda) de la segunda fase del juego.")
+
+        *Figura 1: Obstáculo lateral (derecha e izquierda) de la segunda fase del juego.*
+        
+         ![alt text](images/imagenesgdd/paredHard.JPG "Figura 1: Obstáculo lateral (derecha e izquierda) de la tercera fase del juego.")
+
+        *Figura 1: Obstáculo lateral (derecha e izquierda) de la tercera fase del juego.*
+        
+        ![alt text](images/imagenesgdd/paredHell.JPG "Figura 1: Obstáculo lateral (derecha e izquierda) de la cuarta fase del juego.")
+
+        *Figura 1: Obstáculo lateral (derecha e izquierda) de la cuarta fase del juego.*
+    
+    
     * **Obstáculo cayendo**: Obstáculo cayendo por el escenario que dificultará el salto. Se aconseja hacer varios modelos.
-    * **Objeto cortante Cayendo**: Objeto cayendo por el escenario que permitirá sumar puntos. Deberá haber una animación de destrucción y se aconseja hacer varios modelos.
+    
+      ![alt text](images/imagenesgdd/Roca1.JPG "Figura 1: Tipo 1 de obstáculo central irrompible.")
+
+        *Figura 1: Tipo 1 de obstáculo central irrompible.*
+        
+      ![alt text](images/imagenesgdd/Roca2.JPG "Figura 1: Tipo 2 de obstáculo central irrompible.")
+
+        *Figura 1: Tipo 2 de obstáculo central irrompible.*
+        
+       ![alt text](images/imagenesgdd/Roca3.JPG "Figura 1: Tipo 3 de obstáculo central irrompible.")
+
+        *Figura 1: Tipo 3 de obstáculo central irrompible.*
+        
+       ![alt text](images/imagenesgdd/Roca4.JPG "Figura 1: Tipo 4 de obstáculo central irrompible.")
+
+        *Figura 1: Tipo 4 de obstáculo central irrompible.*
+        
+    
+    * **Objeto rompible cayendo**: Objeto cayendo por el escenario que permitirá sumar puntos. Deberá haber una animación de destrucción y se aconseja hacer varios modelos.
+    
+   ![alt text](images/imagenesgdd/Bamboo.JPG "Figura 1: Tipo 1 de objeto central rompible.")
+
+     *Figura 1: Tipo 1 de objeto central rompible.*
+    
+   ![alt text](images/imagenesgdd/Farol.JPG "Figura 1: Tipo 2 de objeto central rompible.")
+
+     *Figura 1: Tipo 2 de objeto central rompible.*
+     
+    ![alt text](images/imagenesgdd/Moneda.JPG "Figura 1: Tipo 3 de objeto central rompible.")
+
+     *Figura 1: Tipo 3 de objeto central rompible.*
+    
+    ![alt text](images/imagenesgdd/Tabla.JPG "Figura 1: Tipo 4 de objeto central rompible.")
+
+     *Figura 1: Tipo 4 de objeto central rompible.*
+    
+    ![alt text](images/imagenesgdd/Tela.JPG "Figura 1: Tipo 5 de objeto central rompible.")
+
+     *Figura 1: Tipo 5 de objeto central rompible.*
+     
 * **Escenario**:
     * **Fondo**: Fondo tildeable verticalmente, deberá de haber al menos uno por cada nivel de dificultad.
+    
+    ![alt text](images/imagenesgdd/fondo-easyStart.JPG "Figura 1: Comienzo del escenario de la primera fase.")
+
+     *Figura 1: Comienzo del escenario de la primera fase.*
+     
+     ![alt text](images/imagenesgdd/fondo-easy.JPG "Figura 1: Parte intermedia del escenario de la primera fase.")
+
+     *Figura 1: Parte intermedia del escenario de la primera fase.*
+     
+     ![alt text](images/imagenesgdd/fondo-easyToMid.JPG "Figura 1: Transición de escenario entre la primera y la segunda fase.")
+
+     *Figura 1: Transición de escenario entre la primera y la segunda fase.*
+     
+     ![alt text](images/imagenesgdd/fondo-mid.JPG "Figura 1: Parte intermedia del escenario de la segunda fase.")
+
+     *Figura 1: Parte intermedia del escenario de la segunda fase.*
+     
+     ![alt text](images/imagenesgdd/fondo-MidToHard.JPG "Figura 1: Transición de escenario entre la segunda y la tercera fase.")
+
+     *Figura 1: Transición de escenario entre la segunda y la tercera fase.*
+     
+     ![alt text](images/imagenesgdd/fondo-hard.JPG "Figura 1: Parte intermedia del escenario de la tercera fase.")
+
+     *Figura 1: Parte intermedia del escenario de la tercera fase.*
+     
+     ![alt text](images/imagenesgdd/fondo-HardToHell.JPG "Figura 1: Transición de escenario entre la tercera y la cuarta fase.")
+
+     *Figura 1: Transición de escenario entre la tercera y la cuarta fase.*
+     
+     ![alt text](images/imagenesgdd/fondo-Hell.JPG "Figura 1: Escenario de la fase final.")
+
+     *Figura 1: Escenario de la fase final.*
+     
+      
+    
 ### Animaciones 2D
 Se dará libertad al artista para su implementación, aunque éste deberá de asegurarse que el formato escogido sea fácilmente integrable en HTML5.
 * **Animacion de inicio**: Pequeña animación cómica que dará inicio al juego.

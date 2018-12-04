@@ -1,15 +1,15 @@
 /*global updateMusicActivated updateIdiomaSelected updateSoundActivated soundActivated idiomaSelected musicActivated */
+var jsonData;
 $(document).ready(function () {
     updateMusicActivated();
     updateIdiomaSelected();
     updateSoundActivated();
-
-    $.getJSON('js/languages.json',function(data){
-        console.log(data);
-        este=data;
+    $.getJSON("js/languages.json",function(data){
+        //console.log(data);
+        jsonData=data;
+        updateIdiom();
     });
-  //  $(".conHeadLabel").text(este.);
-  
+    
     $("#soundSwitch").prop("checked", soundActivated);
     $("#musicSwitch").prop("checked", musicActivated);
     $("#idiomaSelector").val(idiomaSelected);
@@ -22,10 +22,23 @@ $(document).ready(function () {
     });
     $("#idiomaSelector").change(function () {
         localStorage.setItem("idiomaSelected", $("#idiomaSelector").val());
+        updateIdiom();
     });
-    
-    var este;
-
-    
 });
+
+function updateIdiom(){
+    let langugeData;
+    if (localStorage.getItem("idiomaSelected") == "en")
+    {
+        langugeData = jsonData.configuracion.EN;
+    }
+    else
+    {
+        langugeData = jsonData.configuracion.ES;
+    }
+    $("#idiomaLabel").html(langugeData.idiomaLabel);
+    $("#musicaLabel").html(langugeData.musicaLabel);
+    $("#sonidoLabel").html(langugeData.sonidoLabel);
+    $("#configLabel").html(langugeData.configLabel);
+}
 

@@ -3,7 +3,7 @@
 var images;
 var animations;
 var sounds;
-const totalResources = 50;
+const totalResources = 49;
 var resourcesLoaded = 0;
 const endLoadingProgress = " / " + totalResources;
 
@@ -11,7 +11,7 @@ function boot() {
     updateMusicActivated();
     updateSoundActivated();
     game.loadingProgress.innerHTML = 0 + endLoadingProgress;
-    const infiniteRepaintsPerFrame = 9999999;
+    const infiniteRepaintsPerFrame = Infinity;
     const longRepaintsPerFrame = 9;
     const defaultRepaintsPerFrame = 6;
     const shortRepaintsPerFrame = 5;
@@ -107,7 +107,6 @@ function boot() {
         ),
         character_death: new PersonalAnimation(shortRepaintsPerFrame,
             [
-                loadImage("images/personaje/player_death_1.png"),
                 loadImage("images/personaje/player_death_2.png")
             ]
         ),

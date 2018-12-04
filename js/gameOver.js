@@ -1,6 +1,21 @@
+/*exported clicked */
 var puntos = 0;
 $(document).ready(function () {
-
+    $.getJSON("js/languages.json",function(data){
+        let langugeData;
+        if (localStorage.getItem("idiomaSelected") == "en")
+        {
+            langugeData = data.gameOver.EN;
+        }
+        else
+        {
+            langugeData = data.gameOver.ES;
+        }
+        $("#gameOverHeader").html(langugeData.gameOverHeader);
+        $("#nuevaPuntuacionText").html(langugeData.nuevaPuntuacionText);
+        $("#nuevoRecordText").html(langugeData.nuevoRecordText);
+        $("#botonJugar").html(langugeData.botonJugar);
+    });
     puntos = parseInt(sessionStorage.getItem("ultimaPuntuacion"));
     $("#puntos").html(puntos);
     if (puntos != null) {
@@ -13,6 +28,7 @@ $(document).ready(function () {
             }
         }
     }
+
 });
 
 function clicked() {
@@ -20,7 +36,7 @@ function clicked() {
     if (nombre == "   " || nombre == "  " || nombre == " " || nombre == "") {
         nombre = "aaa";
     }
-    if (puntos != null && puntos != undefined && puntos != NaN) {
+    if (puntos != null && puntos != undefined && !puntos.isNan()) {
         var puntuacionesGuardadas = JSON.parse(localStorage.getItem("puntuaciones"));
         if (puntuacionesGuardadas != null) { //Next executions
             let nPuntos = {
@@ -29,7 +45,7 @@ function clicked() {
             };
             puntuacionesGuardadas.push(nPuntos);
             puntuacionesGuardadas.sort(function (a, b) {
-                return parseInt(b.puntos) - parseInt(a.puntos)
+                return parseInt(b.puntos) - parseInt(a.puntos);
             });
             while (puntuacionesGuardadas.length > 10) {
                 puntuacionesGuardadas.pop();
@@ -45,6 +61,5 @@ function clicked() {
         }
 
     }
-
     sessionStorage.removeItem("ultimaPuntuacion");
 }
