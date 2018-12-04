@@ -143,7 +143,7 @@ Cuando el protagonista choque contra algún objeto de los laterales del escenari
 El siguiente diagrama de estados muestra las pantallas presentes a lo largo de *Shoten Samurai*, así como las transiciones entre ellas.
 En puntos posteriores nos centraremos en ellas de forma individual.
 
-![alt text](images/imagenesgdd/diagrama2.JPG "Figura 1: Diagrama de flujo de pantallas en el juego.")
+![alt text](images/imagenesgdd/diagrama2.jpg "Figura 1: Diagrama de flujo de pantallas en el juego.")
 
 *Figura 1: Diagrama de flujo de pantallas en el juego.*
 ### Pantalla de bienvenida
@@ -244,9 +244,17 @@ Todas las imágenes deberán estar en formato *.png* o *.jpg* además de en el f
 El fichero de trabajo debe tener una calidad superior a la requerida en el juego.
 
 * **Interfaz**:
-    * **Logo del Juego**: Logo del juego para poner en el menú principal
-    * **Icono de Configuración**: Icono que llevará a la pantalla de configuración.
-    * **Icono Menú Principal**: Icono que hará regresar a la pantalla del menú principal.
+    * **Imagen del Juego**: Imagen usada en la pantalla de bienvenida, mostrada anteriormente.
+    * **Iconos de los menús**: Iconos para acceder a diferentes partes del menú.
+    
+     ![alt text](images/imagenesgdd/boton_1.JPG "Figura 34: Sprite de parte de los botones.")
+
+     *Figura 34: Sprite de parte de los botones.*
+     
+     ![alt text](images/imagenesgdd/boton_2.JPG "Figura 34: Sprite de parte de los botones.")
+
+     *Figura 34: Sprite de parte de los botones.*
+    
 * **Personaje**:
     * **Samurai**: Deberá tener una animación de correr, salto, aterrizaje, corte y muerte.
         ![alt text](images/imagenesgdd/player_walk_izq_1.JPG "Figura 10: Pose 1 del personaje caminando por la pared izquierda.")
@@ -363,6 +371,12 @@ El fichero de trabajo debe tener una calidad superior a la requerida en el juego
        ![alt text](images/imagenesgdd/Roca4.JPG "Figura 34: Tipo 4 de obstáculo central irrompible.")
 
         *Figura 34: Tipo 4 de obstáculo central irrompible.*
+        
+         ![alt text](images/imagenesgdd/destruccion.JPG "Figura 34: Sprite de objeto destruido.")
+
+        *Figura 34: Sprite de objeto destruido.*
+        
+        
         
     
     * **Objeto rompible cayendo**: Objeto cayendo por el escenario que permitirá sumar puntos. Deberá haber una animación de destrucción y se aconseja hacer varios modelos.
