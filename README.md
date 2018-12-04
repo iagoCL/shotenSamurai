@@ -34,6 +34,14 @@
         - [Arte 2D](#arte-2d)
         - [Animaciones 2D](#animaciones-2d)
         - [Sonido](#sonido)
+        
+##Heimdall Games
+Javier Martínez Pablo - Game Designer
+Iago Calvo Lista - Desarrollador
+Iago Cruz - Desarrollador
+Germán Matilla Jiménez - Artista 2D
+Ángel Cabanilles Gomar - Artista 2D, Animador 2D
+
 ## Introducción
 Se trata del documento de diseño de juego de *Shoten Samurai*, diseñado para navegadores web, tanto para ordenadores como dispositivos móviles. Este juego se diseñará exclusivamente con herramientas de W3C como HTML, CSS y JavaScript.
 Se detallarán los conceptos claves del desarrollo del juego incluyendo mecánicas, arte, objetivos, controles, etc.
