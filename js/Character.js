@@ -2,7 +2,7 @@
 /*global checkSoundAndPlay game*/
 class Character {
     constructor(ctx_, character_walk_izq, character_jumping_izq, character_land_izq, character_walk_der, character_jumping_der, character_land_der, character_air_izq, character_air_der, character_death, character_death_fall, jump_sound, death_sound) {
-        this.relativePosYMin = 0.84;
+        this.relativePosYMin = 0.78;
         this.relativePosYMaximo = 0.12;
         this.relativePosY = 0.5*(this.relativePosYMin+this.relativePosYMaximo);
 
@@ -36,6 +36,8 @@ class Character {
         this.isDeath=false;
         this.actualAnim.restart();
 
+        this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth /  game.aspectRatio;
+
         $(document).unbind("click").bind("mousedown",this.cambiarLado.bind(this));
         $(document).unbind("keypress").bind("keypress", function (e) {
             if (e.which == 32) {//space bar
@@ -63,10 +65,12 @@ class Character {
                     this.character_air_izq.restart();
                     this.height = Math.ceil(this.width * this.character_air_izq.aspectRatio);
                     this.actualAnim = this.character_air_izq;
+                    this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth /  game.aspectRatio;
                     this.update();
                 }.bind(this));
                 this.height = Math.ceil(this.width * this.character_jumping_izq.aspectRatio);
                 this.actualAnim = this.character_jumping_izq;
+                this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth /  game.aspectRatio;
             } else {
                 this.character_jumping_der.restartAndDo(function () {
                     this.cambiandoLado = true;
@@ -74,10 +78,12 @@ class Character {
                     this.character_air_der.restart();
                     this.height = Math.ceil(this.width * this.character_air_der.aspectRatio);
                     this.actualAnim = this.character_air_der;
+                    this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth /  game.aspectRatio;
                     this.update();
                 }.bind(this));
                 this.height = Math.ceil(this.width * this.character_jumping_der.aspectRatio);
                 this.actualAnim = this.character_jumping_der;
+                this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth /  game.aspectRatio;
             }
             checkSoundAndPlay(this.jump_sound);
         }
@@ -86,7 +92,7 @@ class Character {
         this.actualAnim.paint(this.ctx, Math.ceil(this.relativePosX * this.canvasWidth), Math.ceil(this.relativePosY * this.canvasHeight), this.width, this.height);
     }
     basicMovement() {
-        if (this.relativePosY >= this.relativePosYMin) {
+        if (this.relativePosY >= (this.relativePosYMin+this.relativeHeight)) {
             this.kill();
         } else {
             this.relativePosY += this.relativeCelerityY;
@@ -105,10 +111,12 @@ class Character {
             this.character_land_der.restartAndDo(function () {
                 this.character_walk_der.restart();
                 this.actualAnim = this.character_walk_der;
+                this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth /  game.aspectRatio;
                 this.update();
             }.bind(this));
             this.height = Math.ceil(this.width * this.character_land_der.aspectRatio);
             this.actualAnim = this.character_land_der;
+            this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth /  game.aspectRatio;
         }
     }
     cambiandoLadoDer() {
@@ -125,10 +133,12 @@ class Character {
                 this.character_walk_izq.restart();
                 this.height = Math.ceil(this.width * this.character_walk_izq.aspectRatio);
                 this.actualAnim = this.character_walk_izq;
+                this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth /  game.aspectRatio;
                 this.update();
             }.bind(this));
             this.height = Math.ceil(this.width * this.character_land_izq.aspectRatio);
             this.actualAnim = this.character_land_izq;
+            this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth /  game.aspectRatio;
         }
     }
     update() {
@@ -154,9 +164,11 @@ class Character {
             this.character_death_fall.restart();
             this.height = Math.ceil(this.width * this.character_death_fall.aspectRatio);
             this.actualAnim = this.character_death_fall;
+            this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth / game.aspectRatio;
             this.update();
         }.bind(this));
         this.height = Math.ceil(this.width * this.character_death.aspectRatio);
         this.actualAnim = this.character_death;
+        this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth / game.aspectRatio;
     }
 }
