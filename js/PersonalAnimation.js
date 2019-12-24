@@ -6,39 +6,39 @@ class PersonalAnimation {
         this.repaintsPerFrame = repaintsPerFrame_;
     }
     restart() {
-        this.framesRestantes = this.repaintsPerFrame;
+        this.remainingFrames = this.repaintsPerFrame;
         this.animFrame = 0;
         this.actualImag = this.images[this.animFrame];
         this.aspectRatio = this.actualImag.height / this.actualImag.width;
         this.paint = this.basicPaint;
     }
-    restartAndDo(endAnimationFucntion_) {
-        this.framesRestantes = this.repaintsPerFrame;
+    restartAndDo(endAnimationFunction_) {
+        this.remainingFrames = this.repaintsPerFrame;
         this.animFrame = 0;
         this.actualImag = this.images[this.animFrame];
         this.aspectRatio = this.actualImag.height / this.actualImag.width;
-        this.endAnimationFucntion = endAnimationFucntion_;
+        this.endAnimationFunction = endAnimationFunction_;
         this.paint = this.complexPaint;
     }
     clone() {
         return new PersonalAnimation(this.repaintsPerFrame, this.images);
     }
     complexPaint(ctx, drawPosX, drawPosY, width, height) {
-        if (--this.framesRestantes == 0) {
+        if (--this.remainingFrames == 0) {
             if (++this.animFrame >= this.num_frames) {
-                this.endAnimationFucntion();
+                this.endAnimationFunction();
             }
             else {
-                this.framesRestantes = this.repaintsPerFrame;
+                this.remainingFrames = this.repaintsPerFrame;
                 this.actualImag = this.images[this.animFrame];
             }
         }
         ctx.drawImage(this.actualImag, drawPosX, drawPosY, width, height);
     }
     basicPaint(ctx, drawPosX, drawPosY, width, height) {
-        if (--this.framesRestantes == 0) {
+        if (--this.remainingFrames == 0) {
             this.animFrame = (this.animFrame + 1) % this.num_frames;
-            this.framesRestantes = this.repaintsPerFrame;
+            this.remainingFrames = this.repaintsPerFrame;
             this.actualImag = this.images[this.animFrame];
         }
         ctx.drawImage(this.actualImag, drawPosX, drawPosY, width, height);

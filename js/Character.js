@@ -3,8 +3,8 @@
 class Character {
     constructor(ctx_, character_walk_izq, character_jumping_izq, character_land_izq, character_walk_der, character_jumping_der, character_land_der, character_air_izq, character_air_der, character_death, character_death_fall, jump_sound, death_sound) {
         this.relativePosYMin = 0.78;
-        this.relativePosYMaximo = 0.12;
-        this.relativePosY = 0.5*(this.relativePosYMin+this.relativePosYMaximo);
+        this.relativePosYMax = 0.12;
+        this.relativePosY = 0.5 * (this.relativePosYMin + this.relativePosYMax);
 
         this.relativePosXIzq = this.relativePosX = 0.26;
         this.relativePosXDer = 0.62;
@@ -30,18 +30,18 @@ class Character {
         this.jump_sound = jump_sound;
         this.death_sound = death_sound;
         this.ctx = ctx_;
-        this.cambiandoLado = false;
-        this.estaIZQ = true;
-        this.chosedMovement = this.basicMovement;
-        this.isDeath=false;
+        this.changingSide = false;
+        this.isLeft = true;
+        this.selectedMovement = this.basicMovement;
+        this.isDeath = false;
         this.actualAnim.restart();
 
-        this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth /  game.aspectRatio;
+        this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth / game.aspectRatio;
 
-        $(document).unbind("click").bind("mousedown",this.cambiarLado.bind(this));
+        $(document).unbind("click").bind("mousedown", this.changeSide.bind(this));
         $(document).unbind("keypress").bind("keypress", function (e) {
             if (e.which == 32) {//space bar
-                this.cambiarLado();
+                this.changeSide();
             }
         }.bind(this));
     }
@@ -55,35 +55,34 @@ class Character {
 
     }
 
-    cambiarLado() {
-        if (!this.cambiandoLado && this.relativePosY > this.relativePosYMaximo) {
-            //console.log("cambiando lado");
-            if (this.estaIZQ) {
+    changeSide() {
+        if (!this.changingSide && this.relativePosY > this.relativePosYMax) {
+            if (this.isLeft) {
                 this.character_jumping_izq.restartAndDo(function () {
-                    this.cambiandoLado = true;
-                    this.chosedMovement = this.cambiandoLadoIzq;
+                    this.changingSide = true;
+                    this.selectedMovement = this.changingSideIzq;
                     this.character_air_izq.restart();
                     this.height = Math.ceil(this.width * this.character_air_izq.aspectRatio);
                     this.actualAnim = this.character_air_izq;
-                    this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth /  game.aspectRatio;
+                    this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth / game.aspectRatio;
                     this.update();
                 }.bind(this));
                 this.height = Math.ceil(this.width * this.character_jumping_izq.aspectRatio);
                 this.actualAnim = this.character_jumping_izq;
-                this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth /  game.aspectRatio;
+                this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth / game.aspectRatio;
             } else {
                 this.character_jumping_der.restartAndDo(function () {
-                    this.cambiandoLado = true;
-                    this.chosedMovement = this.cambiandoLadoDer;
+                    this.changingSide = true;
+                    this.selectedMovement = this.changingSideDer;
                     this.character_air_der.restart();
                     this.height = Math.ceil(this.width * this.character_air_der.aspectRatio);
                     this.actualAnim = this.character_air_der;
-                    this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth /  game.aspectRatio;
+                    this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth / game.aspectRatio;
                     this.update();
                 }.bind(this));
                 this.height = Math.ceil(this.width * this.character_jumping_der.aspectRatio);
                 this.actualAnim = this.character_jumping_der;
-                this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth /  game.aspectRatio;
+                this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth / game.aspectRatio;
             }
             checkSoundAndPlay(this.jump_sound);
         }
@@ -92,58 +91,58 @@ class Character {
         this.actualAnim.paint(this.ctx, Math.ceil(this.relativePosX * this.canvasWidth), Math.ceil(this.relativePosY * this.canvasHeight), this.width, this.height);
     }
     basicMovement() {
-        if (this.relativePosY >= (this.relativePosYMin+this.relativeHeight)) {
+        if (this.relativePosY >= (this.relativePosYMin + this.relativeHeight)) {
             this.kill();
         } else {
             this.relativePosY += this.relativeCelerityY;
         }
     }
-    cambiandoLadoIzq() {
+    changingSideIzq() {
         if (this.relativePosX < this.relativePosXDer) {
             this.relativePosY += this.relativeCelerityYJump;
             this.relativePosX += this.relativeCelerityX;
         }
         else {
             this.relativePosX = this.relativePosXDer;
-            this.estaIZQ = false;
-            this.cambiandoLado = false;
-            this.chosedMovement = this.basicMovement;
+            this.isLeft = false;
+            this.changingSide = false;
+            this.selectedMovement = this.basicMovement;
             this.character_land_der.restartAndDo(function () {
                 this.character_walk_der.restart();
                 this.actualAnim = this.character_walk_der;
-                this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth /  game.aspectRatio;
+                this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth / game.aspectRatio;
                 this.update();
             }.bind(this));
             this.height = Math.ceil(this.width * this.character_land_der.aspectRatio);
             this.actualAnim = this.character_land_der;
-            this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth /  game.aspectRatio;
+            this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth / game.aspectRatio;
         }
     }
-    cambiandoLadoDer() {
+    changingSideDer() {
         if (this.relativePosX > this.relativePosXIzq) {
             this.relativePosY += this.relativeCelerityYJump;
             this.relativePosX -= this.relativeCelerityX;
         }
         else {
             this.relativePosX = this.relativePosXIzq;
-            this.estaIZQ = true;
-            this.cambiandoLado = false;
-            this.chosedMovement = this.basicMovement;
+            this.isLeft = true;
+            this.changingSide = false;
+            this.selectedMovement = this.basicMovement;
             this.character_land_izq.restartAndDo(function () {
                 this.character_walk_izq.restart();
                 this.height = Math.ceil(this.width * this.character_walk_izq.aspectRatio);
                 this.actualAnim = this.character_walk_izq;
-                this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth /  game.aspectRatio;
+                this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth / game.aspectRatio;
                 this.update();
             }.bind(this));
             this.height = Math.ceil(this.width * this.character_land_izq.aspectRatio);
             this.actualAnim = this.character_land_izq;
-            this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth /  game.aspectRatio;
+            this.relativeHeight = this.actualAnim.aspectRatio * this.relativeWidth / game.aspectRatio;
         }
     }
     update() {
-        //console.log("x: "+this.relativePosX+" y: "+this.relativePosY+" b: "+this.estaIZQ);
-        this.chosedMovement();
+        //console.log("x: "+this.relativePosX+" y: "+this.relativePosY+" b: "+this.isLeft);
+        this.selectedMovement();
     }
 
     dying() {
@@ -155,10 +154,10 @@ class Character {
     }
     kill() {
         checkSoundAndPlay(this.death_sound);
-        this.cambiandoLado = true;
-        this.chosedMovement = this.dying;
+        this.changingSide = true;
+        this.selectedMovement = this.dying;
 
-        this.isDeath=true;
+        this.isDeath = true;
 
         this.character_death.restartAndDo(function () {
             this.character_death_fall.restart();

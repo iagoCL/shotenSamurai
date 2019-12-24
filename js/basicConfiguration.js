@@ -1,16 +1,16 @@
-/*exported soundActivated musicActivated idiomaSelected updateSoundActivated updateIdiomaSelected updateMusicActivated */
+/*exported soundActivated musicActivated languageSelected updateSoundActivated updateSelectedLanguage updateSelectedMusic */
 var soundActivated;
 var musicActivated;
-var idiomaSelected;
-function updateIdiomaSelected() {
-    let value = localStorage.getItem("idiomaSelected");
+var languageSelected;
+function updateSelectedLanguage() {
+    let value = localStorage.getItem("languageSelected");
     if (value == undefined) {
-        idiomaSelected = "es";
+        languageSelected = "en";
     } else {
-        idiomaSelected = value;
+        languageSelected = value;
     }
 }
-function updateMusicActivated() {
+function updateSelectedMusic() {
     let value = localStorage.getItem("musicActivated");
     if (value == undefined || value == "true") {
         musicActivated = true;

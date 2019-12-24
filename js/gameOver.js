@@ -1,35 +1,33 @@
 /*exported clicked */
-var puntos = 0;
+var points = 0;
 $(document).ready(function () {
-    $.getJSON("js/languages.json",function(data){
-        let langugeData;
-        if (localStorage.getItem("idiomaSelected") == "en")
-        {
-            langugeData = data.gameOver.EN;
+    $.getJSON("js/languages.json", function (data) {
+        let languageData;
+        if (localStorage.getItem("languageSelected") == "en") {
+            languageData = data.gameOver.EN;
         }
-        else
-        {
-            langugeData = data.gameOver.ES;
+        else {
+            languageData = data.gameOver.ES;
         }
-        $("#gameOverHeader").html(langugeData.gameOverHeader);
-        $("#nuevaPuntuacionText").html(langugeData.nuevaPuntuacionText);
-        $("#nuevoRecordText").html(langugeData.nuevoRecordText);
-        $("#botonJugar").html(langugeData.botonJugar);
+        $("#gameOverHeader").html(languageData.gameOverHeader);
+        $("#newScoreText").html(languageData.newScoreText);
+        $("#newRecordText").html(languageData.newRecordText);
+        $("#playButton").html(languageData.playButton);
     });
-    puntos = parseInt(sessionStorage.getItem("ultimaPuntuacion"));
-    $("#puntos").html(puntos);
-    if (puntos != null) {
-        var puntuacionesGuardadas = JSON.parse(localStorage.getItem("puntuaciones"));
-        if (puntuacionesGuardadas != null) {
-            if (puntuacionesGuardadas.length<10 ||puntos >= parseInt(puntuacionesGuardadas[puntuacionesGuardadas.length - 1].puntos)) {
+    points = parseInt(sessionStorage.getItem("lastScore"));
+    $("#points").html(points);
+    if (points != null) {
+        var savedScores = JSON.parse(localStorage.getItem("scores"));
+        if (savedScores != null) {
+            if (savedScores.length < 10 || points >= parseInt(savedScores[savedScores.length - 1].points)) {
                 $("#record").show();
             } else {
                 $("#record").hide();
             }
         }
     }
-    $(document).bind("keypress", function(e) {
-        if (e.which == 32){//space bar
+    $(document).bind("keypress", function (e) {
+        if (e.which == 32) {//space bar
             clicked();
             location.href = "shotenSamurai.html";
         }
@@ -38,34 +36,34 @@ $(document).ready(function () {
 });
 
 function clicked() {
-    let nombre = document.getElementById("newRecord").value;
-    if (nombre == "   " || nombre == "  " || nombre == " " || nombre == "") {
-        nombre = "aaa";
+    let name = document.getElementById("newRecord").value;
+    if (name == "   " || name == "  " || name == " " || name == "") {
+        name = "aaa";
     }
-    if (puntos != null && puntos != undefined) {
-        var puntuacionesGuardadas = JSON.parse(localStorage.getItem("puntuaciones"));
-        if (puntuacionesGuardadas != null) { //Next executions
-            let nPuntos = {
-                nombre,
-                puntos
+    if (points != null && points != undefined) {
+        var savedScores = JSON.parse(localStorage.getItem("scores"));
+        if (savedScores != null) { //Next executions
+            let nPoints = {
+                name,
+                points
             };
-            puntuacionesGuardadas.push(nPuntos);
-            puntuacionesGuardadas.sort(function (a, b) {
-                return parseInt(b.puntos) - parseInt(a.puntos);
+            savedScores.push(nPoints);
+            savedScores.sort(function (a, b) {
+                return parseInt(b.points) - parseInt(a.points);
             });
-            while (puntuacionesGuardadas.length > 10) {
-                puntuacionesGuardadas.pop();
+            while (savedScores.length > 10) {
+                savedScores.pop();
             }
-            localStorage.setItem("puntuaciones", JSON.stringify(puntuacionesGuardadas));
+            localStorage.setItem("scores", JSON.stringify(savedScores));
         } else { //For the first execution of gameOver
-            let nPuntos = {
-                nombre,
-                puntos
+            let nPoints = {
+                name,
+                points
             };
-            let primerosPuntos = [nPuntos];
-            localStorage.setItem("puntuaciones", JSON.stringify(primerosPuntos));
+            let primerosPoints = [nPoints];
+            localStorage.setItem("scores", JSON.stringify(primerosPoints));
         }
 
     }
-    sessionStorage.removeItem("ultimaPuntuacion");
+    sessionStorage.removeItem("lastScore");
 }

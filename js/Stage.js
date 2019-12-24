@@ -21,7 +21,6 @@ class Stage {
         let dy = Math.floor(this.relativePosY * this.height);
         let dy2 = this.height - dy;
         let sHeight2 = this.img.height - sHeight;
-        //console.log("width: "+this.width+" iwidth: "+this.img.width+" sheight: "+sHeight+" sheight2: "+sHeight2+" dy: "+dy+" dy2: "+dy2);
         if (sHeight2 > 0 && dy2 > 0) {
             this.ctx.drawImage(this.img2, 0, sHeight, this.img2.width, sHeight2, 0, 0, this.width, dy2);
         }

@@ -2,7 +2,6 @@
 /*global game */
 class HitObject {
     constructor(ctx_, relativePosY_, relativePosX_, objectSprite_, character_, isBreakable_, celerity_) {
-        //todo: type wall, cut or normal
         this.relativeWidth = 0.1;
         this.offSetRadius = 0.005; //Offset radius to calculate if an item should be created
         this.isDestroyed = false;
@@ -10,7 +9,7 @@ class HitObject {
         this.relativePosX = relativePosX_;
         this.relativePosY = relativePosY_;
 
-        this.character = character_;//todo: use detect collision
+        this.character = character_;
 
         this.actualAnim = this.objectSprite = objectSprite_.normal.clone();
         this.objectSpriteDestroyed = objectSprite_.destroy.clone();
@@ -18,7 +17,7 @@ class HitObject {
         this.ctx = ctx_;
         this.collisionRadius = 0.1; //Actual collision radius, to hit the character. Not needed?
         this.isBreakable = isBreakable_; //To know if the character is able to destroy it
-        this.celerity = celerity_; //TODO: Waiting for physics . The speed at which the item falls
+        this.celerity = celerity_;
 
         this.actualAnim.restart();
     }
@@ -38,9 +37,6 @@ class HitObject {
     update() {
         this.relativePosY += this.celerity;
         this.checkCollision();
-
-        //todo: see collision con character
-        //todo: sumar puntos/acabar partida/poner animacion destuir si procede
     }
 
     checkCollision() {
@@ -59,7 +55,7 @@ class HitObject {
 
     collision() {
         if (this.isBreakable) {
-            game.sumarPuntos(game.pointsOnObstacleClear());
+            game.addPoints(game.pointsOnObstacleClear());
             this.objectSpriteDestroyed.restartAndDo(function () {
                 this.isDestroyed = true;
             }.bind(this));
@@ -71,7 +67,7 @@ class HitObject {
                 this.actualAnim = this.objectSprite;
             }.bind(this));
         }
-        
+
         this.height = Math.ceil(this.width * this.objectSpriteDestroyed.aspectRatio);
         this.actualAnim = this.objectSpriteDestroyed;
     }

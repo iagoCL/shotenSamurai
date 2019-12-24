@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title class="confHeadLabel">Shoten Samurai - Configuration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/configuration.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/basicConfiguration.js"></script>
+    <script src="js/configuration.js"></script>
+</head>
+
+<body>
+    <header id="configLabel">Configuration</header>
+    <section>
+        <div>
+            <div class="question">
+                <label id="languageLabel">Language</label>
+                <select name="language" id="languageSelector">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                </select>
+            </div>
+            <div class="question">
+                <label id="musicLabel">Music</label>
+                <div class="onOffSwitch">
+                    <input type="checkbox" name="onOffSwitch" class="onOffSwitch-checkbox" id="musicSwitch">
+                    <label class="onOffSwitch-label" for="musicSwitch">
+                        <span class="onOffSwitch-inner music"></span>
+                        <span class="onOffSwitch-switch"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="question">
+                <label id="soundLabe">Sound</label>
+                <div class="onOffSwitch">
+                    <input type="checkbox" name="onOffSwitch" class="onOffSwitch-checkbox" id="soundSwitch">
+                    <label class="onOffSwitch-label" for="soundSwitch">
+                        <span class="onOffSwitch-inner sound"></span>
+                        <span class="onOffSwitch-switch"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+    <a href="index.html" class="scrollButton-min">
+        <p>Menu</p>
+    </a>
+</body>
+
+</html>

@@ -1,33 +1,29 @@
 const aspectRatio = 0.817;
 
 $(document).ready(function () {
-    $.getJSON("js/languages.json",function(data){
-        let langugeData;
-        if (localStorage.getItem("idiomaSelected") == "en")
-        {
-            langugeData = data.menu.EN;
+    $.getJSON("js/languages.json", function (data) {
+        let languageData;
+        if (localStorage.getItem("languageSelected") == "en") {
+            languageData = data.menu.EN;
         }
-        else
-        {
-            langugeData = data.menu.ES;
+        else {
+            languageData = data.menu.ES;
         }
-        $("#jugar").html(langugeData.jugar);
-        $("#creditos").html(langugeData.creditos);
-        $("#puntuaciones").html(langugeData.puntuaciones);
-        $("#config").html(langugeData.config);
+        $("#play").html(languageData.play);
+        $("#credits").html(languageData.credits);
+        $("#scores").html(languageData.scores);
+        $("#config").html(languageData.config);
     });
     let firstLoad = JSON.parse(sessionStorage.getItem("firstLoad"));
-    if(firstLoad != null && firstLoad != undefined && !firstLoad)
-    {
-        $("#mainMenu").css({display: "block"});
+    if (firstLoad != null && firstLoad != undefined && !firstLoad) {
+        $("#mainMenu").css({ display: "block" });
     }
-    else
-    {
-        $("#firstGame").css({display: "block"});
-        $(document).click(function(){
-            sessionStorage.setItem("firstLoad",false);
-            $("#mainMenu").css({display: "block"});
-            $("#firstGame").css({display: "none"});
+    else {
+        $("#firstGame").css({ display: "block" });
+        $(document).click(function () {
+            sessionStorage.setItem("firstLoad", false);
+            $("#mainMenu").css({ display: "block" });
+            $("#firstGame").css({ display: "none" });
             $(document).unbind("click");
         });
     }
@@ -48,6 +44,6 @@ function resizeMenu() {
         imageWidth = Math.floor(imageWidth);
     }
 
-    $("#firstGame").css({left: Math.floor(0.5*(window.innerWidth-imageWidth)), top: Math.floor(0.5*(window.innerHeight-imageHeight)) , width: imageWidth, height: imageHeight});
+    $("#firstGame").css({ left: Math.floor(0.5 * (window.innerWidth - imageWidth)), top: Math.floor(0.5 * (window.innerHeight - imageHeight)), width: imageWidth, height: imageHeight });
     //console.log("resize to w: "+imageWidth + " h: "+imageHeight);
 }

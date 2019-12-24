@@ -1,10 +1,10 @@
 
-.pregunta{
+.question{
   height: 6vh;
   width: 81vw;
   margin: 7vh 0;
 }
-.pregunta>label{
+.question>label{
   width: 50%;
 }
 label {
@@ -12,18 +12,18 @@ label {
   vertical-align: middle;
 }
 
-.onoffswitch {
+.onOffSwitch {
   display: inline-block;
   position: relative;
   width: 111px;
   user-select: none;
 }
 
-.onoffswitch-checkbox {
+.onOffSwitch-checkbox {
   display: none;
 }
 
-.onoffswitch-label {
+.onOffSwitch-label {
   display: inline-block;
   overflow: hidden;
   cursor: pointer;
@@ -31,14 +31,14 @@ label {
   border-radius: 36px;
 }
 
-.onoffswitch-inner {
+.onOffSwitch-inner {
   display: block;
   width: 200%;
   margin-left: -100%;
   transition: margin 0.3s ease-in 0s;
 }
 
-.onoffswitch-inner:before, .onoffswitch-inner:after {
+.onOffSwitch-inner:before, .onOffSwitch-inner:after {
   display: block;
   float: left;
   width: 50%;
@@ -52,7 +52,7 @@ label {
   box-sizing: border-box;
 }
 
-.onoffswitch-inner:before {
+.onOffSwitch-inner:before {
   padding-left: 10px;
   background-color: #64C263;
   color: #FFFFFF;
@@ -66,7 +66,7 @@ label {
   content: "Sound";
 }
 
-.onoffswitch-inner:after {
+.onOffSwitch-inner:after {
   content: "Silence";
   padding-right: 10px;
   background-color: #FFFFFF;
@@ -74,7 +74,7 @@ label {
   text-align: right;
 }
 
-.onoffswitch-switch {
+.onOffSwitch-switch {
   display: block;
   width: 35px;
   margin: 0.5px;
@@ -88,10 +88,10 @@ label {
   transition: all 0.3s ease-in 0s;
 }
 
-.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner {
+.onOffSwitch-checkbox:checked+.onOffSwitch-label .onOffSwitch-inner {
   margin-left: 0;
 }
 
-.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
+.onOffSwitch-checkbox:checked+.onOffSwitch-label .onOffSwitch-switch {
   right: 0px;
 }
